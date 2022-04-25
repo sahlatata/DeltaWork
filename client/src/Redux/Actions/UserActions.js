@@ -79,10 +79,12 @@ dispatch({
 }
 }
 // ***************************************EditUser**************************************
-export const editUser = (id,data)=>async(dispatch)=>{
+export const editUser = (id,data,navigate)=>async(dispatch)=>{
     try {
+        console.log(id)
     await axios.put(`/api/auth/EditUser/${id}`,data) 
-    // dispatch(current())
+    dispatch(current())
+    navigate('/Profile')  
     } catch (error) {
         error.response.data.errors.forEach(element=>{
             dispatch(alertError(element.msg))

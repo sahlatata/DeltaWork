@@ -81,7 +81,10 @@ Modifier le profil
             <FormLabel>Adresse email</FormLabel>
             <Input  value ={email} onChange={(e)=>setEmail(e.target.value)} placeholder="UserName" _placeholder={{ color: 'gray.500' }}type="email" />
         </FormControl>
-        <FormControl id="userName" isRequired>
+        {
+            User.role=="Freelancer" &&
+            <div>
+                <FormControl id="userName" isRequired>
             <FormLabel>Numero</FormLabel>
             <Input value ={numero} onChange={(e)=>setNumero(e.target.value)} placeholder="UserName" _placeholder={{ color: 'gray.500' }}type="text" />
         </FormControl>
@@ -111,6 +114,8 @@ Modifier le profil
                 <option>Expert</option>
             </Select>
             </FormControl>
+            </div>}
+            
         <Stack spacing={6} direction={['column', 'row']}>
 <Button bg={'red.400'} color={'white'} w="full"  _hover={{ bg: 'red.500',  }}>
             Anuler

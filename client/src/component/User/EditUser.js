@@ -1,4 +1,4 @@
-import {Button,Flex,FormControl,FormLabel,Heading, Input, Stack, useColorModeValue, Avatar, AvatarBadge, IconButton, Center,
+import {Button,Flex,FormControl,FormLabel,Heading, Input, Stack, useColorModeValue, Avatar, AvatarBadge, IconButton, Center, Select, Textarea, FormHelperText,
 } from '@chakra-ui/react';
 import { SmallCloseIcon } from '@chakra-ui/icons';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -19,16 +19,26 @@ export default function EditUser(){
     const [prenom,setPrenom]=useState(User.prenom)
     const [pays,setPays]=useState(User.pays)
     const [email,setEmail]=useState(User.email)
+    const [numero,setNumero]=useState(0)
+    const [domaine,setDomaine]=useState('')
+    const [niveau,setNiveau]=useState('')
+    const [description,setDescription]=useState('')
+    const [technologie,setTechnologie]=useState('')
     useEffect(()=>{
     setNom(User.nom)
     setPrenom(User.prenom)
     setPays(User.pays)
     setEmail(User.email)
+    setNumero(User.numero)
+    setDomaine(User.domaine)
+    setNiveau(User.niveau)
+    setDescription(User.description)
+    setTechnologie(User.technologie)
     },[User])
 
     const handleEdit=(e)=>{
             e.preventDefault()
-            dispatch(editUser(id,{nom,prenom,pays,email}))
+            dispatch(editUser(id,{nom,prenom,pays,email,numero,domaine,niveau,description,technologie}))
             navigate('/Profile')
     }
 
@@ -71,6 +81,36 @@ Modifier le profil
             <FormLabel>Adresse email</FormLabel>
             <Input  value ={email} onChange={(e)=>setEmail(e.target.value)} placeholder="UserName" _placeholder={{ color: 'gray.500' }}type="email" />
         </FormControl>
+        <FormControl id="userName" isRequired>
+            <FormLabel>Numero</FormLabel>
+            <Input value ={numero} onChange={(e)=>setNumero(e.target.value)} placeholder="UserName" _placeholder={{ color: 'gray.500' }}type="text" />
+        </FormControl>
+        <FormControl id="name">
+        <FormLabel>Description</FormLabel>
+        <Textarea  value ={description} onChange={(e)=>setDescription(e.target.value)} borderColor="gray.300" _hover={{ borderRadius: 'gray.300', }} placeholder="message"/>
+        </FormControl>
+        <FormControl>
+        <FormLabel >Technologies</FormLabel>
+        <Input value ={technologie} onChange={(e)=>setTechnologie(e.target.value)}  type='tag' />
+        </FormControl>
+        <FormControl>
+            <FormLabel>Domaine d'activité</FormLabel>
+                <Select onChange={(e)=>setDomaine(e.target.value)} placeholder="Selectionner votre domaine d'activité">
+                    <option>Developpement mobile</option>
+                    <option>developpement web</option>
+                    <option>DevOps</option>
+                    <option>DataScience</option>
+                    <option>Developpement jeux video</option> 
+                </Select>
+            </FormControl>
+            <FormControl>
+            <FormLabel>Niveau</FormLabel>
+            <Select onChange={(e)=>setNiveau(e.target.value)} placeholder="Selectionner votre domaine d'activité">
+                <option>Débutant</option>
+                <option>Intermediare</option>
+                <option>Expert</option>
+            </Select>
+            </FormControl>
         <Stack spacing={6} direction={['column', 'row']}>
 <Button bg={'red.400'} color={'white'} w="full"  _hover={{ bg: 'red.500',  }}>
             Anuler

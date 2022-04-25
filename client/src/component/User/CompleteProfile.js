@@ -10,7 +10,7 @@ import { NavBarSimple } from '../NavBarSimple'
 
 
 export const CompleteProfile = () => {
-  const {id}=useParams()
+ 
   const dispatch = useDispatch()
   const navigate=useNavigate()
   const [numero,setNumero]=useState(0)
@@ -18,16 +18,17 @@ export const CompleteProfile = () => {
   const [niveau,setNiveau]=useState('')
   const [description,setDescription]=useState('')
   const [technologie,setTechnologie]=useState('')
-
-
+  const User = useSelector(state=>state.UserReducer.User)
+  console.log(User._id)
+  useEffect(()=>{
+    dispatch(current())
+  },[])
   const handleComplete=(e)=>{
     e.preventDefault()
-    dispatch(editUser(id,{id,numero,domaine,niveau,description,technologie}))
-    navigate('/Profile')
+    dispatch(editUser(User._id,{numero,domaine,niveau,description,technologie},navigate))
+
 }
-useEffect(()=>{
-  dispatch(current(id))
-},[])
+
 // ***************************
 return(
 <>

@@ -19,11 +19,12 @@ export default function EditUser(){
     const [prenom,setPrenom]=useState(User.prenom)
     const [pays,setPays]=useState(User.pays)
     const [email,setEmail]=useState(User.email)
-    const [numero,setNumero]=useState(0)
-    const [domaine,setDomaine]=useState('')
-    const [niveau,setNiveau]=useState('')
-    const [description,setDescription]=useState('')
-    const [technologie,setTechnologie]=useState('')
+    const [numero,setNumero]=useState(User.numero)
+    const [domaine,setDomaine]=useState(User.domaine)
+    const [niveau,setNiveau]=useState(User.niveau)
+    const [description,setDescription]=useState(User.description)
+    const [technologie,setTechnologie]=useState(User.technologie)
+    const[image,setImage]= useState(User.image)
     useEffect(()=>{
     setNom(User.nom)
     setPrenom(User.prenom)
@@ -34,11 +35,21 @@ export default function EditUser(){
     setNiveau(User.niveau)
     setDescription(User.description)
     setTechnologie(User.technologie)
+    setImage(User.image)
     },[User])
-
+    var data = new FormData()
+    data.append("nom",nom)
+    data.append("prenom",prenom)
+    data.append("pays",pays)
+    data.append("email",email)
+    data.append("domaine",domaine)
+    data.append("niveau",niveau)
+    data.append("description",description)
+    data.append("technologie",technologie)
+    data.append("image",image)
     const handleEdit=(e)=>{
             e.preventDefault()
-            dispatch(editUser(id,{nom,prenom,pays,email,numero,domaine,niveau,description,technologie}))
+            dispatch(editUser(id,data))
             navigate('/Profile')
     }
 
@@ -56,15 +67,18 @@ Modifier le profil
             <FormLabel>Mon icon</FormLabel>
             <Stack direction={['column', 'row']} spacing={6}>
             <Center>
-                <Avatar size="xl" src="https://bit.ly/sage-adebayo">
+                <Avatar size="xl" src={User.image}>
                 <AvatarBadge as={IconButton} size="sm" rounded="full" top="-10px" colorScheme="red" aria-label="remove Image" icon={<SmallCloseIcon />} />
                 </Avatar>
             </Center>
             <Center w="full">
-                <Button w="full">Changer l'icon</Button>
+                {/* <Button w="full" type='file'>Changer l'icon</Button> */}
+                <input type='file' onChange={(e)=>setImage(e.target.files[0])}/>
             </Center>
             </Stack>
-        </FormControl>
+</FormControl>
+
+
         <FormControl id="userName" >
             <FormLabel>Nom</FormLabel>
             <Input value ={nom} onChange={(e)=>setNom(e.target.value)} placeholder="UserName" _placeholder={{ color: 'gray.500' }}type="text" />

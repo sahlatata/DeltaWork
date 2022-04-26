@@ -6,6 +6,7 @@ import { current, deleteUser } from '../../Redux/Actions/UserActions';
 import { Link as RouteLink } from "react-router-dom" 
 import { GoVerified ,GoMail,GoDeviceMobile, GoPencil,GoGlobe,GoCalendar } from 'react-icons/go';  
 
+
     export default function SocialProfileSimple() {
         const dispatch = useDispatch()
         const navigate = useNavigate()
@@ -23,8 +24,7 @@ const Freelancer = useSelector(state=>state.UserReducer.User)
 <Box boxShadow='lg' w={'full'} bg={useColorModeValue('white', 'gray.900')} rounded={'lg'}p={6}>
 <Box bg={useColorModeValue('white', 'gray.700')} maxWidth="2xl" mx="auto" p={{base: '6',md: '8',}}rounded={{sm: 'lg',}}shadow={{md: 'base',}}>
 <Stack direction={{base: 'column',md: 'row',}} spacing={{base: '4',md: '10'}}>
-
-<Avatar size="2xl" name="Samantha"src="https://images.unsplash.com/photo-1506935077180-46af676a2f6d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80">
+<Avatar size="2xl" name="Samantha"src={Freelancer.image}>
 <AvatarBadge borderWidth="4px" borderColor={'white'} insetEnd="3" bottom="3">
 <Icon as={GoVerified} fontSize="2xl" color={'green'} />
 </AvatarBadge> 

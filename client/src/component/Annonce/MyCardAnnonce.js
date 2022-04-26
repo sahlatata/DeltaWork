@@ -4,12 +4,12 @@ import {
     Heading,
     Text,
     Stack,
-    Avatar,
     useColorModeValue,
-    Flex,
     HStack,
     Button,
+    Link,
   } from '@chakra-ui/react';
+  import { Link as RouteLink } from "react-router-dom"
   import { EditIcon,CloseIcon } from '@chakra-ui/icons'
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteAnnonce } from '../../Redux/Actions/AnnonceActions';
@@ -22,7 +22,7 @@ const CardAnnonce=({el})=>{
   }
     return(
         <div>
-            <Center py={6}>
+    <Center py={6}>
       <Box
         maxW={'700px'}
         w={'full'}
@@ -32,6 +32,14 @@ const CardAnnonce=({el})=>{
         p={6}
         overflow={'hidden'}>
         <Stack>
+          
+            
+            <HStack spacing='20px' ml='400'>
+                <Link as={RouteLink} to={`/EditAnnonce/${el._id}`}><Button size='xs'><EditIcon/></Button></Link>
+                <Button size='xs' onClick={(e)=>handleDelete(e)}><CloseIcon/></Button>
+            </HStack>
+          
+        
         <Heading
               color={useColorModeValue('gray.700', 'white')}
               fontSize={'2xl'}
@@ -45,7 +53,7 @@ const CardAnnonce=({el})=>{
         <Stack mt={6} direction={'row'} spacing={4} align={'center'}>
         
           <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-          <Text fontWeight={600}>Posted by</Text>
+            <Text fontWeight={600}>Posted by</Text>
             <Text fontWeight={600}>Achim Rolle</Text>
             <Text color={'gray.500'}>Feb 08, 2021 · 6min read</Text>
           </Stack>

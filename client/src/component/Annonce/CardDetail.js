@@ -1,10 +1,7 @@
 import {
-    Box,chakra,Container,Stack,Text,Image,Flex,VStack,Button,Heading,SimpleGrid,StackDivider,useColorModeValue,VisuallyHidden,List,ListItem,
+    Box,chakra,Container,Stack,Text,VStack,Button,Heading,SimpleGrid,StackDivider,useColorModeValue,List,ListItem,
   } from '@chakra-ui/react';
 import { useEffect } from 'react';
-
-  import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
-  import { MdLocalShipping } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getOneAnnonce } from '../../Redux/Actions/AnnonceActions';
@@ -13,7 +10,6 @@ import NavBarClient from '../User/NavBarClient'
 const CardDetail=()=>{
    const dispatch = useDispatch()
    const {id} = useParams()
-   console.log(id)
    useEffect(()=>{
      dispatch(getOneAnnonce(id))
    },[])

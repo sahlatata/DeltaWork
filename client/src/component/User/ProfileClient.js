@@ -3,7 +3,7 @@ import { Box, Button, Center, Container, Flex, Grid, GridItem, Heading, IconButt
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMyAnnonce } from '../../Redux/Actions/AnnonceActions';
-import CardAnnonce from '../Annonce/CardAnnonce';
+import MyCardAnnonce from '../Annonce/MyCardAnnonce';
 import NavBarClient from './NavBarClient';
 import CardFreelancer from './CardFreelancer'
 import { Link as RouteLink } from "react-router-dom"
@@ -59,7 +59,7 @@ Sahla T. <br/>
 <TabPanel>
     {/* ******a changer par component Card annonce ******************* */}
     {
-                myAnnonces.map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`}><CardAnnonce el={el}/></Link>)
+                myAnnonces.map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`}><MyCardAnnonce el={el}/></Link>)
             }
 {/* <Center py={2}>
     <Box

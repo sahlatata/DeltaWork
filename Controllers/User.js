@@ -50,7 +50,12 @@ exports.DeleteUser=async(req,res)=>{
 exports.UpdateUser=async(req,res)=>{
     try {
         const {id} = req.params
-        const UpdateUser = await User.findByIdAndUpdate(id,{$set:req.body})
+        if (req.file) {
+            const UpdateUser = await User.findByIdAndUpdate(id,{$set:{...req.body,image: req.file.path}})  
+        } else {
+           const UpdateUser = await User.findByIdAndUpdate (id,{$set:{...req.body}}) 
+        }
+        
         res.status(200).send('Utilisateur modifié')
     } catch (error) {
         res.status(500).send({errors:[{msg:'impossible de modifier compte'}]})

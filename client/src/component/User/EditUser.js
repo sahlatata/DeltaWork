@@ -65,37 +65,40 @@ Modifier le profil
             </Center>
             </Stack>
         </FormControl>
-        <FormControl id="userName" isRequired>
+        <FormControl id="userName" >
             <FormLabel>Nom</FormLabel>
             <Input value ={nom} onChange={(e)=>setNom(e.target.value)} placeholder="UserName" _placeholder={{ color: 'gray.500' }}type="text" />
         </FormControl>
-        <FormControl id="userName" isRequired>
+        <FormControl id="userName" >
             <FormLabel>Prenom</FormLabel>
             <Input  value ={prenom} onChange={(e)=>setPrenom(e.target.value)} placeholder="UserName" _placeholder={{ color: 'gray.500' }}type="text" />
         </FormControl>
-        <FormControl id="userName" isRequired>
+        <FormControl id="userName" >
             <FormLabel>Pays</FormLabel>
             <Input  value ={pays} onChange={(e)=>setPays(e.target.value)} placeholder="UserName" _placeholder={{ color: 'gray.500' }}type="text" />
         </FormControl>
-        <FormControl id="email" isRequired>
+        <FormControl id="email" >
             <FormLabel>Adresse email</FormLabel>
             <Input  value ={email} onChange={(e)=>setEmail(e.target.value)} placeholder="UserName" _placeholder={{ color: 'gray.500' }}type="email" />
         </FormControl>
         {
             User.role=="Freelancer" &&
-            <div>
-                <FormControl id="userName" isRequired>
+<>
+        <FormControl id="userName" >
             <FormLabel>Numero</FormLabel>
             <Input value ={numero} onChange={(e)=>setNumero(e.target.value)} placeholder="UserName" _placeholder={{ color: 'gray.500' }}type="text" />
         </FormControl>
+
         <FormControl id="name">
         <FormLabel>Description</FormLabel>
         <Textarea  value ={description} onChange={(e)=>setDescription(e.target.value)} borderColor="gray.300" _hover={{ borderRadius: 'gray.300', }} placeholder="message"/>
         </FormControl>
+
         <FormControl>
         <FormLabel >Technologies</FormLabel>
         <Input value ={technologie} onChange={(e)=>setTechnologie(e.target.value)}  type='tag' />
         </FormControl>
+
         <FormControl>
             <FormLabel>Domaine d'activité</FormLabel>
                 <Select onChange={(e)=>setDomaine(e.target.value)} placeholder="Selectionner votre domaine d'activité">
@@ -106,6 +109,7 @@ Modifier le profil
                     <option>Developpement jeux video</option> 
                 </Select>
             </FormControl>
+
             <FormControl>
             <FormLabel>Niveau</FormLabel>
             <Select onChange={(e)=>setNiveau(e.target.value)} placeholder="Selectionner votre domaine d'activité">
@@ -114,17 +118,20 @@ Modifier le profil
                 <option>Expert</option>
             </Select>
             </FormControl>
-            </div>}
+
+            </>}
             
-        <Stack spacing={6} direction={['column', 'row']}>
-<Button bg={'red.400'} color={'white'} w="full"  _hover={{ bg: 'red.500',  }}>
+<Stack spacing={6} direction={['column', 'row']}>
+<Button bg={'red.400'} color={'white'} w="full"  _hover={{ bg: 'green.500',  }}>
             Anuler
 </Button>
 <Button   onClick={(e)=>handleEdit(e)} bg={'blue.400'} color={'white'} w="full" _hover={{ bg: 'blue.500',}}>
             Modifier
 </Button>
         </Stack>
-        </Stack>
+
+
+</Stack>
 </Flex>
 </div>
     );

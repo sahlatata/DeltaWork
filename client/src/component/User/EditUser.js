@@ -1,4 +1,4 @@
-import {Button,Flex,FormControl,FormLabel,Heading, Input, Stack, useColorModeValue, Avatar, AvatarBadge, IconButton, Center, Select, Textarea, FormHelperText,
+import {Button,Flex,FormControl,FormLabel,Heading, Input, Stack, useColorModeValue, Avatar, AvatarBadge, IconButton, Center, Select, Textarea,
 } from '@chakra-ui/react';
 import { SmallCloseIcon } from '@chakra-ui/icons';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -19,11 +19,11 @@ export default function EditUser(){
     const [prenom,setPrenom]=useState(User.prenom)
     const [pays,setPays]=useState(User.pays)
     const [email,setEmail]=useState(User.email)
-    const [numero,setNumero]=useState(0)
-    const [domaine,setDomaine]=useState('')
-    const [niveau,setNiveau]=useState('')
-    const [description,setDescription]=useState('')
-    const [technologie,setTechnologie]=useState('')
+    const [numero,setNumero]=useState(User.numero)
+    const [domaine,setDomaine]=useState(User.domaine)
+    const [niveau,setNiveau]=useState(User.niveau)
+    const [description,setDescription]=useState(User.description)
+    const [technologie,setTechnologie]=useState(User.technologie)
     useEffect(()=>{
     setNom(User.nom)
     setPrenom(User.prenom)

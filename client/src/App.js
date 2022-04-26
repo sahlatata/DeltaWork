@@ -22,6 +22,7 @@ import { useEffect } from 'react';
 import {useDispatch} from 'react-redux';
 import { current } from './Redux/Actions/UserActions';
 import { CompleteProfile } from './component/User/CompleteProfile';
+import EditAnnonce from './component/Annonce/EditAnnonce';
 function App() {
   const dispatch=useDispatch()
   useEffect(()=>{
@@ -46,6 +47,7 @@ function App() {
           <Route path='/AddAnnonce' element={<AddAnnonce/>}/>
           <Route path='/EditPassword/:id' element={<EditPassword/>}/>
           <Route path='/CompleteProfile/:id' element={<CompleteProfile/>}/>
+          <Route path='/EditAnnonce/:id' element={<EditAnnonce/>}/>
           
         </Routes>
         

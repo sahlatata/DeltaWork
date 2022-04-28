@@ -5,8 +5,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { current, editUser } from '../../Redux/Actions/UserActions';
-import NavBarFreelancer from '../User/NavBarFreelancer';
+import NavBarClient from '../User/NavBarClient';
 
+import NavBarFreelancer from '../User/NavBarFreelancer';
 export default function EditUser(){
     const {id}=useParams()
     const dispatch = useDispatch()
@@ -59,7 +60,10 @@ export default function EditUser(){
 
 return (
     <div>
-    <NavBarFreelancer/>
+        {
+            User.role=='Freelancer'? <NavBarFreelancer/>: <NavBarClient/>
+        }
+    
 <Flex minH={'100vh'}   align={'center'}justify={'center'}  bg={useColorModeValue('gray.50', 'gray.800')}>
 <Stack spacing={4} w={'full'} maxW={'md'} bg={useColorModeValue('white', 'gray.700')} rounded={'xl'} boxShadow={'lg'} p={6} my={12}>
 <Heading lineHeight={1.1} fontSize={{ base: '2xl', sm: '3xl' }}>

@@ -1,16 +1,22 @@
-import { FormControl, FormLabel, Heading, Input, Radio, RadioGroup, Stack, Text } from "@chakra-ui/react"
+import { FormControl, FormLabel, Heading, Input, Radio, RadioGroup, Select, Stack, Text } from "@chakra-ui/react"
 import { useState } from "react"
 
-const Filter=({setNiveau,niveau})=>{
+const Filter=({setDomaine})=>{
     
     return(
         <div>
             <Text fontSize={'2xl'} fontFamily={'body'}>Filter par</Text>
             <FormControl mt={5}>
-                <FormLabel fontSize={'xl'} fontFamily={'body'}>Rechercher par categories</FormLabel>
-                <Input width={200}/>
+            <FormLabel htmlFor='country' >Domaine d'activité</FormLabel>
+                <Select placeholder="Selectionner votre domaine d'activité"  onChange={(e)=>setDomaine(e.target.value)}>
+                    <option>Developpement mobile </option>
+                    <option>Developpement web  </option>
+                    <option>DevOps </option>
+                    <option>Data Science </option>
+                    <option>Developpement jeux video </option> 
+                </Select>
             </FormControl>
-            <RadioGroup mt={5} onChange={setNiveau} value={niveau}>
+            <RadioGroup mt={5} >
                 <Stack>
                 <Heading fontSize={'xl'} fontFamily={'body'}>
                    Niveau

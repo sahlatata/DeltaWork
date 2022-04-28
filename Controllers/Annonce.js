@@ -13,7 +13,7 @@ exports.AddAnnonce = async(req,res)=>{
 exports.GetAnnonce = async(req,res)=>{
         try {
         const AllAnnonce = await Annonce.find()
-        res.status(200).send({AllAnnonce,Msg:'List des Annonces'})
+        res.status(200).send({AllAnnonce,Msg:'Liste des Annonces'})
         } catch (error) {
         res.status(500).send("impossible de voir les Annonces ")   
         }

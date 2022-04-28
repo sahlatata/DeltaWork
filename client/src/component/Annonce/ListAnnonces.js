@@ -18,8 +18,8 @@ const ListAnnonces=()=>{
         dispatch(getAnnonce())
     },[])
     /*Pour faire le filtre*/
-    const [niveau,setNiveau] = useState('') 
-    
+    const [search,setSearch] = useState('') 
+    const [domaine,setDomaine] = useState('')
     return(
         
         <div>
@@ -34,12 +34,13 @@ const ListAnnonces=()=>{
                 
             <Box  height='80px' width='400px' ml='50px'>
             
-                <Filter setNiveau={setNiveau} niveau={niveau}/>
+                <Filter setDomaine={setDomaine}/>
             </Box>
                 <Box  height='80px'>
-                <Input placeholder='Rechercher par Titre' />
+                <Input placeholder='Rechercher par Titre' onChange={(e)=>setSearch(e.target.value)}/>
                 
-                { Annonces.map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`}><CardAnnonce el={el}/></Link>) }
+                { Annonces.filter(el=>(el.titre.toUpperCase().includes(search.toUpperCase())))
+                .map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`}><CardAnnonce el={el}/></Link>) }
                 
                 </Box>
                 

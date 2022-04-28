@@ -66,6 +66,7 @@ export const updateAnnonce=(id,data)=>async(dispatch)=>{
         console.log(error)
     }
 }
+// *********************************************
 export const deleteAnnonce=(id)=>async(dispatch)=>{
     try {
         const res = await axios.delete(`/api/annonce/DeleteAnnonce/${id}`)

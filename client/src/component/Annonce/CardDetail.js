@@ -5,14 +5,22 @@ import { useEffect } from 'react';
 
 
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getOneAnnonce } from '../../Redux/Actions/AnnonceActions';
 import NavBarFreelancer from '../User/NavBarFreelancer';
 import NavBarClient from '../User/NavBarClient'
+import { addDemande } from '../../Redux/Actions/DemandeActions';
 const CardDetail=()=>{
 const dispatch = useDispatch()
+const navigate = useNavigate()
 const {id} = useParams()
-console.log(id)
+
+const handleAdd=()=>{
+
+dispatch(addDemande(id,navigate))
+
+}
+
 useEffect(()=>{
 dispatch(getOneAnnonce(id))
 },[])
@@ -153,16 +161,17 @@ Informations sur le Client
 </Stack>
 
 {
-User.role=='Freelancer' &&  <Button
+User.role=='Freelancer' &&  
+<Button
 rounded={'none'}
 w={'full'}
 mt={8}
 size={'lg'}
 py={'7'}
-// bg={useColorModeValue('gray.900', 'gray.50')}
-// color={useColorModeValue('white', 'gray.900')}
 textTransform={'uppercase'}
-_hover={{transform: 'translateY(2px)', boxShadow: 'lg',}}>
+_hover={{transform: 'translateY(2px)', boxShadow: 'lg',}}
+onClick={handleAdd}
+>
 POSTULER
 </Button>
 }

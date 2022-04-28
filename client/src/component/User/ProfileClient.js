@@ -7,11 +7,15 @@ import MyCardAnnonce from '../Annonce/MyCardAnnonce';
 import NavBarClient from './NavBarClient';
 import CardFreelancer from './CardFreelancer'
 import { Link as RouteLink } from "react-router-dom"
+import DemandeCard from '../Demande/DemandeCard';
+import { getDemande } from '../../Redux/Actions/DemandeActions';
 function ProfileClient() {
+    const demandes = useSelector(state=>state.DemandeReducer.Demandes)
     const myAnnonces = useSelector(state=>state.AnnonceReducer.MyAnnonces)
     const dispatch=useDispatch()
     useEffect(()=>{
         dispatch(getMyAnnonce())
+        dispatch(getDemande())
     },[])
     let today = new Date();
     let dateLocale = today.toLocaleString('fr-FR',{
@@ -60,12 +64,14 @@ Sahla T. <br/>
     {/* ******a changer par component Card annonce ******************* */}
     {
                 myAnnonces.map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`}><MyCardAnnonce el={el}/></Link>)
-            }
+    }
 
 {/* ************************* */}
 </TabPanel>
 <TabPanel>
-    <p>two!</p>
+   {
+    demandes.map(el=><DemandeCard el={el}/>)
+   }
 </TabPanel>
 </TabPanels>
 </Tabs>

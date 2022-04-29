@@ -1,7 +1,7 @@
 import {
 Box,Stack,Text,VStack,HStack,Button,Heading,SimpleGrid,StackDivider,useColorModeValue,List,ListItem,
 } from '@chakra-ui/react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,9 +15,10 @@ const CardDetail=()=>{
 const dispatch = useDispatch()
 const navigate = useNavigate()
 const {id} = useParams()
+const [status,setStatus]=useState("non")
+
 
 const handleAdd=()=>{
-
 dispatch(addDemande(id,navigate))
 
 }
@@ -166,7 +167,7 @@ Informations sur le Client
 </Stack>
 
 {
-User.role=='Freelancer' &&  
+User.role=='Freelancer' && 
 <Button
 rounded={'none'}
 w={'full'}
@@ -178,7 +179,7 @@ _hover={{transform: 'translateY(2px)', boxShadow: 'lg',}}
 onClick={handleAdd}
 >
 POSTULER
-</Button>
+</Button> 
 }
 </Stack>
 

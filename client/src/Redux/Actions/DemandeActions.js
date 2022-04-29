@@ -24,7 +24,6 @@ export const addDemande=(id,navigate)=>async(dispatch)=>{
     try {
     console.log(id)
     const res = await axios.post(`/api/demande/AddDemande/${id}`,id,config) 
-console.log('hello')
     navigate('/Profile')
     dispatch(getDemande())
     } catch (error) {

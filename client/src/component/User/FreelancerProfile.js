@@ -1,11 +1,22 @@
 import { Box, Button, Center, Container, Flex, Grid, GridItem, Heading, IconButton, Input, List, ListItem, SimpleGrid, SkeletonCircle, SkeletonText, Spacer, Square, Stack, StackDivider, Tab, TabList, TabPanel, TabPanels, Tabs, Text, useColorModeValue, VStack } from '@chakra-ui/react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import NavBarFreelancer from './NavBarFreelancer'
 import CardFreelancer from './CardFreelancer'
-import { MdLocalShipping } from 'react-icons/md';
 import { SearchIcon } from '@chakra-ui/icons';
-export default function FreelancerProfile(props) {
+import {getDemande} from '../../Redux/Actions/DemandeActions'
+import { useDispatch, useSelector } from 'react-redux';
 
+import DemandeCard from '../Demande/DemandeCard';
+export default function FreelancerProfile(props) {
+    const Freelancer = useSelector(state=>state.UserReducer.User)
+    const myAnnonces = useSelector(state=>state.AnnonceReducer.MyAnnonces)
+    const Annonce = useSelector(state=>state.AnnonceReducer.Annonce)
+    const demandes = useSelector(state=>state.DemandeReducer.Demandes)
+    const dispatch = useDispatch()
+    const ann = []
+useEffect(()=>{
+ dispatch(getDemande())   
+},[])
 // ****************recuperation de la date**************
 let today = new Date();
 let dateLocale = today.toLocaleString('fr-FR',{
@@ -27,7 +38,7 @@ return (
 </Text>
 <Heading >Good Morning</Heading>
 <Text fontSize='xl'>
-Sahla T. <br/>
+{Freelancer.nom} <br/>
 </Text>
 </Box>
 {/* ************************ */}
@@ -74,7 +85,6 @@ Sahla T. <br/>
         </Text>
     </Stack>
     <Stack mt={6} direction={'row'} spacing={4} align={'center'}>
-    
         <Stack direction={'column'} spacing={0} fontSize={'sm'}>
         <Text fontWeight={600}>Posted by</Text>
         <Text fontWeight={600}>Achim Rolle</Text>
@@ -83,40 +93,16 @@ Sahla T. <br/>
     </Stack>
     </Box>
 </Center> 
-<Center py={2}>
-    <Box
-    maxW={'700px'}
-    w={'full'}
-    bg={useColorModeValue('white', 'gray.900')}
-    boxShadow={'2xl'}
-    rounded={'md'}
-    p={6}
-    overflow={'hidden'}>
-    <Stack>
-        <Heading
-        color={useColorModeValue('gray.700', 'white')}
-        fontSize={'2xl'}
-        fontFamily={'body'}>
-        Titre
-        </Heading>
-        <Text color={'gray.500'}>
-    Description
-        </Text>
-    </Stack>
-    <Stack mt={6} direction={'row'} spacing={4} align={'center'}>
-    
-        <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-        <Text fontWeight={600}>Posted by</Text>
-        <Text fontWeight={600}>Achim Rolle</Text>
-        <Text color={'gray.500'}>Feb 08, 2021 · 6min read</Text>
-        </Stack>
-    </Stack>
-    </Box>
-</Center> 
+
 {/* ************************* */}
 </TabPanel>
 <TabPanel>
-    <p>two!</p>
+{
+
+demandes.map(el => Freelancer._id === el.FreelancerId._id &&  <DemandeCard el={el}/> )
+
+}
+
 </TabPanel>
 </TabPanels>
 </Tabs>

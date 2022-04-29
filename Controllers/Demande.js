@@ -3,8 +3,7 @@ const Demande = require("../Models/Demande")
 exports.AddDemande = async(req,res)=>{
     try {
         const {id}= req.params
-    
-        const newDemande = new Demande({...req.body,FreelancerId:req.user._id, AnnonceId :id})
+        const newDemande = new Demande({...req.body,status:"En attente",FreelancerId:req.user._id, AnnonceId :id})
         console.log(newDemande)
         // const NewDemande = new Demande({...req.body,FreelancerId:req.user._id})
         await newDemande.save()

@@ -27,7 +27,8 @@ function DemandeCard ({el}) {
     overflow={'hidden'}>
     <Stack>
     <Heading color={useColorModeValue('gray.700', 'white')} fontSize={'2xl'} fontFamily={'body'}>
-          {el.AnnonceId.titre}
+          {el.AnnonceId.titre} {el.status}
+          
         </Heading>
       <Text color={'gray.500'}>
         {el.AnnonceId.description}

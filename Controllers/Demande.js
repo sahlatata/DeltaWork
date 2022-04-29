@@ -17,7 +17,8 @@ exports.AddDemande = async(req,res)=>{
 
 exports.GetDemande = async(req,res) => {
 try {
-const Demandes = await Demande.find().populate("AnnonceId").populate("FreelancerId")
+
+const Demandes = await Demande.find().populate("AnnonceId").populate("FreelancerId") 
 res.status(200).send({Demandes,Msg:'Liste des Demandes'})
 } catch (error) {
     res.status(500).send({errors:[{msg:'Demandes impossible a trouver'}]})   

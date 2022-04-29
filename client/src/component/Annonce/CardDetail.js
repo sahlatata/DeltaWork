@@ -1,5 +1,5 @@
 import {
-Box,Stack,Text,VStack,Button,Heading,SimpleGrid,StackDivider,useColorModeValue,List,ListItem,
+Box,Stack,Text,VStack,HStack,Button,Heading,SimpleGrid,StackDivider,useColorModeValue,List,ListItem,
 } from '@chakra-ui/react';
 import { useEffect } from 'react';
 
@@ -9,7 +9,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { getOneAnnonce } from '../../Redux/Actions/AnnonceActions';
 import NavBarFreelancer from '../User/NavBarFreelancer';
 import NavBarClient from '../User/NavBarClient'
-import { addDemande } from '../../Redux/Actions/DemandeActions';
+import { addDemande, getDemande } from '../../Redux/Actions/DemandeActions';
+import DemandeUser from '../Demande/DemandeUser'
 const CardDetail=()=>{
 const dispatch = useDispatch()
 const navigate = useNavigate()
@@ -23,9 +24,11 @@ dispatch(addDemande(id,navigate))
 
 useEffect(()=>{
 dispatch(getOneAnnonce(id))
+dispatch(getDemande())
 },[])
 const oneAnnonce = useSelector(state=>state.AnnonceReducer.Annonce)
 const User = useSelector(state=>state.UserReducer.User)
+const Demandes = useSelector(state=>state.DemandeReducer.Demandes)
 return(
 <>
 {
@@ -33,7 +36,9 @@ User.role == "Freelancer" ? <NavBarFreelancer/> : <NavBarClient/>
 }
 
 <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={{ base: 4, md: 10 }} py={{ base: 18, md: 4 }}>
+
 <Box boxShadow='lg' w="800px" bg={useColorModeValue('white', 'gray.900')} rounded={'lg'}p={6}>
+
 <Box bg={useColorModeValue('white', 'gray.700')} maxWidth="2xl" mx="auto" p={{base: '6',md: '8',}}rounded={{sm: 'lg',}}shadow={{md: 'base',}}>
 
 {/* *********************************** */}
@@ -181,8 +186,11 @@ POSTULER
 </Box>
 
 </Box>
-
+<Box>
+  {Demandes.map(el=> oneAnnonce._id === el.AnnonceId._id && <DemandeUser el={el}/>)}
+</Box>
 </SimpleGrid>
+
 </>
 )
 }

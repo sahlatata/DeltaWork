@@ -23,6 +23,7 @@ import {useDispatch} from 'react-redux';
 import { current } from './Redux/Actions/UserActions';
 import { CompleteProfile } from './component/User/CompleteProfile';
 import EditAnnonce from './component/Annonce/EditAnnonce';
+import DemandeUser from './component/Demande/DemandeUser';
 function App() {
   const dispatch=useDispatch()
   useEffect(()=>{
@@ -51,7 +52,7 @@ function App() {
           
         </Routes>
         
-      
+      {/* <DemandeUser/> */}
       </ChakraProvider>
       
     </div>

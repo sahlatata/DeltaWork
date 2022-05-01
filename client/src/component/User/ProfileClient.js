@@ -12,6 +12,7 @@ import { getDemande } from '../../Redux/Actions/DemandeActions';
 function ProfileClient() {
     const demandes = useSelector(state=>state.DemandeReducer.Demandes)
     const myAnnonces = useSelector(state=>state.AnnonceReducer.MyAnnonces)
+    const Client = useSelector(state=>state.UserReducer.User)
     const dispatch=useDispatch()
     useEffect(()=>{
         dispatch(getMyAnnonce())
@@ -26,16 +27,15 @@ function ProfileClient() {
     });
     return (
         <div>
-            <NavBarClient/>
-           
-            <Container maxW="container.xl">
+    <NavBarClient/>
+    <Container maxW="container.xl">
 <Box w={'full'} boxShadow={'lg'} rounded={'lg'} p={6} mt={10} mb={10} >
 <Text  fontSize='xl'>
 {dateLocale}
 </Text>
 <Heading >Good Morning</Heading>
 <Text fontSize='xl'>
-Sahla T. <br/>
+{ Client.nom} <br/>
 </Text>
 </Box>
 {/* ************************ */}
@@ -63,16 +63,16 @@ Sahla T. <br/>
 <TabPanel>
     {/* ******a changer par component Card annonce ******************* */}
     {
-                myAnnonces.map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`}><MyCardAnnonce el={el}/></Link>)
+    myAnnonces.map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`}><MyCardAnnonce el={el}/></Link>)
     }
 
 {/* ************************* */}
 </TabPanel>
-<TabPanel>
+{/* <TabPanel>
    {
     demandes.map(el=><DemandeCard el={el}/>)
    }
-</TabPanel>
+</TabPanel> */}
 </TabPanels>
 </Tabs>
 </Box>

@@ -11,7 +11,7 @@ const UserSchema = new mongoose.Schema({
     domaine:{type : String},
     niveau:{type : String},
     description:{type : String},
-    technologie:{type : String}
+    technologie: String
     
 })
 

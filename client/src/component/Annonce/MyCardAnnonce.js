@@ -16,21 +16,16 @@ import { deleteAnnonce } from '../../Redux/Actions/AnnonceActions';
 const CardAnnonce=({el})=>{
   const User = useSelector(state=>state.UserReducer.User)
   const dispatch=useDispatch()
+  
   const handleDelete=(e)=>{
       e.preventDefault()
       dispatch(deleteAnnonce(el._id))
   }
+ 
     return(
         <div>
     <Center py={6}>
-      <Box
-        maxW={'700px'}
-        w={'full'}
-        bg={useColorModeValue('white', 'gray.900')}
-        boxShadow={'2xl'}
-        rounded={'md'}
-        p={6}
-        overflow={'hidden'}>
+      <Box maxW={'700px'} w={'full'} bg={useColorModeValue('white', 'gray.900')} boxShadow={'2xl'}rounded={'md'} p={6} overflow={'hidden'}>
         <Stack>
           
             
@@ -55,7 +50,7 @@ const CardAnnonce=({el})=>{
           <Stack direction={'column'} spacing={0} fontSize={'sm'}>
             <Text fontWeight={600}>Posted by</Text>
             <Text fontWeight={600}>Achim Rolle</Text>
-            <Text color={'gray.500'}>Feb 08, 2021 · 6min read</Text>
+            <Text color={'gray.500'}>{el.dateAnnonce}</Text>
           </Stack>
         </Stack>
       </Box>

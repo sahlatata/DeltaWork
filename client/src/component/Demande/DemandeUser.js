@@ -15,9 +15,9 @@ import {
   } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import { deleteDemande, updateDemande } from '../../Redux/Actions/DemandeActions';
-  
- function DemandeUser({el}) {
-   const dispatch=useDispatch()
+import { Link, Link as RouteLink } from "react-router-dom" 
+function DemandeUser({el}) {
+const dispatch=useDispatch()
     return (
       <Center py={2}>
         <Box
@@ -26,26 +26,23 @@ import { deleteDemande, updateDemande } from '../../Redux/Actions/DemandeActions
           bg={useColorModeValue('white', 'gray.700')}
           boxShadow={'2xl'}
           rounded={'md'}
-          overflow={'hidden'}>
+          overflow={'hidden'}
+          p={5}>
 
           <Flex justify={'center'} >
             <HStack>
-            <Avatar 
-              size={'xl'}
-              src={
-                el.FreelancerId.image
-              }
-              alt={'Author'}
-              css={{
-                border: '2px solid white',
-              }}
+            <Avatar size={'xl'} src={el.FreelancerId.image}alt={'Author'}css={{border: '2px solid white', }}
             />
-             <Box>
+            <Box>
               
               <Stack spacing={0} align={'center'} >
+            
+  <Link as={RouteLink} to={`/ViewProfilByClient/${el.FreelancerId._id}`}>
+                  
                 <Heading fontSize={'xl'} fontWeight={500} fontFamily={'body'}>
                   {el.FreelancerId.nom} {el.FreelancerId.prenom}
-                </Heading>
+  </Heading>
+  </Link>
                 <Text color={'gray.500'}>{el.FreelancerId.domaine}</Text>
               </Stack>
     
@@ -57,7 +54,7 @@ import { deleteDemande, updateDemande } from '../../Redux/Actions/DemandeActions
             </HStack>
           </Flex>
   
-         
+
         </Box>
         
       </Center>

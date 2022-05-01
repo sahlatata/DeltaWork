@@ -168,8 +168,7 @@ Informations sur le Client
 
 {
 User.role=='Freelancer' && 
-<Button
-rounded={'none'}
+<Button rounded={'none'}
 w={'full'}
 mt={8}
 size={'lg'}
@@ -187,8 +186,16 @@ POSTULER
 </Box>
 
 </Box>
-<Box>
-  {Demandes.map(el=> oneAnnonce._id === el.AnnonceId._id && <DemandeUser el={el}/>)}
+<Box  pl={40}>
+{User.role === 'Client' && 
+Demandes.map(el=> oneAnnonce._id === el.AnnonceId._id && 
+
+<Box key={Math.random()} w="400px" boxShadow={'lg'} rounded={'lg'} p={6} mt={10} mb={10}>
+<Text fontWeight={'bold'}>Liste des postulants : </Text>
+<DemandeUser key={Math.random()} el={el}/>
+</Box>
+
+)}
 </Box>
 </SimpleGrid>
 

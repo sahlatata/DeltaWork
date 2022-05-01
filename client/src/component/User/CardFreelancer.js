@@ -35,9 +35,12 @@ const Freelancer = useSelector(state=>state.UserReducer.User)
 <Heading size="md" fontWeight="extrabold" letterSpacing="tight" marginEnd="6">
 {Freelancer.nom} {Freelancer.prenom}
 </Heading>
+
+{/* *************************************************************** */}
 <Link as={RouteLink} to={`/EditUser/${Freelancer._id}`}><Button size="sm" variant="outline" leftIcon={<Icon as={GoPencil} color="gray.400" marginStart="-1" />} >
 Edit
 </Button></Link>
+{/* *************************************************************** */}
 </Flex>
 <Text mt="1" fontWeight="medium">
 {Freelancer.role} 
@@ -98,8 +101,8 @@ Edit
     <SimpleGrid  spacing={10}>
     <Text fontSize={'lg'} >
             {Freelancer.domaine}
-     </Text>
-     </SimpleGrid> 
+    </Text>
+    </SimpleGrid> 
     </Box>
     
     <Box>
@@ -114,9 +117,9 @@ Edit
     <SimpleGrid  spacing={10}>
     <Text fontSize={'lg'} >
             {Freelancer.niveau}
-     </Text>
-     </SimpleGrid> 
-     </Box>
+    </Text>
+    </SimpleGrid> 
+    </Box>
 
 <Box>
     <Text
@@ -128,12 +131,15 @@ Edit
     Technologie :
     </Text>
 
+ 
+
     <Wrap shouldWrapChildren>
-    <Tag>Productivity</Tag>
-    <Tag>Work</Tag>
-    <Tag>Business</Tag>
-    <Tag>Woman</Tag>
+ 
+
+    <Tag>{Freelancer.technologie}</Tag>
+    
     </Wrap>
+  
     
     </Box>
 
@@ -157,6 +163,7 @@ Edit
 </Button></Link>
 </Stack>
 {/* *******************   */}
+
 </Box>
 </Box>
         );

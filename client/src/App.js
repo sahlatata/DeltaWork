@@ -23,7 +23,7 @@ import {useDispatch} from 'react-redux';
 import { current } from './Redux/Actions/UserActions';
 import { CompleteProfile } from './component/User/CompleteProfile';
 import EditAnnonce from './component/Annonce/EditAnnonce';
-import DemandeUser from './component/Demande/DemandeUser';
+import ViewProfilByClient from './component/User/ViewProfilByClient';
 import HomeAnnonces from './component/Annonce/HomeAnnonces';
 function App() {
   const dispatch=useDispatch()
@@ -51,7 +51,7 @@ function App() {
           <Route path='/CompleteProfile/:id' element={<CompleteProfile/>}/>
           <Route path='/EditAnnonce/:id' element={<EditAnnonce/>}/>
           <Route path='/HomeAnnonces'  element={<HomeAnnonces/>}/>
-          
+          <Route path='/ViewProfilByClient/:id'  element={<ViewProfilByClient/>}/>
         </Routes>
         
       {/* <DemandeUser/> */}

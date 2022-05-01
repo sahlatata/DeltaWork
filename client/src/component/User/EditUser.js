@@ -116,7 +116,7 @@ Modifier le profil
 
         <FormControl>
         <FormLabel >Technologies</FormLabel>
-        <Input value ={technologie} onChange={(e)=>setTechnologie(e.target.value)}  type='tag' />
+        <Input value ={technologie} onChange={(e)=>setTechnologie(e.target.value)}  type='subtle' />
         </FormControl>
 
         <FormControl>

@@ -22,8 +22,8 @@ import {
     import { useNavigate } from 'react-router-dom';
     import { login } from '../Redux/Actions/UserActions';
     import Errors from './Errors';
-    import NavBarSimple from './NavBarSimple';
     import { Link as RouteLink } from "react-router-dom"
+import { NavBarSimple } from './NavBarSimple';
     const SignIn =()=> {
         const [email , setEmail]=useState('')
         const [password , setPassword]=useState('')
@@ -37,8 +37,9 @@ import {
         const errors = useSelector(state=>state.errorReducer)
     
         return (
-    <Box textAlign="center" fontSize="xl">
-    {/* <NavBarSimple/>    */}
+            <>
+            <NavBarSimple/> 
+    <Box textAlign="center" fontSize="xl">  
     <Flex minH={'100vh'} align={'center'} justify={'center'} bg={useColorModeValue('gray.50', 'gray.800')}>  
     <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
     <Stack align={'center'}>
@@ -92,6 +93,7 @@ import {
             </Stack>
         </Flex>
     </Box>
+    </>
         );
                 }
     

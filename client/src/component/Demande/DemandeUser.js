@@ -1,3 +1,4 @@
+import { AddIcon, CheckIcon, CloseIcon } from '@chakra-ui/icons';
 import {
     Heading,
     Avatar,
@@ -12,30 +13,24 @@ import {
     VStack,
     HStack,
   } from '@chakra-ui/react';
+import { useDispatch } from 'react-redux';
+import { deleteDemande, updateDemande } from '../../Redux/Actions/DemandeActions';
   
  function DemandeUser({el}) {
+   const dispatch=useDispatch()
     return (
-      <Center py={6}>
+      <Center py={2}>
         <Box
-          maxW={'270px'}
+          maxW={'350px'}
           w={'full'}
-          bg={useColorModeValue('white', 'gray.800')}
+          bg={useColorModeValue('white', 'gray.700')}
           boxShadow={'2xl'}
           rounded={'md'}
           overflow={'hidden'}>
 
-          <Image
-            h={'60px'}
-            // w={'full'}
-            // src={
-            //   'https://images.unsplash.com/photo-1612865547334-09cb8cb455da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
-            // }
-            // objectFit={'cover'}
-          />
-          
-          <Flex justify={'center'} mt={-12}>
-          
-            <Avatar
+          <Flex justify={'center'} >
+            <HStack>
+            <Avatar 
               size={'xl'}
               src={
                 el.FreelancerId.image
@@ -45,35 +40,24 @@ import {
                 border: '2px solid white',
               }}
             />
+             <Box>
+              
+              <Stack spacing={0} align={'center'} >
+                <Heading fontSize={'xl'} fontWeight={500} fontFamily={'body'}>
+                  {el.FreelancerId.nom} {el.FreelancerId.prenom}
+                </Heading>
+                <Text color={'gray.500'}>{el.FreelancerId.domaine}</Text>
+              </Stack>
+    
+              <Stack direction={'row'} justify={'center'} spacing={12} mt={1}>
+                  <Button><CheckIcon w={4} h={4} color='green'/></Button> 
+                  <Button><CloseIcon w={4} h={4} color="red"/></Button>
+              </Stack>
+            </Box>
+            </HStack>
           </Flex>
   
-          <Box p={6}>
-              
-            <Stack spacing={0} align={'center'} mb={5}>
-              <Heading fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
-                {el.FreelancerId.nom}
-              </Heading>
-              <Text color={'gray.500'}>Frontend Developer</Text>
-            </Stack>
-  
-            <Stack direction={'row'} justify={'center'} spacing={6}>
-                <Text fontWeight={600}>Accepter</Text>
-                <Text fontWeight={600}>Refuser</Text>
-            </Stack>
-           
-            <Button
-              w={'full'}
-              mt={8}
-              bg={useColorModeValue('#151f21', 'gray.900')}
-              color={'white'}
-              rounded={'md'}
-              _hover={{
-                transform: 'translateY(-2px)',
-                boxShadow: 'lg',
-              }}>
-             Voir Profile
-            </Button>
-          </Box>
+         
         </Box>
         
       </Center>

@@ -1,12 +1,12 @@
 import {Flex,Box,FormControl,FormLabel,Input,InputGroup,HStack,InputRightElement,Stack,Button,Heading,Text,useColorModeValue,Link, Select, Radio, RadioGroup} from '@chakra-ui/react';
 import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import NavBarSimple from './NavBarSimple';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { register } from '../Redux/Actions/UserActions';
 import Errors from './Errors';
 import { Link as RouteLink } from "react-router-dom"
+import { NavBarSimple } from './NavBarSimple';
 export default function SignupCard() {
 const [showPassword, setShowPassword] = useState(false);
 const [nom , setNom]=useState('')
@@ -24,8 +24,9 @@ e.preventDefault()
 dispatch(register({nom,prenom,email,password,pays,role},navigate))
 }
 return (
-<Box textAlign="center" fontSize="xl">
-    {/* <NavBarSimple/>   */}
+    <>
+    <NavBarSimple/> 
+<Box textAlign="center" fontSize="xl"> 
 <Flex minH={'100vh'} align={'center'}justify={'center'}bg={useColorModeValue('gray.50', 'gray.800')}> 
 <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
 <Stack align={'center'}>
@@ -114,6 +115,6 @@ return (
 
 
 </Box>
-
+</>
 );
 }

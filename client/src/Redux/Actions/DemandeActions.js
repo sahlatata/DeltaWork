@@ -31,7 +31,13 @@ export const addDemande=(id,navigate)=>async(dispatch)=>{
     }
 }
 /********************************************************** */
-
+export const updateDemande=(id)=>async(dispatch)=>{
+    try {
+        const res = await axios.put(`/api/demande/EditDemande/${id}`)
+    } catch (error) {
+        console.log(error)
+    }
+}
 // ********************************************************************
 
 export const deleteDemande=(id)=>async(dispatch)=>{

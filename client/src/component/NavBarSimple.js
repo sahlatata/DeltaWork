@@ -43,7 +43,7 @@ export const NavBarSimple = () => {
                 spacing="8"
               >
                 <Link as={RouteLink} to='/'><NavLink.Desktop active>Acceuil</NavLink.Desktop></Link>
-                <Link as={RouteLink} to='/ListAnnonces'><NavLink.Desktop>Annonces</NavLink.Desktop></Link>
+                <Link as={RouteLink} to='/HomeAnnonces'><NavLink.Desktop>Annonces</NavLink.Desktop></Link>
               </HStack>
             </HStack>
             <Flex align="center">

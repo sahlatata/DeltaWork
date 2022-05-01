@@ -24,6 +24,7 @@ import { current } from './Redux/Actions/UserActions';
 import { CompleteProfile } from './component/User/CompleteProfile';
 import EditAnnonce from './component/Annonce/EditAnnonce';
 import DemandeUser from './component/Demande/DemandeUser';
+import HomeAnnonces from './component/Annonce/HomeAnnonces';
 function App() {
   const dispatch=useDispatch()
   useEffect(()=>{
@@ -49,6 +50,7 @@ function App() {
           <Route path='/EditPassword/:id' element={<EditPassword/>}/>
           <Route path='/CompleteProfile/:id' element={<CompleteProfile/>}/>
           <Route path='/EditAnnonce/:id' element={<EditAnnonce/>}/>
+          <Route path='/HomeAnnonces'  element={<HomeAnnonces/>}/>
           
         </Routes>
         

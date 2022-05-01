@@ -15,7 +15,7 @@ const CardDetail=()=>{
 const dispatch = useDispatch()
 const navigate = useNavigate()
 const {id} = useParams()
-const [status,setStatus]=useState("non")
+
 
 
 const handleAdd=()=>{
@@ -146,7 +146,7 @@ Informations sur le Client
 <ListItem>
 <Text as={'span'} fontWeight={'bold'}>
   Nom et Prénom: 
-</Text>{' '}
+</Text>
 {oneAnnonce.client}
 </ListItem>
 <ListItem>

@@ -34,3 +34,14 @@ res.status(200).send('Demande effacée')
         res.status(500).send({errors:[{msg:'Demande impossible a supprimer'}]})   
     }
     }
+
+
+exports.UpdateDemande=async(req,res)=>{
+    try {
+        const {id} = req.params
+        const upDemande = await Demande.findByIdAndUpdate(id,{$set:{status:'Accepté'}})
+        res.status(200).send('Demande Accepté')
+    } catch (error) {
+        res.status(500).send({errors:[{msg:'Demande impossible a accepter'}]})  
+    }
+}

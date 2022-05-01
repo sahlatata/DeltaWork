@@ -15,7 +15,7 @@ const CardDetail=()=>{
 const dispatch = useDispatch()
 const navigate = useNavigate()
 const {id} = useParams()
-
+const [status,setStatus] =useState('')
 
 
 const handleAdd=()=>{
@@ -26,7 +26,13 @@ dispatch(addDemande(id,navigate))
 useEffect(()=>{
 dispatch(getOneAnnonce(id))
 dispatch(getDemande())
-},[])
+// // Demandes.map(el=> User._id === el.FreelancerId._id && oneAnnonce._id === el.AnnonceId._id &&
+// //   setStatus(el.status)
+  
+//  )
+
+
+},)
 const oneAnnonce = useSelector(state=>state.AnnonceReducer.Annonce)
 const User = useSelector(state=>state.UserReducer.User)
 const Demandes = useSelector(state=>state.DemandeReducer.Demandes)
@@ -168,6 +174,7 @@ Informations sur le Client
 
 {
 User.role=='Freelancer' && 
+// status == '' ?
 <Button
 rounded={'none'}
 w={'full'}
@@ -179,7 +186,9 @@ _hover={{transform: 'translateY(2px)', boxShadow: 'lg',}}
 onClick={handleAdd}
 >
 POSTULER
-</Button> 
+</Button>
+// : <Button>en attente</Button>
+
 }
 </Stack>
 
@@ -188,10 +197,12 @@ POSTULER
 
 </Box>
 <Box>
-  {Demandes.map(el=> oneAnnonce._id === el.AnnonceId._id && <DemandeUser el={el}/>)}
+  {
+    User.role === 'Client' &&  
+  Demandes.map(el=> oneAnnonce._id === el.AnnonceId._id && <DemandeUser el={el}/>)
+  }
 </Box>
 </SimpleGrid>
-
 </>
 )
 }

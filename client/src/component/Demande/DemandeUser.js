@@ -13,12 +13,11 @@ import {
     VStack,
     HStack,
   } from '@chakra-ui/react';
-import { useDispatch } from 'react-redux';
-import { deleteDemande, updateDemande } from '../../Redux/Actions/DemandeActions';
+
   
  function DemandeUser({el}) {
-   const dispatch=useDispatch()
     return (
+      
       <Center py={2}>
         <Box
           maxW={'350px'}
@@ -56,7 +55,6 @@ import { deleteDemande, updateDemande } from '../../Redux/Actions/DemandeActions
             </Box>
             </HStack>
           </Flex>
-  
          
         </Box>
         

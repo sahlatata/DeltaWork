@@ -36,7 +36,7 @@ return (
 <Text  fontSize='xl'>
 {dateLocale}
 </Text>
-<Heading >Good Morning</Heading>
+<Heading color={useColorModeValue('bleub.500', 'discord.50')}>Good Morning</Heading>
 <Text fontSize='xl'>
 {Freelancer.nom} <br/>
 </Text>
@@ -57,8 +57,8 @@ return (
 {/* **********menue ************** */}
 <Box  w={'full'} boxShadow={'lg'} rounded={'lg'} p={6} mt={10} mb={10} >
 <Tabs>
-<TabList>
-<Tab>Annonces enregistrées </Tab>
+<TabList >
+<Tab >Annonces enregistrées </Tab>
 {/* <Tab>Annonces récentes</Tab> */}
 </TabList>
 <TabPanels>

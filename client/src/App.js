@@ -33,7 +33,7 @@ function App() {
   return (
     <div>
       
-      <ChakraProvider>
+     
       
       <Errors/>
         <Routes>
@@ -55,7 +55,7 @@ function App() {
         </Routes>
         
       {/* <DemandeUser/> */}
-      </ChakraProvider>
+
       
     </div>
   );

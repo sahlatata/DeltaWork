@@ -33,7 +33,7 @@ function ProfileClient() {
 <Text  fontSize='xl'>
 {dateLocale}
 </Text>
-<Heading >Good Morning</Heading>
+<Heading color={useColorModeValue('bleub.500', 'discord.50')}>Good Morning</Heading>
 <Text fontSize='xl'>
 { Client.nom} <br/>
 </Text>

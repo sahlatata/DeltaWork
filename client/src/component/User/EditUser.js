@@ -142,7 +142,7 @@ Modifier le profil
             </>}
             
 <Stack spacing={6} direction={['column', 'row']}>
-<Button bg={'red.400'} color={'white'} w="full"  _hover={{ bg: 'green.500',  }}>
+<Button   w="full">
             Anuler
 </Button>
 <Button   onClick={(e)=>handleEdit(e)} bg={'blue.400'} color={'white'} w="full" _hover={{ bg: 'blue.500',}}>

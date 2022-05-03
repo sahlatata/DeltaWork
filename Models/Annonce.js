@@ -6,8 +6,9 @@ const AnnonceSchema = new mongoose.Schema({
     budget :{type : Number ,required:true},
     niveau:{type :String,required:true},
     domaine:{type:String,reqired:true},
-    client : {type: mongoose.Schema.Types.ObjectId, ref:"User"}
-    // dateAnnonce :{type : Date},
+    client : {type: mongoose.Schema.Types.ObjectId, ref:"User"},
+    dateAnnonce :{ type: Date},
+
     // dateFin:{type : Date},
 
     

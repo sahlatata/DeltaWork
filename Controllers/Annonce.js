@@ -2,7 +2,7 @@ const Annonce = require("../Models/Annonce")
 
 exports.AddAnnonce = async(req,res)=>{
     try {
-    const NewAnnonce = new Annonce({...req.body,client:req.user._id})   
+    const NewAnnonce = new Annonce({...req.body,client:req.user._id,dateAnnonce: Date.now() })   
     await NewAnnonce.save()
     res.status(200).send({NewAnnonce,Msq:'Annonce Added'})
     } catch (error) {

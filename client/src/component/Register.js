@@ -31,7 +31,7 @@ return (
 <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
 <Stack align={'center'}>
     <Heading fontSize={'4xl'} textAlign={'center'}>
-    Cree un compte
+    Creer un compte
     </Heading>
     <Text fontSize={'lg'} color={'gray.600'}>
     Pour postuler a l'annonce de votre choix  ✌️
@@ -47,7 +47,7 @@ return (
     <RadioGroup  onChange={setRole} defaultValue='2'>
     <Stack spacing={5} direction='row'>
     <Radio colorScheme='blue' value='Freelancer' onClick='role()' >Freelancer</Radio>
-    <Radio colorScheme='green' value='Client'>Client</Radio>
+    <Radio colorScheme='orange' value='Client'>Client</Radio>
     </Stack>
     </RadioGroup>
     </FormControl>
@@ -56,7 +56,7 @@ return (
     <HStack>
     <Box>
         <FormControl id="firstName" isRequired>
-        <FormLabel>Prenom</FormLabel>
+        <FormLabel color="bleub.500">Prenom</FormLabel>
         <Input type="text" onChange={(e)=>setPrenom(e.target.value)}/>
         </FormControl>
     </Box>
@@ -99,7 +99,7 @@ return (
 </FormControl>
 
 <Stack spacing={10} pt={2}>
-    <Button onClick={(e)=>handleRegister(e)} loadingText="Submitting"size="lg"bg={'blue.400'}color={'white'}_hover={{bg: 'blue.500',}}>
+    <Button onClick={(e)=>handleRegister(e)} loadingText="Submitting"size="lg" >
         Creer un compte
     </Button>
 </Stack>

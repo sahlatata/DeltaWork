@@ -46,8 +46,8 @@ const CardAnnonce=({el})=>{
         
           <Stack direction={'column'} spacing={0} fontSize={'sm'}>
           <Text fontWeight={600}>Posted by</Text>
-            <Text fontWeight={600}>Achim Rolle</Text>
-            <Text color={'gray.500'}>Feb 08, 2021 · 6min read</Text>
+            <Text fontWeight={600}>Achim Roggglle</Text>
+            <Text color={'gray.500'}>{el.dateAnnonce}</Text>
           </Stack>
         </Stack>
       </Box>

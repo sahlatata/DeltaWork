@@ -80,11 +80,9 @@ import { NavBarSimple } from './NavBarSimple';
                     </Stack>
     <Button
                     onClick={(e)=>handleLog(e)}
-                    bg={'blue.400'}
+                   
                     color={'white'}
-                    _hover={{
-                        bg: 'blue.500',
-                    }}>
+                   >
                     Connexion
     </Button>
                 </Stack>

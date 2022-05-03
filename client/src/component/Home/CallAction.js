@@ -6,6 +6,7 @@ import {
   useColorModeValue,
   Stack,
   Link,
+  Button,
 } from "@chakra-ui/react";
 import { Link as RouteLink } from "react-router-dom"
 export default function CallAction() {
@@ -48,24 +49,8 @@ export default function CallAction() {
             mt={{ base: 8, lg: 0 }}
             shrink={{ lg: 0 }}
           >
-            <Link as={RouteLink} to={'/Register'}
-              w={["full", , "auto"]}
-              display="inline-flex"
-              alignItems="center"
-              justifyContent="center"
-              px={5}
-              py={3}
-              border="solid transparent"
-              fontWeight="bold"
-              rounded="md"
-              shadow="md"
-              color={useColorModeValue("Blue")}
-              bg={useColorModeValue("brand.600", "brand.500")}
-              _hover={{
-                bg: useColorModeValue("brand.700", "brand.600"),
-              }}
-            >
-              Créer un compte
+            <Link as={RouteLink} to={'/Register'}>
+             <Button>Créer un compte</Button> 
             </Link>
             
           </Stack>

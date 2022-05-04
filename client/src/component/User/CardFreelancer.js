@@ -24,11 +24,12 @@ const Freelancer = useSelector(state=>state.UserReducer.User)
 <Box boxShadow='lg' w={'full'} bg={useColorModeValue('white', 'gray.900')} rounded={'lg'}p={6}>
 <Box bg={useColorModeValue('white', 'gray.700')} maxWidth="2xl" mx="auto" p={{base: '6',md: '8',}}rounded={{sm: 'lg',}}shadow={{md: 'base',}}>
 <Stack direction={{base: 'column',md: 'row',}} spacing={{base: '4',md: '10'}}>
-<Avatar size="2xl" name="Samantha"src={Freelancer.image}>
+<Avatar size="2xl" name="Samantha" src={Freelancer.image}>
 <AvatarBadge borderWidth="4px" borderColor={'white'} insetEnd="3" bottom="3">
 <Icon as={GoVerified} fontSize="2xl" color={useColorModeValue('bleub.500', 'discord.50')} />
 </AvatarBadge> 
 </Avatar>
+
 {/* ************************* */}
 <Box width="full" >
 <Flex justifyContent="space-between" alignItems="center">

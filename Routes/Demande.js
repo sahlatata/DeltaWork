@@ -6,7 +6,7 @@ const {AddDemande,DeleteDemande, GetDemande, UpdateDemande} = require("../Contro
 DemandeRouter.post('/AddDemande/:id',isAuth,AddDemande)
 DemandeRouter.delete('/DeleteDemande/:id',DeleteDemande)
 DemandeRouter.get('/GetDemande',GetDemande)
-DemandeRouter.put('/EditDemande',UpdateDemande)
+DemandeRouter.put('/EditDemande/:id',UpdateDemande)
 
 
 

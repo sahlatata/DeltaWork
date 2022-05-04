@@ -32,7 +32,7 @@ exports.DeleteAnnonce=async(req,res)=>{
 exports.GetOneAnnonce=async(req,res)=>{
             try {
                 const {id}= req.params
-                const OneAnnonce = await Annonce.findById(id)  
+                const OneAnnonce = await Annonce.findById(id)
                 res.status(200).send({OneAnnonce,msg:'annonce trouvé'})
             } catch (error) {
                 console.log('annonce impossible a trouver')

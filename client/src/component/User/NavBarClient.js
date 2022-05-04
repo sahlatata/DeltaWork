@@ -23,6 +23,7 @@ import { useNavigate } from 'react-router-dom';
 import { logout, deleteUser } from '../../Redux/Actions/UserActions';
 import { Link as RouteLink } from "react-router-dom"
 const NavLink = ({ children }: { children: ReactNode }) => (
+    
 <Link px={2} py={1} rounded={'md'} _hover={{
 textDecoration: 'none',
 bg: useColorModeValue('gray.200', 'gray.700'),
@@ -78,7 +79,7 @@ cursor={'pointer'}
 minW={0}>
 <Avatar
 size={'sm'}
-src={'https://avatars.dicebear.com/api/male/username.svg'}
+src={User.image}
 />
 </MenuButton>
 <MenuList alignItems={'center'}>
@@ -86,12 +87,12 @@ src={'https://avatars.dicebear.com/api/male/username.svg'}
 <Center>
 <Avatar
 size={'2xl'}
-src={'https://avatars.dicebear.com/api/male/username.svg'}
+src={User.image}
 />
 </Center>
 <br />
 <Center>
-<p>Username</p>
+<p>{User.nom} {User.prenom}</p>
 </Center>
 <br />
 <MenuDivider />

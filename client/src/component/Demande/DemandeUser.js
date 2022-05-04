@@ -1,4 +1,4 @@
-import { AddIcon, CheckIcon, CloseIcon } from '@chakra-ui/icons';
+import { CheckIcon, CloseIcon } from '@chakra-ui/icons';
 import {
     Heading,
     Avatar,
@@ -18,8 +18,18 @@ import { deleteDemande, updateDemande } from '../../Redux/Actions/DemandeActions
 import { Link, Link as RouteLink } from "react-router-dom" 
 function DemandeUser({el}) {
 const dispatch=useDispatch()
+const handleEdit=(e)=>{
+  e.preventDefault()
+  dispatch(updateDemande(el._id))
+}
+const handleDelete=(e)=>{
+  e.preventDefault()
+  dispatch(deleteDemande(el._id))
+}
     return (
+      
       <Center py={2}>
+        
         <Box
           maxW={'350px'}
           w={'full'}
@@ -31,7 +41,7 @@ const dispatch=useDispatch()
 
           <Flex justify={'center'} >
             <HStack>
-            <Avatar size={'xl'} src={el.FreelancerId.image}alt={'Author'}css={{border: '2px solid white', }}
+            <Avatar size={'xl'} src={el.FreelancerId.image} alt={'Author'} css={{border: '2px solid white', }}
             />
             <Box>
               
@@ -47,14 +57,16 @@ const dispatch=useDispatch()
               </Stack>
     
               <Stack direction={'row'} justify={'center'} spacing={12} mt={1}>
-                  <Button><CheckIcon w={4} h={4} /></Button> 
-                  <Button><CloseIcon w={4} h={4} /></Button>
+
+                 
+
+                  <Button onClick={(e)=>handleEdit(e)}><CheckIcon w={4} h={4}/></Button> 
+                  <Button onClick={(e)=>handleDelete(e)}><CloseIcon w={4} h={4}/></Button>
+
               </Stack>
             </Box>
             </HStack>
           </Flex>
-  
-
         </Box>
         
       </Center>

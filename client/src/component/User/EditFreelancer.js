@@ -1,6 +1,5 @@
 import {Button,Flex,FormControl,FormLabel,Heading, Input, Stack, useColorModeValue, Avatar, AvatarBadge, IconButton, Center, Select, Textarea,
 } from '@chakra-ui/react';
-import { SmallCloseIcon } from '@chakra-ui/icons';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -12,9 +11,6 @@ export default function EditUser(){
     const {id}=useParams()
     const dispatch = useDispatch()
     const navigate=useNavigate()
-    useEffect(()=>{
-    dispatch(current(id))
-    },[])
     const User = useSelector(state=>state.UserReducer.User)
     const [nom,setNom]=useState(User.nom)
     const [prenom,setPrenom]=useState(User.prenom)
@@ -25,8 +21,11 @@ export default function EditUser(){
     const [niveau,setNiveau]=useState(User.niveau)
     const [description,setDescription]=useState(User.description)
     const [technologie,setTechnologie]=useState(User.technologie)
-
     const[image,setImage]= useState(User.image)
+
+    useEffect(()=>{
+        dispatch(current())
+        },[])
 
     useEffect(()=>{
     setNom(User.nom)
@@ -55,6 +54,7 @@ export default function EditUser(){
             dispatch(editUser(id,data))
             navigate('/Profile')
     }
+    
     const Freelancer = useSelector(state=>state.UserReducer.User)
 
 
@@ -73,8 +73,11 @@ Modifier votre profil
             <FormLabel  color={useColorModeValue('bleub.500', 'discord.50')}>Mon icon</FormLabel>
             <Stack direction={['column', 'row']} spacing={6}>
             <Center>
+
+
             <Avatar size="xl" src={Freelancer.image}>
             </Avatar>
+
             </Center>
             <Center w="full">
                 {/* <Button w="full" type='file'>Changer l'icon</Button> */}

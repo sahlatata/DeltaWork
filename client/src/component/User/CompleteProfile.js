@@ -39,15 +39,16 @@ return(
 
 {/* ***********titre *********** */}
 <Stack spacing={{ base: '4', md: '5' }} align="center">
-<Heading size={useBreakpointValue({ base: 'sm', md: 'md' })}>Completer votre Profil ! </Heading>
+<Heading  fontSize={'4xl'} color={useColorModeValue('bleub.500', 'discord.50')}>Completer votre Profil ! </Heading>
+
 <Text color="muted" maxW="2xl" textAlign="center" fontSize="xl">
-Completer votre profil pour pouvoir profiter de l'integralité de nos fonctions 
+Pour pouvoir profiter de l'integralité de nos fonctions 
 </Text>
 
 {/* ******************************numero de telephone**************************************************** */}
 
   <FormControl>
-  <FormLabel >Numero de telephone</FormLabel>
+  <FormLabel color={useColorModeValue('bleub.500', 'discord.50')} >Numero de telephone</FormLabel>
   <InputGroup>
   <InputLeftElement pointerEvents='none' children={<PhoneIcon/>}/>
   <Input onChange={(e)=>setNumero(e.target.value)} type='tel' placeholder='numero' />
@@ -59,7 +60,7 @@ Completer votre profil pour pouvoir profiter de l'integralité de nos fonctions
 
 {/* **********************************************Domaine**************************************************** */}
 <FormControl>
-  <FormLabel>Domaine d'activité</FormLabel>
+  <FormLabel color={useColorModeValue('bleub.500', 'discord.50')}>Domaine d'activité</FormLabel>
   <Select onChange={(e)=>setDomaine(e.target.value)} placeholder="Selectionner votre domaine d'activité">
     <option>Developpement mobile </option>
     <option>developpement web  </option>
@@ -70,14 +71,14 @@ Completer votre profil pour pouvoir profiter de l'integralité de nos fonctions
 </FormControl>
 {/* **********************************************Niveau**************************************************** */}
 <FormControl as='fieldset'>
-  <FormLabel as='legend'>Niveau</FormLabel>
+  <FormLabel as='legend' color={useColorModeValue('bleub.500', 'discord.50')}>Niveau</FormLabel>
   <RadioGroup onChange={setNiveau} defaultValue='Débutant'>
   
     <HStack  spacing='24px'>
     <Stack >
-      <Radio value='Débutant'>Débutant</Radio>
-      <Radio value='Intermediaire'>Intermediaire</Radio>
-      <Radio value='Professionel'>Professionel</Radio>
+      <Radio value='Débutant' colorScheme='orange'>Débutant</Radio>
+      <Radio value='Intermediaire' colorScheme='orange'>Intermediaire</Radio>
+      <Radio value='Professionel' colorScheme='orange'>Professionel</Radio>
       </Stack>
     </HStack>
  </RadioGroup>
@@ -90,7 +91,7 @@ Completer votre profil pour pouvoir profiter de l'integralité de nos fonctions
 </Stack>
 {/* **********************************Description**************************************************** */}
 <FormControl id="name">
-<FormLabel>Description</FormLabel>
+<FormLabel color={useColorModeValue('bleub.500', 'discord.50')}>Description</FormLabel>
 <Textarea  onChange={(e)=>setDescription(e.target.value)} borderColor="gray.300" _hover={{ borderRadius: 'gray.300', }} placeholder="message"/>
 <FormHelperText>Decrivez votre parcours scolaire,experience Professionel, vos atous... </FormHelperText>
 </FormControl>
@@ -99,15 +100,10 @@ Completer votre profil pour pouvoir profiter de l'integralité de nos fonctions
 
 
 <FormControl>
-  <FormLabel >Technologies</FormLabel>
+  <FormLabel color={useColorModeValue('bleub.500', 'discord.50')}>Technologies</FormLabel>
   <Input onChange={(e)=>setTechnologie(e.target.value)}  type='tag' />
 </FormControl>
-<HStack spacing={4}>
-<Tag borderRadius='full' variant='solid' colorScheme='green'>
-      <TagLabel>Green</TagLabel>
-      <TagCloseButton />
-</Tag>
-</HStack>
+
 
 
 

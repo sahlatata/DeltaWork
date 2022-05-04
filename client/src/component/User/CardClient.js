@@ -12,19 +12,19 @@ import { GoVerified ,GoMail,GoDeviceMobile, GoPencil,GoGlobe,GoCalendar } from '
         const navigate = useNavigate()
         const handleDelete =(e)=>{
         e.preventDefault()
-        dispatch(deleteUser (Freelancer._id , navigate))
+        dispatch(deleteUser (Client._id , navigate))
 
     }
             useEffect(()=>{
             dispatch(current())
             },[])
 
-const Freelancer = useSelector(state=>state.UserReducer.User)
+const Client = useSelector(state=>state.UserReducer.User)
         return (
 <Box boxShadow='lg' w={'full'} bg={useColorModeValue('white', 'gray.900')} rounded={'lg'}p={6}>
 <Box bg={useColorModeValue('white', 'gray.700')} maxWidth="2xl" mx="auto" p={{base: '6',md: '8',}}rounded={{sm: 'lg',}}shadow={{md: 'base',}}>
 <Stack direction={{base: 'column',md: 'row',}} spacing={{base: '4',md: '10'}}>
-<Avatar size="2xl" name="Samantha"src={Freelancer.image}>
+<Avatar size="2xl" name="Samantha"src={Client.image}>
 <AvatarBadge borderWidth="4px" borderColor={'white'} insetEnd="3" bottom="3">
 <Icon as={GoVerified} fontSize="2xl" color={useColorModeValue('bleub.500', 'discord.50')} />
 </AvatarBadge> 
@@ -34,39 +34,33 @@ const Freelancer = useSelector(state=>state.UserReducer.User)
 <Flex justifyContent="space-between" alignItems="center">
 <Heading size="md" fontWeight="bold" letterSpacing="tight" marginEnd="6"
 color={useColorModeValue('bleub.500', 'discord.50')}>
-{Freelancer.nom} {Freelancer.prenom}
+{Client.nom} {Client.prenom}
 </Heading>
 
 {/* *************************************************************** */}
-<Link as={RouteLink} to={`/EditFreelancer/${Freelancer._id}`}><Button size="sm"  leftIcon={<Icon as={GoPencil}  marginStart="-1" />} >
+<Link as={RouteLink} to={`/EditClient/${Client._id}`}><Button size="sm"  leftIcon={<Icon as={GoPencil}  marginStart="-1" />} >
 Edit
 </Button></Link>
 {/* *************************************************************** */}
 </Flex>
 <Text mt="1" fontWeight="medium">
-{Freelancer.role} 
+{Client.role} 
     </Text>
     <Stack spacing="1" mt="2">
     <HStack fontSize="sm">
         <Icon as={GoGlobe} color={useColorModeValue('bleub.500', 'discord.50')} />
-        <Text>{Freelancer.pays} </Text>
+        <Text>{Client.pays} </Text>
     </HStack>
     <HStack fontSize="sm">
         <Icon as={GoMail} color={useColorModeValue('bleub.500', 'discord.50')} />
-        <Text>{Freelancer.email} </Text>
+        <Text>{Client.email} </Text>
     </HStack>
-    <HStack fontSize="sm">
-        <Icon as={GoDeviceMobile} color={useColorModeValue('bleub.500', 'discord.50')} />
-        <Text>{Freelancer.numero} </Text>
-    </HStack>
-    </Stack>
-
-    
+    </Stack>  
 </Box>
 </Stack>
 {/* ************** */}
  
-<Stack
+{/* <Stack
     spacing={{ base: 4, sm: 6 }}
     direction={'column'}
     divider={
@@ -80,77 +74,27 @@ Edit
         color={useColorModeValue('bleub.500', 'discord.50')}
         fontWeight={'500'}
         mb={'4'}>
-        Description :
+        Ajouter une nouvelle annonce 
     </Text>
 
     <SimpleGrid  spacing={10}>
     <Text fontSize={'lg'}>
-    {Freelancer.description}
+    {Client.description}
     </Text>
     </SimpleGrid>
     </Box>
-    <Box>
-    <Text
-        fontSize={{ base: '16px', lg: '18px' }}
-        color={useColorModeValue('bleub.500', 'discord.50')}
-        fontWeight={'500'}
-        
-        mb={'4'}>
-        Domaine d'activité :
-    </Text>
-    <SimpleGrid  spacing={10}>
-    <Text fontSize={'lg'} >
-            {Freelancer.domaine}
-    </Text>
-    </SimpleGrid> 
-    </Box>
-    
-    <Box>
-    <Text
-        fontSize={{ base: '16px', lg: '18px' }}
-        color={useColorModeValue('bleub.500', 'discord.50')}
-        fontWeight={'500'}
-       
-        mb={'4'}>
-        Niveau d'expereience :
-    </Text>
-    <SimpleGrid  spacing={10}>
-    <Text fontSize={'lg'} >
-            {Freelancer.niveau}
-    </Text>
-    </SimpleGrid> 
-    </Box>
-
-<Box>
-    <Text
-        fontSize={{ base: '18px', lg: '18px' }}
-        color={useColorModeValue('bleub.500', 'discord.50')}
-        fontWeight={'500'}
-        mb={'4'}>
-    Technologie :
-    </Text>
-
-
-    <Wrap shouldWrapChildren>
-
-
-    <Tag>{Freelancer.technologie}</Tag>
-
-    </Wrap>
-
-    
-    </Box>
-
-
-    
-
-
-</Stack>
+</Stack> */}
 
 
             
 {/* *******************   */}
-
+<Stack mt={8} direction={'row'} spacing={4}>
+<Link as={RouteLink} to='/AddAnnonce'><Button   
+flex={1} fontSize={'sm'}  _focus={{bg: 'gray.200', }}>
+Ajouter une nouvelle annonce
+</Button></Link>
+</Stack>
+{/* *******************   */}
 
 </Box>
 </Box>

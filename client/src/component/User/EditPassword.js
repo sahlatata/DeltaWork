@@ -31,14 +31,14 @@ const errors = useSelector(state=>state.errorReducer)
     <Stack align={'center'}>
     
     <Text fontSize={'lg'} color={'gray.600'}>
-    Changer votre  <Link color={'blue.400'}>mot de passe</Link> ✌️
+    Changer votre  <Link color={useColorModeValue('bleub.500', 'discord.50')}>mot de passe</Link> ✌️
     </Text>
     </Stack>
     <Box rounded={'lg'} bg={useColorModeValue('white', 'gray.700')} boxShadow={'lg'} p={8}>
     <Stack spacing={4}>
     
     <FormControl >
-        <FormLabel htmlFor='password'>Ancien mot de passe </FormLabel>
+        <FormLabel htmlFor='password' >Ancien mot de passe </FormLabel>
         <Input type="password" onChange={(e)=>setOldPassword(e.target.value)}/>
     </FormControl>
     
@@ -48,7 +48,7 @@ const errors = useSelector(state=>state.errorReducer)
     </FormControl>
     <Errors/>
     <Stack spacing={10}>
-    <Button onClick={(e)=>handleEdit(e)} bg={'blue.400'} color={'white'} _hover={{ bg: 'blue.500',}}>
+    <Button onClick={(e)=>handleEdit(e)} >
     Changer
     </Button>
 

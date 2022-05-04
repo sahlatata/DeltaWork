@@ -30,11 +30,11 @@ return (
 <Flex minH={'100vh'} align={'center'}justify={'center'}bg={useColorModeValue('gray.50', 'gray.800')}> 
 <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
 <Stack align={'center'}>
-    <Heading fontSize={'4xl'} textAlign={'center'}>
+    <Heading fontSize={'4xl'} textAlign={'center'} color={useColorModeValue('bleub.500', 'discord.50')}>
     Creer un compte
     </Heading>
     <Text fontSize={'lg'} color={'gray.600'}>
-    Pour postuler a l'annonce de votre choix  ✌️
+    Pour postuler a un job ou poster  une annonce  ✌️
     </Text>
 </Stack>
 <Box rounded={'lg'}bg={useColorModeValue('white', 'gray.700')}boxShadow={'lg'}p={8}>
@@ -43,7 +43,7 @@ return (
     {/* ****************role********************* */}
     <HStack>
     <FormControl id="firstName" isRequired>
-        <FormLabel>Vous etes :</FormLabel>
+        <FormLabel color={useColorModeValue('bleub.500', 'discord.50')}>Vous etes :</FormLabel>
     <RadioGroup  onChange={setRole} defaultValue='2'>
     <Stack spacing={5} direction='row'>
     <Radio colorScheme='blue' value='Freelancer' onClick='role()' >Freelancer</Radio>
@@ -56,26 +56,26 @@ return (
     <HStack>
     <Box>
         <FormControl id="firstName" isRequired>
-        <FormLabel color="bleub.500">Prenom</FormLabel>
+        <FormLabel color={useColorModeValue('bleub.500', 'discord.50')}>Prenom</FormLabel>
         <Input type="text" onChange={(e)=>setPrenom(e.target.value)}/>
         </FormControl>
     </Box>
     <Box>
         <FormControl id="lastName">
-        <FormLabel>Nom</FormLabel>
+        <FormLabel color={useColorModeValue('bleub.500', 'discord.50')}>Nom</FormLabel>
         <Input type="text" onChange={(e)=>setNom(e.target.value)}/>
         </FormControl>
     </Box>
     </HStack>
 <FormControl id="email" isRequired>
-    <FormLabel>Adress Email</FormLabel>
+    <FormLabel color={useColorModeValue('bleub.500', 'discord.50')}>Adress Email</FormLabel>
     <Input type="email" onChange={(e)=>setEmail(e.target.value)}/>
 </FormControl>
 {/* ***********Pays*************** */}
 
 
 <FormControl>
-<FormLabel >Country</FormLabel>
+<FormLabel color={useColorModeValue('bleub.500', 'discord.50')}>Country</FormLabel>
 <Select id='pays'  onChange={(e)=>setPays(e.target.value)} placeholder='Selectionner votre pays'>
     <option>Tunisie</option>
     <option>France</option>
@@ -89,7 +89,7 @@ return (
 
 {/* ************************** */}
 <FormControl id="password" isRequired>
-    <FormLabel>Mot de passe</FormLabel>
+    <FormLabel color={useColorModeValue('bleub.500', 'discord.50')}>Mot de passe</FormLabel>
     <InputGroup>
     <Input type={showPassword ? 'text' : 'password'} onChange={(e)=>setPassword(e.target.value)} />
     <InputRightElement h={'full'}>
@@ -105,7 +105,7 @@ return (
 </Stack>
 <Stack pt={6}>
     <Text align={'center'}>
-    Vous avez déja un compte ?  <Link as={RouteLink} to="/SignIn" color={'blue.400'}> Connexion </Link>
+    Vous avez déja un compte ?  <Link as={RouteLink} to="/SignIn" color={useColorModeValue('bleub.500', 'discord.50')}> Connexion </Link>
     </Text>
 </Stack>
 </Stack>

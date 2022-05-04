@@ -39,7 +39,7 @@ const dispatch=useDispatch()
             
   <Link as={RouteLink} to={`/ViewProfilByClient/${el.FreelancerId._id}`}>
                   
-                <Heading fontSize={'xl'} fontWeight={500} fontFamily={'body'}>
+                <Heading fontSize={'xl'} fontWeight={500} fontFamily={'body'} color={useColorModeValue('bleub.500', 'discord.50')} >
                   {el.FreelancerId.nom} {el.FreelancerId.prenom}
   </Heading>
   </Link>
@@ -47,8 +47,8 @@ const dispatch=useDispatch()
               </Stack>
     
               <Stack direction={'row'} justify={'center'} spacing={12} mt={1}>
-                  <Button><CheckIcon w={4} h={4} color='green'/></Button> 
-                  <Button><CloseIcon w={4} h={4} color="red"/></Button>
+                  <Button><CheckIcon w={4} h={4} /></Button> 
+                  <Button><CloseIcon w={4} h={4} /></Button>
               </Stack>
             </Box>
             </HStack>

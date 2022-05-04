@@ -1,4 +1,4 @@
-import { Box, Button, Container, Input, Select, Stack, Text, useColorModeValue, useBreakpointValue, Heading, FormControl, FormLabel, Textarea, FormHelperText  } from '@chakra-ui/react';
+import { Box, Button, Container, Input, Select, Stack, Text, useColorModeValue, useBreakpointValue, Heading, FormControl, FormLabel, Textarea, FormHelperText, Flex  } from '@chakra-ui/react';
 import  { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -25,40 +25,40 @@ return (
     
             
 
-<Box  w={'full'} bg={useColorModeValue('white', 'gray.900')}ounded={'lg'}p={6}>
-<Container boxShadow='lg' py={{ base: '16', md: '1' }}>
-<Stack spacing={{ base: '4', md: '5' }} >
-<Heading size={useBreakpointValue({ base: 'sm', md: 'md' })} align="center">Completer votre Profil ! </Heading>
+<Flex minH={'100vh'}   align={'center'}justify={'center'}  bg={useColorModeValue('gray.50', 'gray.800')}>
+<Stack spacing={4} w={'full'} maxW={'xl'} bg={useColorModeValue('white', 'gray.700')} rounded={'xl'} boxShadow={'lg'} p={6} my={12}>
+<Stack  spacing={{ base: '4', md: '5' }} >
+<Heading fontSize={'4xl'} align="center" color={useColorModeValue('bleub.500', 'discord.50')}>Creer une Annonce ! </Heading>
 <Text color="muted" maxW="2xl" textAlign="center" fontSize="xl">
-Completer votre profil pour pouvoir profiter de l'integralité de nos fonctions 
+Rédiger une offre d'emploi attractive !!
 </Text>
 
 <FormControl>
-  <FormLabel htmlFor='email'>Titre</FormLabel>
+  <FormLabel htmlFor='email'color={useColorModeValue('bleub.500', 'discord.50')}>Titre</FormLabel>
   <Input  onChange={(e)=>setTitre(e.target.value)} />
   <FormHelperText>Entrer le titre de l'annonce</FormHelperText>
 </FormControl>
 
 <FormControl id="name">
-<FormLabel>Description</FormLabel>
+<FormLabel color={useColorModeValue('bleub.500', 'discord.50')}>Description de l'annonce</FormLabel>
 <Textarea borderColor="gray.300" _hover={{ borderRadius: 'gray.300', }} onChange={(e)=>setDescription(e.target.value)} placeholder="message"/>
-<FormHelperText>Decrivez votre parcours scolaire,experience Professionel, vos atous... </FormHelperText>
+<FormHelperText>Decrivez vos besoins</FormHelperText>
 </FormControl>
    
 <FormControl>
-  <FormLabel htmlFor='email'>Technologies</FormLabel>
+  <FormLabel htmlFor='email' color={useColorModeValue('bleub.500', 'discord.50')}>Technologies</FormLabel>
   <Input  onChange={(e)=>setTechnologie(e.target.value)} />
-  <FormHelperText>Entrer les technologies que vous maitrisez</FormHelperText>
+  <FormHelperText>Entrer les technologies dont vous maitrisez</FormHelperText>
 </FormControl>
 
 <FormControl>
-  <FormLabel htmlFor='email'>Budget</FormLabel>
+  <FormLabel htmlFor='email' color={useColorModeValue('bleub.500', 'discord.50')}>Budget</FormLabel>
   <Input  onChange={(e)=>setBudget(e.target.value)} />
   <FormHelperText>Entrer le budget</FormHelperText>
 </FormControl>
 
 <FormControl>
-  <FormLabel htmlFor='country' >Domaine d'activité</FormLabel>
+  <FormLabel htmlFor='country' color={useColorModeValue('bleub.500', 'discord.50')} >Domaine d'activité</FormLabel>
   <Select   placeholder="Selectionner votre domaine d'activité" value={domaine} onChange={(e)=>setDomaine(e.target.value)}>
     <option>Developpement mobile </option>
     <option>Developpement web  </option>
@@ -68,7 +68,7 @@ Completer votre profil pour pouvoir profiter de l'integralité de nos fonctions
   </Select>
 </FormControl>   
 <FormControl>
-  <FormLabel htmlFor='country' >Niveau</FormLabel>
+  <FormLabel htmlFor='country' color={useColorModeValue('bleub.500', 'discord.50')} >Niveau</FormLabel>
   <Select   placeholder="Selectionner votre domaine d'activité"  value={niveau} onChange={(e)=>setNiveau(e.target.value)}>
     <option>Débutant </option>
     <option>Intermediaire</option>
@@ -80,8 +80,8 @@ Completer votre profil pour pouvoir profiter de l'integralité de nos fonctions
 
 <Button onClick={(e)=>handleAdd(e)}>Poster</Button>
 </Stack>
-</Container>   
-</Box> 
+</Stack>   
+</Flex> 
 
         </div>
     );

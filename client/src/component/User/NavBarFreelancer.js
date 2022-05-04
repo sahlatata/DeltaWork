@@ -74,7 +74,7 @@ Freelancer.image
 </MenuButton>
 <ColorModeSwitcher justifySelf="flex-end" />
 <MenuList>
-<Link as={RouteLink} to={`/EditUser/${Freelancer._id}`}><MenuItem>Modifier le profil</MenuItem></Link>
+<Link as={RouteLink} to={`/EditFreelancer/${Freelancer._id}`}><MenuItem>Modifier le profil</MenuItem></Link>
 <Link as={RouteLink} to={`/EditPassword/${Freelancer._id}`}><MenuItem>Changer le mot de passe</MenuItem></Link>
 <MenuItem onClick={handleDelete}>Supprimer le compte</MenuItem>
 

@@ -97,7 +97,7 @@ src={'https://avatars.dicebear.com/api/male/username.svg'}
 <MenuDivider />
 <MenuItem onClick={handleDelete}>Supprimer le compte</MenuItem>
 <Link as={RouteLink} to={`/EditPassword/${User._id}`}><MenuItem>Changer le mot de passe</MenuItem></Link>
-<Link as={RouteLink} to={`/EditUser/${User._id}`}><MenuItem>Edit profile</MenuItem></Link>
+<Link as={RouteLink} to={`/EditClient/${User._id}`}><MenuItem>Edit profile</MenuItem></Link>
 <MenuItem onClick={()=>{dispatch(logout());navigate('/')}}>Logout</MenuItem>
 </MenuList>
 </Menu>

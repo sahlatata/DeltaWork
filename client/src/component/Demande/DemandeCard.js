@@ -31,7 +31,7 @@ function DemandeCard ({el}) {
     </Tag>
     <Stack>
     
-    <Heading color={useColorModeValue('gray.700', 'white')} fontSize={'2xl'} fontFamily={'body'}>
+    <Heading color={useColorModeValue('bleub.500', 'discord.50')} fontSize={'2xl'} fontFamily={'body'}>
           {el.AnnonceId.titre} 
           
         </Heading>

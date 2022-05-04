@@ -49,7 +49,8 @@ User.role == "Freelancer" ? <NavBarFreelancer/> : <NavBarClient/>
 <Heading
 lineHeight={1.1}
 fontWeight={600}
-fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}>
+fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}
+color={useColorModeValue('bleub.500', 'discord.50')}>
 {oneAnnonce.titre}
 </Heading>
 <Text

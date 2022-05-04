@@ -26,14 +26,14 @@ const CardAnnonce=({el})=>{
       <Box
         maxW={'700px'}
         w={'full'}
-        bg={useColorModeValue('white', 'gray.900')}
+        bg={useColorModeValue('white', 'gray.700')}
         boxShadow={'2xl'}
         rounded={'md'}
         p={6}
         overflow={'hidden'}>
         <Stack>
         <Heading
-              color={useColorModeValue('gray.700', 'white')}
+              color={useColorModeValue('bleub.500', 'discord.50')}
               fontSize={'2xl'}
               fontFamily={'body'}>
               {el.titre}

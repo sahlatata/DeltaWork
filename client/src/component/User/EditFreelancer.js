@@ -1,13 +1,12 @@
 import {Button,Flex,FormControl,FormLabel,Heading, Input, Stack, useColorModeValue, Avatar, AvatarBadge, IconButton, Center, Select, Textarea,
 } from '@chakra-ui/react';
-import { SmallCloseIcon } from '@chakra-ui/icons';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { current, editUser } from '../../Redux/Actions/UserActions';
-import NavBarClient from '../User/NavBarClient';
+import NavBarClient from './NavBarClient';
 
-import NavBarFreelancer from '../User/NavBarFreelancer';
+import NavBarFreelancer from './NavBarFreelancer';
 export default function EditUser(){
     const {id}=useParams()
     const dispatch = useDispatch()
@@ -55,24 +54,30 @@ export default function EditUser(){
             dispatch(editUser(id,data))
             navigate('/Profile')
     }
+    
+    const Freelancer = useSelector(state=>state.UserReducer.User)
+
 
 return (
     <div>
-        {
-            User.role=='Freelancer'? <NavBarFreelancer/>: <NavBarClient/>
-        }
+        <NavBarFreelancer/>
+        
     
 <Flex minH={'100vh'}   align={'center'}justify={'center'}  bg={useColorModeValue('gray.50', 'gray.800')}>
 <Stack spacing={4} w={'full'} maxW={'md'} bg={useColorModeValue('white', 'gray.700')} rounded={'xl'} boxShadow={'lg'} p={6} my={12}>
-<Heading lineHeight={1.1} fontSize={{ base: '2xl', sm: '3xl' }}>
-Modifier le profil
+<Heading  align={'center'} lineHeight={1.1} fontSize={{ base: '2xl', sm: '3xl' }} color={useColorModeValue('bleub.500', 'discord.50')}>
+Modifier votre profil
 </Heading>
-<FormControl id="userName">
-            <FormLabel>Mon icon</FormLabel>
+
+<FormControl pt={2} id="userName">
+            <FormLabel  color={useColorModeValue('bleub.500', 'discord.50')}>Mon icon</FormLabel>
             <Stack direction={['column', 'row']} spacing={6}>
             <Center>
-                <Avatar size="xl" src={image}>
-                </Avatar>
+
+
+            <Avatar size="xl" src={Freelancer.image}>
+            </Avatar>
+
             </Center>
             <Center w="full">
                 {/* <Button w="full" type='file'>Changer l'icon</Button> */}
@@ -83,41 +88,39 @@ Modifier le profil
 
 
         <FormControl id="userName" >
-            <FormLabel>Nom</FormLabel>
+            <FormLabel color={useColorModeValue('bleub.500', 'discord.50')} >Nom</FormLabel>
             <Input value ={nom} onChange={(e)=>setNom(e.target.value)} placeholder="UserName" _placeholder={{ color: 'gray.500' }}type="text" />
         </FormControl>
         <FormControl id="userName" >
-            <FormLabel>Prenom</FormLabel>
+            <FormLabel color={useColorModeValue('bleub.500', 'discord.50')} >Prenom</FormLabel>
             <Input  value ={prenom} onChange={(e)=>setPrenom(e.target.value)} placeholder="UserName" _placeholder={{ color: 'gray.500' }}type="text" />
         </FormControl>
         <FormControl id="userName" >
-            <FormLabel>Pays</FormLabel>
+            <FormLabel color={useColorModeValue('bleub.500', 'discord.50')} >Pays</FormLabel>
             <Input  value ={pays} onChange={(e)=>setPays(e.target.value)} placeholder="UserName" _placeholder={{ color: 'gray.500' }}type="text" />
         </FormControl>
         <FormControl id="email" >
-            <FormLabel>Adresse email</FormLabel>
+            <FormLabel  color={useColorModeValue('bleub.500', 'discord.50')}>Adresse email</FormLabel>
             <Input  value ={email} onChange={(e)=>setEmail(e.target.value)} placeholder="UserName" _placeholder={{ color: 'gray.500' }}type="email" />
         </FormControl>
-        {
-            User.role=="Freelancer" &&
-<>
+      
         <FormControl id="userName" >
-            <FormLabel>Numero</FormLabel>
+            <FormLabel color={useColorModeValue('bleub.500', 'discord.50')} >Numero</FormLabel>
             <Input value ={numero} onChange={(e)=>setNumero(e.target.value)} placeholder="UserName" _placeholder={{ color: 'gray.500' }}type="text" />
         </FormControl>
 
         <FormControl id="name">
-        <FormLabel>Description</FormLabel>
+        <FormLabel color={useColorModeValue('bleub.500', 'discord.50')}>Description</FormLabel>
         <Textarea  value ={description} onChange={(e)=>setDescription(e.target.value)} borderColor="gray.300" _hover={{ borderRadius: 'gray.300', }} placeholder="message"/>
         </FormControl>
 
         <FormControl>
-        <FormLabel >Technologies</FormLabel>
+        <FormLabel color={useColorModeValue('bleub.500', 'discord.50')} >Technologies</FormLabel>
         <Input value ={technologie} onChange={(e)=>setTechnologie(e.target.value)}  type='subtle' />
         </FormControl>
 
         <FormControl>
-            <FormLabel>Domaine d'activité</FormLabel>
+            <FormLabel color={useColorModeValue('bleub.500', 'discord.50')}>Domaine d'activité</FormLabel>
                 <Select onChange={(e)=>setDomaine(e.target.value)} placeholder="Selectionner votre domaine d'activité">
                     <option>Developpement mobile</option>
                     <option>developpement web</option>
@@ -128,7 +131,7 @@ Modifier le profil
             </FormControl>
 
             <FormControl>
-            <FormLabel>Niveau</FormLabel>
+            <FormLabel color={useColorModeValue('bleub.500', 'discord.50')}>Niveau</FormLabel>
             <Select onChange={(e)=>setNiveau(e.target.value)} placeholder="Selectionner votre domaine d'activité">
                 <option>Débutant</option>
                 <option>Intermediare</option>
@@ -136,13 +139,13 @@ Modifier le profil
             </Select>
             </FormControl>
 
-            </>}
+         
             
 <Stack spacing={6} direction={['column', 'row']}>
 <Button   w="full">
             Anuler
 </Button>
-<Button   onClick={(e)=>handleEdit(e)} bg={'blue.400'} color={'white'} w="full" _hover={{ bg: 'blue.500',}}>
+<Button   onClick={(e)=>handleEdit(e)}  w="full" >
             Modifier
 </Button>
         </Stack>

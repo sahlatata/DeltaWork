@@ -25,7 +25,7 @@ const CardAnnonce=({el})=>{
     return(
         <div>
     <Center py={6}>
-      <Box maxW={'700px'} w={'full'} bg={useColorModeValue('white', 'gray.900')} boxShadow={'2xl'}rounded={'md'} p={6} overflow={'hidden'}>
+      <Box maxW={'700px'} w={'full'} bg={useColorModeValue('white', 'gray.700')} boxShadow={'2xl'}rounded={'md'} p={6} overflow={'hidden'}>
         <Stack>
           
             

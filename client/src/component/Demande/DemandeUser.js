@@ -49,7 +49,7 @@ const handleDelete=(e)=>{
             
   <Link as={RouteLink} to={`/ViewProfilByClient/${el.FreelancerId._id}`}>
                   
-                <Heading fontSize={'xl'} fontWeight={500} fontFamily={'body'}>
+                <Heading fontSize={'xl'} fontWeight={500} fontFamily={'body'} color={useColorModeValue('bleub.500', 'discord.50')} >
                   {el.FreelancerId.nom} {el.FreelancerId.prenom}
   </Heading>
   </Link>
@@ -57,8 +57,12 @@ const handleDelete=(e)=>{
               </Stack>
     
               <Stack direction={'row'} justify={'center'} spacing={12} mt={1}>
-                  <Button onClick={(e)=>handleEdit(e)}><CheckIcon w={4} h={4} color='green'/></Button> 
-                  <Button onClick={(e)=>handleDelete(e)}><CloseIcon w={4} h={4} color="red"/></Button>
+
+                 
+
+                  <Button onClick={(e)=>handleEdit(e)}><CheckIcon w={4} h={4}/></Button> 
+                  <Button onClick={(e)=>handleDelete(e)}><CloseIcon w={4} h={4}/></Button>
+
               </Stack>
             </Box>
             </HStack>

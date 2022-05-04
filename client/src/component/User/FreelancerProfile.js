@@ -32,7 +32,7 @@ return (
         <NavBarFreelancer/> 
 
 <Container maxW="container.xl">
-<Box w={'full'} boxShadow={'lg'} rounded={'lg'} p={6} mt={10} mb={10} >
+<Box w={'full'} boxShadow={'lg'} rounded={'lg'} p={6} mt={10} mb={10} bg={useColorModeValue('white', 'gray.700')}  >
 <Text  fontSize='xl'>
 {dateLocale}
 </Text>
@@ -49,17 +49,17 @@ return (
 {/* **********carte profile************** */}
 <CardFreelancer />
 {/* ********** input ************** */}
-<Stack spacing={{ base: 6, md: 10 }}>
-<Stack direction={'row'}>
-<Input placeholder='Chercher une annonce' />
+<Stack spacing={{ base: 6, md: 10 }}  >
+<Stack direction={'row'} >
+<Input placeholder='Chercher une annonce' bg={useColorModeValue('white', 'gray.700')}/>
 <IconButton aria-label='Search database' icon={<SearchIcon />} />
 </Stack>
 {/* **********menue ************** */}
 <Box  w={'full'} boxShadow={'lg'} rounded={'lg'} p={6} mt={10} mb={10} >
-<Tabs>
+<Tabs colorScheme="dark"> 
 <TabList >
-<Tab >Annonces enregistrées </Tab>
-{/* <Tab>Annonces récentes</Tab> */}
+<Tab >Demandes en attentes </Tab>
+<Tab>Demandes acceptées</Tab>
 </TabList>
 <TabPanels>
 

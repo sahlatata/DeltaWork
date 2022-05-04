@@ -10,7 +10,8 @@ import { ChakraProvider } from "@chakra-ui/react";
 import FreelancerProfile from './component/User/FreelancerProfile'
 import Register from './component/Register'
 import SignIn from './component/SignIn';
-import EditUser from './component/User/EditUser'
+import EditFreelancer from './component/User/EditFreelancer'
+import EditClient from './component/User/EditClient'
 import CardAnnonce from './component/Annonce/CardAnnonce';
 import ListAnnonces from './component/Annonce/ListAnnonces';
 import CardDetail from './component/Annonce/CardDetail';
@@ -41,7 +42,8 @@ function App() {
           <Route path='/Profile' element={<PrivateRoute><FreelancerProfile/></PrivateRoute>}/> 
           <Route path='/Register' element={<Register/>}/>
           <Route path='/SignIn' element={<SignIn/>}/>
-          <Route path='/EditUser/:id' element={<EditUser/>}/>
+          <Route path='/EditFreelancer/:id' element={<EditFreelancer/>}/>
+          <Route path='/EditClient/:id' element={<EditClient/>}/>
           <Route path='/ListAnnonces' element={<ListAnnonces/>}/>
           <Route path='/AnnonceDetail/:id' element={<CardDetail/>}/>
           <Route path='/ProfileClient' element={<ProfileClient/>}/>

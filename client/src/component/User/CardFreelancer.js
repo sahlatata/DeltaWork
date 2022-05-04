@@ -24,35 +24,40 @@ const Freelancer = useSelector(state=>state.UserReducer.User)
 <Box boxShadow='lg' w={'full'} bg={useColorModeValue('white', 'gray.900')} rounded={'lg'}p={6}>
 <Box bg={useColorModeValue('white', 'gray.700')} maxWidth="2xl" mx="auto" p={{base: '6',md: '8',}}rounded={{sm: 'lg',}}shadow={{md: 'base',}}>
 <Stack direction={{base: 'column',md: 'row',}} spacing={{base: '4',md: '10'}}>
-<Avatar size="2xl" name="Samantha"src={Freelancer.image}>
+<Avatar size="2xl" name="Samantha" src={Freelancer.image}>
 <AvatarBadge borderWidth="4px" borderColor={'white'} insetEnd="3" bottom="3">
-<Icon as={GoVerified} fontSize="2xl" color={'green'} />
+<Icon as={GoVerified} fontSize="2xl" color={useColorModeValue('bleub.500', 'discord.50')} />
 </AvatarBadge> 
 </Avatar>
+
 {/* ************************* */}
 <Box width="full" >
 <Flex justifyContent="space-between" alignItems="center">
-<Heading size="md" fontWeight="extrabold" letterSpacing="tight" marginEnd="6">
+<Heading size="md" fontWeight="bold" letterSpacing="tight" marginEnd="6"
+color={useColorModeValue('bleub.500', 'discord.50')}>
 {Freelancer.nom} {Freelancer.prenom}
 </Heading>
-<Link as={RouteLink} to={`/EditUser/${Freelancer._id}`}><Button size="sm" variant="outline" leftIcon={<Icon as={GoPencil} color="gray.400" marginStart="-1" />} >
+
+{/* *************************************************************** */}
+<Link as={RouteLink} to={`/EditUser/${Freelancer._id}`}><Button size="sm"  leftIcon={<Icon as={GoPencil}  marginStart="-1" />} >
 Edit
 </Button></Link>
+{/* *************************************************************** */}
 </Flex>
 <Text mt="1" fontWeight="medium">
 {Freelancer.role} 
     </Text>
     <Stack spacing="1" mt="2">
     <HStack fontSize="sm">
-        <Icon as={GoGlobe} color="gray.500" />
+        <Icon as={GoGlobe} color={useColorModeValue('bleub.500', 'discord.50')} />
         <Text>{Freelancer.pays} </Text>
     </HStack>
     <HStack fontSize="sm">
-        <Icon as={GoMail} color="gray.500" />
+        <Icon as={GoMail} color={useColorModeValue('bleub.500', 'discord.50')} />
         <Text>{Freelancer.email} </Text>
     </HStack>
     <HStack fontSize="sm">
-        <Icon as={GoDeviceMobile} color="gray.500" />
+        <Icon as={GoDeviceMobile} color={useColorModeValue('bleub.500', 'discord.50')} />
         <Text>{Freelancer.numero} </Text>
     </HStack>
     </Stack>
@@ -73,9 +78,8 @@ Edit
     <Box mt={10}>
     <Text
         fontSize={{ base: '16px', lg: '18px' }}
-        color={useColorModeValue('gray.600', 'yellow.300')}
+        color={useColorModeValue('bleub.500', 'discord.50')}
         fontWeight={'500'}
-        textTransform={'uppercase'}
         mb={'4'}>
         Description :
     </Text>
@@ -89,51 +93,52 @@ Edit
     <Box>
     <Text
         fontSize={{ base: '16px', lg: '18px' }}
-        color={useColorModeValue('gray.600', 'yellow.300')}
+        color={useColorModeValue('bleub.500', 'discord.50')}
         fontWeight={'500'}
-        textTransform={'uppercase'}
+        
         mb={'4'}>
         Domaine d'activité :
     </Text>
     <SimpleGrid  spacing={10}>
     <Text fontSize={'lg'} >
             {Freelancer.domaine}
-     </Text>
-     </SimpleGrid> 
+    </Text>
+    </SimpleGrid> 
     </Box>
     
     <Box>
     <Text
         fontSize={{ base: '16px', lg: '18px' }}
-        color={useColorModeValue('gray.600', 'yellow.300')}
+        color={useColorModeValue('bleub.500', 'discord.50')}
         fontWeight={'500'}
-        textTransform={'uppercase'}
+       
         mb={'4'}>
         Niveau d'expereience :
     </Text>
     <SimpleGrid  spacing={10}>
     <Text fontSize={'lg'} >
             {Freelancer.niveau}
-     </Text>
-     </SimpleGrid> 
-     </Box>
+    </Text>
+    </SimpleGrid> 
+    </Box>
 
 <Box>
     <Text
-        fontSize={{ base: '16px', lg: '18px' }}
-        color={useColorModeValue('gray.600', 'yellow.300')}
+        fontSize={{ base: '18px', lg: '18px' }}
+        color={useColorModeValue('bleub.500', 'discord.50')}
         fontWeight={'500'}
-        textTransform={'uppercase'}
         mb={'4'}>
     Technologie :
     </Text>
 
+
     <Wrap shouldWrapChildren>
-    <Tag>Productivity</Tag>
-    <Tag>Work</Tag>
-    <Tag>Business</Tag>
-    <Tag>Woman</Tag>
+
+
+    <Tag>{Freelancer.technologie}</Tag>
+
     </Wrap>
+
     
     </Box>
 
@@ -152,11 +157,12 @@ flex={1} fontSize={'sm'} rounded={'full'} _focus={{bg: 'gray.200', }}>
 Effacer
 </Button>
 <Link as={RouteLink} to={`/EditUser/${Freelancer._id}`}><Button 
-flex={1} fontSize={'sm'} rounded={'full'}bg={'blue.400'}  color={'white'} boxShadow={'0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'} _hover={{ bg: 'blue.500',}}_focus={{   bg: 'blue.500',}}>
+flex={1} fontSize={'sm'} rounded={'full'}bg={'bleub.200'}  color={'white'} boxShadow={'0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'} _hover={{ bg: 'blue.500',}}_focus={{   bg: 'blue.500',}}>
 Edit
 </Button></Link>
 </Stack>
 {/* *******************   */}
+
 </Box>
 </Box>
         );

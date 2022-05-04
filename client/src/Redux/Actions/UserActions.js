@@ -1,4 +1,4 @@
-import { CURRENT, FAIL, LOGIN, LOGOUT, REGISTER } from "../ActionsTypes/UserTypes"
+import { CURRENT, FAIL, GETONEUSER, LOGIN, LOGOUT, REGISTER } from "../ActionsTypes/UserTypes"
 import axios from 'axios'
 import { alertError } from "./errorAction"
 
@@ -118,3 +118,14 @@ export const editpassword =(passwords,navigate)=>async(dispatch)=>{
     }
 
 /********************************************Complete profile************************* */
+export const getOneUser=(id)=>async(dispatch)=>{
+    try {
+        const res = await axios.get(`/api/auth/GetOneUser/${id}`)
+        dispatch({
+            type:GETONEUSER,
+            payload : res.data
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}

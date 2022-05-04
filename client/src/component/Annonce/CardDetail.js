@@ -11,13 +11,16 @@ import NavBarFreelancer from '../User/NavBarFreelancer';
 import NavBarClient from '../User/NavBarClient'
 import { addDemande, getDemande } from '../../Redux/Actions/DemandeActions';
 import DemandeUser from '../Demande/DemandeUser'
+import { getOneUser } from '../../Redux/Actions/UserActions';
 const CardDetail=()=>{
 const dispatch = useDispatch()
 const navigate = useNavigate()
 const {id} = useParams()
 const [status,setStatus] =useState('')
-
-
+const oneAnnonce = useSelector(state=>state.AnnonceReducer.Annonce)
+const User = useSelector(state=>state.UserReducer.User)
+const Demandes = useSelector(state=>state.DemandeReducer.Demandes)
+const oneUser = useSelector(state=>state.UserReducer.oneUser)
 const handleAdd=()=>{
 dispatch(addDemande(id,navigate))
 
@@ -26,16 +29,14 @@ dispatch(addDemande(id,navigate))
 useEffect(()=>{
 dispatch(getOneAnnonce(id))
 dispatch(getDemande())
+dispatch(getOneUser(oneAnnonce.client))
 // // Demandes.map(el=> User._id === el.FreelancerId._id && oneAnnonce._id === el.AnnonceId._id &&
 // //   setStatus(el.status)
   
 //  )
+},[oneAnnonce])
 
-
-},)
-const oneAnnonce = useSelector(state=>state.AnnonceReducer.Annonce)
-const User = useSelector(state=>state.UserReducer.User)
-const Demandes = useSelector(state=>state.DemandeReducer.Demandes)
+console.log(oneAnnonce)
 return(
 <>
 {
@@ -62,14 +63,15 @@ fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}>
 color={useColorModeValue('gray.900', 'gray.400')}
 fontWeight={300}
 fontSize={'2xl'}>
-{oneAnnonce.budget}
+{oneAnnonce.dateAnnonce}
 </Text>
 <Text
 color={useColorModeValue('gray.900', 'gray.400')}
 fontWeight={300}
 fontSize={'2xl'}>
-Date de l'annonce
+{oneAnnonce.budget} {'DT'}
 </Text>
+
 </Box>
 
 <Stack
@@ -88,6 +90,46 @@ fontWeight={'300'}>
 {oneAnnonce.description}
 </Text>
 </VStack>
+
+<Box>
+<Text
+fontSize={{ base: '16px', lg: '18px' }}
+color={useColorModeValue('yellow.500', 'yellow.300')}
+fontWeight={'500'}
+textTransform={'uppercase'}
+mb={'4'}>
+Project Details
+</Text>
+
+<List spacing={2}>
+<ListItem>
+<Text as={'span'} fontWeight={'bold'}>
+  Domaine:{' '}{oneAnnonce.domaine}
+</Text>
+
+</ListItem>
+<ListItem>
+<Text as={'span'} fontWeight={'bold'}>
+  Durée du projet ou date limite:{' '}????
+</Text>
+
+</ListItem>
+
+<ListItem>
+<Text as={'span'} fontWeight={'bold'}>
+  Level:{' '}{oneAnnonce.niveau}
+</Text>
+</ListItem>
+
+<ListItem>
+<Text as={'span'} fontWeight={'bold'}>
+  Prix:{' '}{oneAnnonce.budget} {'DT'}
+</Text>
+</ListItem>
+
+</List>
+
+</Box>
 <Box>
 <Text
 fontSize={{ base: '16px', lg: '18px' }}
@@ -111,39 +153,6 @@ color={useColorModeValue('yellow.500', 'yellow.300')}
 fontWeight={'500'}
 textTransform={'uppercase'}
 mb={'4'}>
-Project Details
-</Text>
-
-<List spacing={2}>
-
-<ListItem>
-<Text as={'span'} fontWeight={'bold'}>
-  Durée du projet ou date limite:
-</Text>{' '}
-????
-</ListItem>
-<ListItem>
-<Text as={'span'} fontWeight={'bold'}>
-  Level:
-</Text>{' '}
-{oneAnnonce.niveau}
-</ListItem>
-<ListItem>
-<Text as={'span'} fontWeight={'bold'}>
-  Prix:
-</Text>{' '}
-</ListItem>
-{oneAnnonce.budget}
-</List>
-
-</Box>
-<Box>
-<Text
-fontSize={{ base: '16px', lg: '18px' }}
-color={useColorModeValue('yellow.500', 'yellow.300')}
-fontWeight={'500'}
-textTransform={'uppercase'}
-mb={'4'}>
 Informations sur le Client
 </Text>
 
@@ -151,22 +160,22 @@ Informations sur le Client
 
 <ListItem>
 <Text as={'span'} fontWeight={'bold'}>
-  Nom et Prénom: 
+  Nom et Prénom :{' '}{oneUser.nom} {oneUser.prenom} 
 </Text>
-{oneAnnonce.client}
 </ListItem>
+
 <ListItem>
 <Text as={'span'} fontWeight={'bold'}>
-  Level:
-</Text>{' '}
-{oneAnnonce.niveau}
+  Pays :{' '}{oneUser.pays}
+</Text>
 </ListItem>
+
 <ListItem>
 <Text as={'span'} fontWeight={'bold'}>
-  Prix:
-</Text>{' '}
+  Email : {' '}{oneUser.email}
+</Text>
 </ListItem>
-{oneAnnonce.budget}
+
 </List>
 
 </Box>
@@ -174,8 +183,9 @@ Informations sur le Client
 
 {
 User.role=='Freelancer' && 
+
 // status == '' ?
-<Button
+ <Button
 rounded={'none'}
 w={'full'}
 mt={8}
@@ -196,11 +206,15 @@ POSTULER
 </Box>
 
 </Box>
-<Box>
-  {
-    User.role === 'Client' &&  
-  Demandes.map(el=> oneAnnonce._id === el.AnnonceId._id && <DemandeUser el={el}/>)
-  }
+
+<Box  pl={40}>
+{User.role === 'Client' && 
+Demandes.map(el=> oneAnnonce._id === el.AnnonceId._id && 
+<Box key={Math.random()} w="400px" boxShadow={'lg'} rounded={'lg'} p={6} mt={10} mb={10}>
+<Text fontWeight={'bold'}>Liste des postulants : </Text>
+<DemandeUser key={Math.random()} el={el}/>
+</Box>
+)}
 </Box>
 </SimpleGrid>
 </>

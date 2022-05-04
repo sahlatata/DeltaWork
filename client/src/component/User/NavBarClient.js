@@ -23,6 +23,7 @@ import { useNavigate } from 'react-router-dom';
 import { logout, deleteUser } from '../../Redux/Actions/UserActions';
 import { Link as RouteLink } from "react-router-dom"
 const NavLink = ({ children }: { children: ReactNode }) => (
+    
 <Link px={2} py={1} rounded={'md'} _hover={{
 textDecoration: 'none',
 bg: useColorModeValue('gray.200', 'gray.700'),
@@ -50,10 +51,10 @@ return (
 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
     <HStack>
 <Box>Logo</Box>
-<Link as={RouteLink} to='/ProfileClient'>  <Button colorScheme='teal' variant='ghost'>Profile</Button></Link>
+<Link as={RouteLink} to='/ProfileClient'> <NavLink>Profile</NavLink></Link>
 <Menu>
-<MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-    Annonces
+<MenuButton p={5} rightIcon={<ChevronDownIcon />}>
+<NavLink >Annonces</NavLink>
 </MenuButton><MenuList>
 <Link as={RouteLink} to='/ListAnnonces'><MenuItem>Voir les annonces </MenuItem></Link>
 <Link as={RouteLink} to='/AddAnnonce'><MenuItem>Creer une annonce</MenuItem></Link>
@@ -78,7 +79,7 @@ cursor={'pointer'}
 minW={0}>
 <Avatar
 size={'sm'}
-src={'https://avatars.dicebear.com/api/male/username.svg'}
+src={User.image}
 />
 </MenuButton>
 <MenuList alignItems={'center'}>
@@ -86,12 +87,12 @@ src={'https://avatars.dicebear.com/api/male/username.svg'}
 <Center>
 <Avatar
 size={'2xl'}
-src={'https://avatars.dicebear.com/api/male/username.svg'}
+src={User.image}
 />
 </Center>
 <br />
 <Center>
-<p>Username</p>
+<p>{User.nom} {User.prenom}</p>
 </Center>
 <br />
 <MenuDivider />

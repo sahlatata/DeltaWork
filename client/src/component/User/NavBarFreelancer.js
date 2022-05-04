@@ -53,7 +53,7 @@ display={{ base: 'none', md: 'flex' }}>
 {/* {Links.map((link) => (
 <NavLink key={link}>{link}</NavLink>
 ))} */}
-<Link as={RouteLink} to="/Profile" ><Button>Profile</Button></Link>
+<Link as={RouteLink} to="/Profile"> Profihhle</Link>
 <Link as={RouteLink} to="/ListAnnonces"><Button>Annonce</Button></Link>
 </HStack>
 </HStack>

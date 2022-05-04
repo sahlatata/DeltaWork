@@ -1,4 +1,4 @@
-import { AddIcon, CheckIcon, CloseIcon } from '@chakra-ui/icons';
+import { CheckIcon, CloseIcon } from '@chakra-ui/icons';
 import {
     Heading,
     Avatar,
@@ -13,49 +13,56 @@ import {
     VStack,
     HStack,
   } from '@chakra-ui/react';
-
-  
- function DemandeUser({el}) {
+import { useDispatch } from 'react-redux';
+import { deleteDemande, updateDemande } from '../../Redux/Actions/DemandeActions';
+import { Link, Link as RouteLink } from "react-router-dom" 
+function DemandeUser({el}) {
+const dispatch=useDispatch()
+const handleEdit=(e)=>{
+  e.preventDefault()
+  dispatch(updateDemande(el._id))
+}
+const handleDelete=(e)=>{
+  e.preventDefault()
+  dispatch(deleteDemande(el._id))
+}
     return (
       
       <Center py={2}>
+        
         <Box
           maxW={'350px'}
           w={'full'}
           bg={useColorModeValue('white', 'gray.700')}
           boxShadow={'2xl'}
           rounded={'md'}
-          overflow={'hidden'}>
+          overflow={'hidden'}
+          p={5}>
 
           <Flex justify={'center'} >
             <HStack>
-            <Avatar 
-              size={'xl'}
-              src={
-                el.FreelancerId.image
-              }
-              alt={'Author'}
-              css={{
-                border: '2px solid white',
-              }}
+            <Avatar size={'xl'} src={el.FreelancerId.image} alt={'Author'} css={{border: '2px solid white', }}
             />
-             <Box>
+            <Box>
               
               <Stack spacing={0} align={'center'} >
+            
+  <Link as={RouteLink} to={`/ViewProfilByClient/${el.FreelancerId._id}`}>
+                  
                 <Heading fontSize={'xl'} fontWeight={500} fontFamily={'body'}>
                   {el.FreelancerId.nom} {el.FreelancerId.prenom}
-                </Heading>
+  </Heading>
+  </Link>
                 <Text color={'gray.500'}>{el.FreelancerId.domaine}</Text>
               </Stack>
     
               <Stack direction={'row'} justify={'center'} spacing={12} mt={1}>
-                  <Button><CheckIcon w={4} h={4} color='green'/></Button> 
-                  <Button><CloseIcon w={4} h={4} color="red"/></Button>
+                  <Button onClick={(e)=>handleEdit(e)}><CheckIcon w={4} h={4} color='green'/></Button> 
+                  <Button onClick={(e)=>handleDelete(e)}><CloseIcon w={4} h={4} color="red"/></Button>
               </Stack>
             </Box>
             </HStack>
           </Flex>
-         
         </Box>
         
       </Center>

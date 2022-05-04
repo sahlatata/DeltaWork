@@ -2,7 +2,7 @@ const Annonce = require("../Models/Annonce")
 
 exports.AddAnnonce = async(req,res)=>{
     try {
-    const NewAnnonce = new Annonce({...req.body,client:req.user._id})   
+    const NewAnnonce = new Annonce({...req.body,client:req.user._id,dateAnnonce: Date.now() })   
     await NewAnnonce.save()
     res.status(200).send({NewAnnonce,Msq:'Annonce Added'})
     } catch (error) {
@@ -32,7 +32,7 @@ exports.DeleteAnnonce=async(req,res)=>{
 exports.GetOneAnnonce=async(req,res)=>{
             try {
                 const {id}= req.params
-                const OneAnnonce = await Annonce.findById(id)  
+                const OneAnnonce = await Annonce.findById(id)
                 res.status(200).send({OneAnnonce,msg:'annonce trouvé'})
             } catch (error) {
                 console.log('annonce impossible a trouver')

@@ -6,6 +6,7 @@ import {
     Stack,
     
     useColorModeValue,
+    Tag,
     
   } from '@chakra-ui/react';
 import React from 'react';
@@ -20,14 +21,18 @@ function DemandeCard ({el}) {
   <Box
     maxW={'700px'}
     w={'full'}
-    bg={useColorModeValue('white', 'gray.900')}
+    bg={useColorModeValue('white', 'gray.700')}
     boxShadow={'2xl'}
     rounded={'md'}
     p={6}
     overflow={'hidden'}>
+    <Tag  mb={3} size="lg" fontWeight="bold"   color={useColorModeValue('bleub.500', 'discord.50')}>
+    {el.status}
+    </Tag>
     <Stack>
+    
     <Heading color={useColorModeValue('gray.700', 'white')} fontSize={'2xl'} fontFamily={'body'}>
-          {el.AnnonceId.titre} {el.status}
+          {el.AnnonceId.titre} 
           
         </Heading>
       <Text color={'gray.500'}>
@@ -38,7 +43,7 @@ function DemandeCard ({el}) {
     
       <Stack direction={'column'} spacing={0} fontSize={'sm'}>
       <Text fontWeight={600}>Posted by</Text>
-        <Text fontWeight={600}>Achim Rolle</Text>
+        <Text fontWeight={600}>test </Text>
         <Text color={'gray.500'}>Feb 08, 2021 · 6min read</Text>
       </Stack>
     </Stack>

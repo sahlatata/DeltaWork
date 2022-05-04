@@ -22,7 +22,6 @@ export const addDemande=(id,navigate)=>async(dispatch)=>{
                 }
     }
     try {
-    console.log(id)
     const res = await axios.post(`/api/demande/AddDemande/${id}`,id,config) 
     navigate('/Profile')
     dispatch(getDemande())
@@ -34,6 +33,7 @@ export const addDemande=(id,navigate)=>async(dispatch)=>{
 export const updateDemande=(id)=>async(dispatch)=>{
     try {
         const res = await axios.put(`/api/demande/EditDemande/${id}`)
+        dispatch(getDemande())
     } catch (error) {
         console.log(error)
     }
@@ -43,7 +43,7 @@ export const updateDemande=(id)=>async(dispatch)=>{
 export const deleteDemande=(id)=>async(dispatch)=>{
     try {
         const res = await axios.delete(`/api/demande/DeleteDemande/${id}`)
-        
+        dispatch(getDemande())
     } catch (error) {
         console.log(error)
     }

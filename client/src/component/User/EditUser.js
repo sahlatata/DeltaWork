@@ -12,9 +12,6 @@ export default function EditUser(){
     const {id}=useParams()
     const dispatch = useDispatch()
     const navigate=useNavigate()
-    useEffect(()=>{
-    dispatch(current(id))
-    },[])
     const User = useSelector(state=>state.UserReducer.User)
     const [nom,setNom]=useState(User.nom)
     const [prenom,setPrenom]=useState(User.prenom)
@@ -25,8 +22,11 @@ export default function EditUser(){
     const [niveau,setNiveau]=useState(User.niveau)
     const [description,setDescription]=useState(User.description)
     const [technologie,setTechnologie]=useState(User.technologie)
-
     const[image,setImage]= useState(User.image)
+
+    useEffect(()=>{
+        dispatch(current())
+        },[])
 
     useEffect(()=>{
     setNom(User.nom)
@@ -56,8 +56,6 @@ export default function EditUser(){
             navigate('/Profile')
     }
 
-
-
 return (
     <div>
         {
@@ -73,8 +71,7 @@ Modifier le profil
             <FormLabel>Mon icon</FormLabel>
             <Stack direction={['column', 'row']} spacing={6}>
             <Center>
-                <Avatar size="xl" src={User.image}>
-                <AvatarBadge as={IconButton} size="sm" rounded="full" top="-10px" colorScheme="red" aria-label="remove Image" icon={<SmallCloseIcon />} />
+                <Avatar size="xl" src={image}>
                 </Avatar>
             </Center>
             <Center w="full">
@@ -116,7 +113,7 @@ Modifier le profil
 
         <FormControl>
         <FormLabel >Technologies</FormLabel>
-        <Input value ={technologie} onChange={(e)=>setTechnologie(e.target.value)}  type='tag' />
+        <Input value ={technologie} onChange={(e)=>setTechnologie(e.target.value)}  type='subtle' />
         </FormControl>
 
         <FormControl>
@@ -142,7 +139,7 @@ Modifier le profil
             </>}
             
 <Stack spacing={6} direction={['column', 'row']}>
-<Button bg={'red.400'} color={'white'} w="full"  _hover={{ bg: 'green.500',  }}>
+<Button   w="full">
             Anuler
 </Button>
 <Button   onClick={(e)=>handleEdit(e)} bg={'blue.400'} color={'white'} w="full" _hover={{ bg: 'blue.500',}}>

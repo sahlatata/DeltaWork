@@ -31,12 +31,20 @@ export const NavBarSimple = () => {
         >
           <Flex as="nav" justify="space-between">
             <HStack spacing="8">
+              
+              
+              
+              
               <Box as="a" href="#" rel="home">
                 <VisuallyHidden>Envelope app</VisuallyHidden>
                 <Logo h="6" iconColor="blue.500" />
               </Box>
-              <HStack
-                display={{
+
+
+
+
+
+              <HStack display={{
                   base: 'none',
                   lg: 'flex',
                 }}
@@ -55,7 +63,7 @@ export const NavBarSimple = () => {
                 }}
               >
                 <Link as={RouteLink} to='/SignIn'><NavLink.Desktop>Se connecter </NavLink.Desktop></Link>
-                <Link as={RouteLink} to='/Register'><Button colorScheme="blue" rounded="full">
+                <Link as={RouteLink} to='/Register'><Button  rounded="full">
                 S'inscrire
                 </Button></Link>
                 <ColorModeSwitcher justifySelf="flex-end" />

@@ -39,7 +39,7 @@ res.status(200).send('Demande effacée')
 exports.UpdateDemande=async(req,res)=>{
     try {
         const {id} = req.params
-        const upDemande = await Demande.findByIdAndUpdate(id,{$set:{status:'Accepté'}})
+        const upDemande = await Demande.findByIdAndUpdate(id,{$set:{status:'Acceptée'}})
         res.status(200).send('Demande Accepté')
     } catch (error) {
         res.status(500).send({errors:[{msg:'Demande impossible a accepter'}]})  

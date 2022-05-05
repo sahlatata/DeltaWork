@@ -68,7 +68,7 @@ minW={0}>
 <Avatar
 size={'sm'}
 src={
-Freelancer.image
+`\\${Freelancer.image}`
 }
 />
 </MenuButton>

@@ -16,27 +16,27 @@ const CardDetail=()=>{
 const dispatch = useDispatch()
 const navigate = useNavigate()
 const {id} = useParams()
-const [status,setStatus] =useState('')
+
 const oneAnnonce = useSelector(state=>state.AnnonceReducer.Annonce)
 const User = useSelector(state=>state.UserReducer.User)
 const Demandes = useSelector(state=>state.DemandeReducer.Demandes)
 const oneUser = useSelector(state=>state.UserReducer.oneUser)
+const [status,setStatus] =useState('')
 const handleAdd=()=>{
 dispatch(addDemande(id,navigate))
-
 }
+
 
 useEffect(()=>{
 dispatch(getOneAnnonce(id))
 dispatch(getDemande())
 dispatch(getOneUser(oneAnnonce.client))
-// // Demandes.map(el=> User._id === el.FreelancerId._id && oneAnnonce._id === el.AnnonceId._id &&
-// //   setStatus(el.status)
-  
-//  )
-},[oneAnnonce])
+Demandes.map(el=> (User._id === el.FreelancerId._id && oneAnnonce._id === el.AnnonceId._id )&&
+  setStatus(el.status))
+},[Demandes])
 
-console.log(oneAnnonce)
+
+
 return(
 <>
 {
@@ -183,22 +183,16 @@ Informations sur le Client
 </Stack>
 
 {
-User.role=='Freelancer' && 
+  
+User.role=='Freelancer'&& 
 
-// status == '' ?
+status == '' ?
  <Button
-rounded={'none'}
-w={'full'}
-mt={8}
-size={'lg'}
-py={'7'}
-textTransform={'uppercase'}
-_hover={{transform: 'translateY(2px)', boxShadow: 'lg',}}
 onClick={handleAdd}
 >
 POSTULER
 </Button>
-// : <Button>en attente</Button>
+:  <Button isLoading loadingText='En attente' colorScheme='teal' variant='outline' spinnerPlacement='start'>En attente</Button>
 
 }
 </Stack>

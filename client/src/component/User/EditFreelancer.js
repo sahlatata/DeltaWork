@@ -4,14 +4,19 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { current, editUser } from '../../Redux/Actions/UserActions';
-import NavBarClient from './NavBarClient';
+
 
 import NavBarFreelancer from './NavBarFreelancer';
 export default function EditUser(){
     const {id}=useParams()
     const dispatch = useDispatch()
     const navigate=useNavigate()
+    useEffect(()=>{
+        dispatch(current())
+        },[])
+    
     const User = useSelector(state=>state.UserReducer.User)
+
     const [nom,setNom]=useState(User.nom)
     const [prenom,setPrenom]=useState(User.prenom)
     const [pays,setPays]=useState(User.pays)
@@ -22,10 +27,7 @@ export default function EditUser(){
     const [description,setDescription]=useState(User.description)
     const [technologie,setTechnologie]=useState(User.technologie)
     const[image,setImage]= useState(User.image)
-
-    useEffect(()=>{
-        dispatch(current())
-        },[])
+ 
 
     useEffect(()=>{
     setNom(User.nom)
@@ -39,6 +41,7 @@ export default function EditUser(){
     setTechnologie(User.technologie)
     setImage(User.image)
     },[User])
+    
     var data = new FormData()
     data.append("nom",nom)
     data.append("prenom",prenom)
@@ -54,12 +57,14 @@ export default function EditUser(){
             dispatch(editUser(id,data))
             navigate('/Profile')
     }
-    
-    const Freelancer = useSelector(state=>state.UserReducer.User)
+
+ 
 
 
 return (
+    
     <div>
+       
         <NavBarFreelancer/>
         
     
@@ -73,11 +78,10 @@ Modifier votre profil
             <FormLabel  color={useColorModeValue('bleub.500', 'discord.50')}>Mon icon</FormLabel>
             <Stack direction={['column', 'row']} spacing={6}>
             <Center>
+       
+ <Avatar size="xl" src={`\\${User.image}`}>
 
-
-            <Avatar size="xl" src={Freelancer.image}>
-            </Avatar>
-
+</Avatar>
             </Center>
             <Center w="full">
                 {/* <Button w="full" type='file'>Changer l'icon</Button> */}

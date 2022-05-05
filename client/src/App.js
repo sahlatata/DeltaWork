@@ -6,13 +6,11 @@ import PrivateRoute from "./component/PrivateRoute";
 
 import Errors from "./component/Errors";
 import Home from './component/Home'
-import { ChakraProvider } from "@chakra-ui/react";
 import FreelancerProfile from './component/User/FreelancerProfile'
 import Register from './component/Register'
 import SignIn from './component/SignIn';
 import EditFreelancer from './component/User/EditFreelancer'
 import EditClient from './component/User/EditClient'
-import CardAnnonce from './component/Annonce/CardAnnonce';
 import ListAnnonces from './component/Annonce/ListAnnonces';
 import CardDetail from './component/Annonce/CardDetail';
 import ProfileClient from './component/User/ProfileClient'
@@ -27,15 +25,9 @@ import EditAnnonce from './component/Annonce/EditAnnonce';
 import ViewProfilByClient from './component/User/ViewProfilByClient';
 import HomeAnnonces from './component/Annonce/HomeAnnonces';
 
-
-import ListAnnoncesSahla from './component/Annonce/ListAnnoncesSahla';
-
-
 function App() {
 
   const [rech,setRech] = useState('')
-
- 
 
   const dispatch=useDispatch()
   useEffect(()=>{
@@ -52,25 +44,25 @@ function App() {
 
           <Route path='/Register' element={<Register/>}/>
           <Route path='/SignIn' element={<SignIn/>}/>
-          <Route path='/EditFreelancer/:id' element={<EditFreelancer/>}/>
-          <Route path='/EditClient/:id' element={<EditClient/>}/>
+          <Route path='/EditFreelancer/:id' element={<PrivateRoute><EditFreelancer/></PrivateRoute>}/>
+          <Route path='/EditClient/:id' element={<PrivateRoute><EditClient/></PrivateRoute>}/>
 
-          <Route path='/ListAnnonces' element={<ListAnnonces rech={rech}/>}/>
+          <Route path='/ListAnnonces' element={<PrivateRoute><ListAnnonces rech={rech}/></PrivateRoute>}/>
 
           <Route path='/HomeAnnonces'  element={<HomeAnnonces/>}/>
 
-          <Route path='/AnnonceDetail/:id' element={<CardDetail/>}/>
-          <Route path='/ProfileClient' element={<ProfileClient/>}/>
+          <Route path='/AnnonceDetail/:id' element={<PrivateRoute><CardDetail/></PrivateRoute>}/>
+          <Route path='/ProfileClient' element={<PrivateRoute><ProfileClient/></PrivateRoute>}/>
           <Route path='/Admin' element={<Admin/>}/>
-          <Route path='/AddAnnonce' element={<AddAnnonce/>}/>
-          <Route path='/EditPassword/:id' element={<EditPassword/>}/>
-          <Route path='/CompleteProfile/:id' element={<CompleteProfile/>}/>
-          <Route path='/EditAnnonce/:id' element={<EditAnnonce/>}/>
+          <Route path='/AddAnnonce' element={<PrivateRoute><AddAnnonce/></PrivateRoute>}/>
+          <Route path='/EditPassword/:id' element={<PrivateRoute><EditPassword/></PrivateRoute>}/>
+          <Route path='/CompleteProfile/:id' element={<PrivateRoute><CompleteProfile/></PrivateRoute>}/>
+          <Route path='/EditAnnonce/:id' element={<PrivateRoute><EditAnnonce/></PrivateRoute>}/>
           
           <Route path='/ViewProfilByClient/:id'  element={<ViewProfilByClient/>}/>
         </Routes>
         
-      {/* <DemandeUser/> */}
+      
 
       
     </div>

@@ -30,8 +30,8 @@ import { createIcon } from '@chakra-ui/react'
           fontWeight="medium"
           mt="6"
         >
-          &ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas
-          culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.&rdquo;
+          &ldquo;Nous avons utilisé DeltaWork pour notre site web et son contenu ! 
+          C'etait comme travailler avec quelqu'un qui se trouve à coté de vous et non à l'autre bout du monde .&rdquo;
         </Text>
         <Quotee
           name="Marrie Jones"
@@ -41,11 +41,7 @@ import { createIcon } from '@chakra-ui/react'
         />
         
       </Flex>
-      <HStack justify="center" spacing="4" mt="8" color={useColorModeValue('gray.300', 'gray.600')}>
-        <Circle size="3" bg="blue.500" />
-        <Circle size="2" bg="currentColor" />
-        <Circle size="2" bg="currentColor" />
-      </HStack>
+      
     </Box>
   </Box>
 )

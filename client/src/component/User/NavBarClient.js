@@ -58,7 +58,6 @@ return (
 </MenuButton><MenuList>
 <Link as={RouteLink} to='/ListAnnonces'><MenuItem>Voir les annonces </MenuItem></Link>
 <Link as={RouteLink} to='/AddAnnonce'><MenuItem>Creer une annonce</MenuItem></Link>
-    <MenuItem>Mes annonces</MenuItem>
 </MenuList>
 </Menu>
 </HStack>

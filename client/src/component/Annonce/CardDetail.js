@@ -38,7 +38,7 @@ Demandes.map(el=> (User._id === el.FreelancerId._id && oneAnnonce._id === el.Ann
 
 
 
-
+console.log(oneAnnonce)
 
 return(
 <>
@@ -118,9 +118,9 @@ Details du Job :
 {/* ************* */}
 <HStack>
 <Text as={'span'} fontWeight={'bold'}>
-Date limite:{' '}
+Durée:{' '}
 </Text>
-<Text>05/10/2022 </Text>
+<Text>{oneAnnonce.duree} {"Mois"}</Text>
 </HStack>
 {/* ******************** */}
 <HStack>
@@ -184,16 +184,16 @@ Email:{' '}
 
 {
   
-User.role=='Freelancer'&& 
+User.role=='Freelancer' && 
 
-status == '' ?
+(status == '' ?
  <Button
 onClick={handleAdd}
 >
 POSTULER
 </Button>
 :  <Button isLoading loadingText='En attente' colorScheme='teal' variant='outline' spinnerPlacement='start'>En attente</Button>
-
+)
 }
 </Stack>
 

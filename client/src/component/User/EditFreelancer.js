@@ -146,7 +146,7 @@ Modifier votre profil
          
             
 <Stack spacing={6} direction={['column', 'row']}>
-<Button   w="full">
+<Button   w="full" onClick={()=>navigate('/ProfileClient')}>
             Anuler
 </Button>
 <Button   onClick={(e)=>handleEdit(e)}  w="full" >

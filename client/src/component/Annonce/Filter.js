@@ -1,10 +1,11 @@
-import { FormControl, FormLabel, Heading, Input, Radio, RadioGroup, Select, Stack, Text } from "@chakra-ui/react"
+import { Box, FormControl, FormLabel, Heading, Input, Radio, RadioGroup, Select, Stack, Text } from "@chakra-ui/react"
 import { useState } from "react"
 
 const Filter=({setDomaine})=>{
     
     return(
         <div>
+            <Box  width='400px' ml='30px'>
             <Text fontSize={'2xl'} fontFamily={'body'}>Filter par</Text>
             <FormControl mt={5}>
             <FormLabel htmlFor='country' >Domaine d'activité</FormLabel>
@@ -64,6 +65,7 @@ const Filter=({setDomaine})=>{
                 <FormLabel fontSize={'xl'} fontFamily={'body'}>Emplacement du Client</FormLabel>
                 <Input width={200}/>
             </FormControl>
+            </Box>
         </div>
     )
 }

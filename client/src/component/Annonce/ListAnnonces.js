@@ -23,19 +23,20 @@ const ListAnnonces=({rech})=>{
     const [niveau,setNiveau] = useState('')
     const [prix,setPrix] = useState('0')
     const [pays,setPays] = useState('')
+    const [duree,setDuree] = useState(0)
 
     return(
         
         <div>
             {
-                User.role == "Freelancer" ? <NavBarFreelancer/> : User.role=="Client"? <NavBarClient/>:<NavBarHome/>
+                User.role == "Freelancer" ? <NavBarFreelancer/> : <NavBarClient/>
             }
         
             <HStack spacing='100px' mt={10}>    
             <Box  height='80px' width='400px' ml='50px'>
 
           
-                <Filter  setDomaine={setDomaine} setNiveau={setNiveau} niveau={niveau} setPays={setPays} setPrix={setPrix}/>
+                <Filter  setDomaine={setDomaine} setNiveau={setNiveau} niveau={niveau} setPays={setPays} setPrix={setPrix} setDuree={setDuree}/>
 
               
 
@@ -48,6 +49,7 @@ const ListAnnonces=({rech})=>{
                 .filter(el=>(el.domaine.toLowerCase()).includes(domaine.toLowerCase()))
                 .filter(el=>(el.client.pays.toLowerCase()).includes(pays.toLowerCase()))
                 .filter(el=>(el.budget>parseInt(prix)))
+                .filter(el=>(el.duree>parseInt(duree)))
                 .map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`}><CardAnnonce key={Math.random()} el={el}/></Link>) }
                 
                 </Box>

@@ -1,7 +1,7 @@
 import { Box, FormControl, FormLabel, Heading, Input, Radio, RadioGroup, Select, Stack, Text } from "@chakra-ui/react"
 import { useState } from "react"
 
-const Filter=({setDomaine,niveau,setNiveau,setPays,setPrix})=>{
+const Filter=({setDomaine,niveau,setNiveau,setPays,setPrix,setDuree})=>{
     
     return(
         <div>
@@ -38,15 +38,15 @@ const Filter=({setDomaine,niveau,setNiveau,setPays,setPrix})=>{
                     <Radio value='3000'>++ 3000dt</Radio>
                 </Stack>
             </RadioGroup>
-            <RadioGroup mt={5}>
+            <RadioGroup mt={5} onChange={setDuree}>
                 <Stack>
                 <Heading fontSize={'xl'} fontFamily={'body'}>
                    Durée du project
                 </Heading>
-                    <Radio value='1'> Moins de 1 mois</Radio>
-                    <Radio value='2'>De 1 à 3 mois </Radio>
-                    <Radio value='3'>De 3 à 6 mois</Radio>
-                    <Radio value='4'>Plus de 6 mois</Radio>
+                    <Radio value='1'> ++ 1 mois</Radio>
+                    <Radio value='3'>++ 3 mois </Radio>
+                    <Radio value='6'>++ 6 mois</Radio>
+                    <Radio value='12'>++ 12 mois</Radio>
                 </Stack>
             </RadioGroup>
             <FormControl mt={5}>

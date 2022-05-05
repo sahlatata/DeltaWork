@@ -1,11 +1,11 @@
-import {Button,Flex,FormControl,FormLabel,Heading, Input, Stack, useColorModeValue, Avatar, AvatarBadge, IconButton, Center, Select, Textarea,
+import {Button,Flex,FormControl,FormLabel,Heading, Input, Stack, useColorModeValue, Avatar, Center,
 } from '@chakra-ui/react';
 import { SmallCloseIcon } from '@chakra-ui/icons';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { current, editUser } from '../../Redux/Actions/UserActions';
-import NavBarClient from './NavBarClient';
+
 
 import NavBarFreelancer from './NavBarFreelancer';
 export default function EditUser(){
@@ -27,7 +27,7 @@ export default function EditUser(){
     const [technologie,setTechnologie]=useState(User.technologie)
 
     const[image,setImage]= useState(User.image)
-
+    
     useEffect(()=>{
     setNom(User.nom)
     setPrenom(User.prenom)
@@ -73,7 +73,7 @@ Modifier votre profil
             <FormLabel  color={useColorModeValue('bleub.500', 'discord.50')}>Mon icon</FormLabel>
             <Stack direction={['column', 'row']} spacing={6}>
             <Center>
-            <Avatar size="xl" src={Freelancer.image}>
+            <Avatar size="xl" src={`\\${Freelancer.image}`}>
             </Avatar>
             </Center>
             <Center w="full">
@@ -100,7 +100,7 @@ Modifier votre profil
         </FormControl>
             
 <Stack spacing={6} direction={['column', 'row']}>
-<Button   w="full">
+<Button   w="full" onClick={()=>navigate('/ProfileClient')}>
             Anuler
 </Button>
 <Button   onClick={(e)=>handleEdit(e)}  w="full" >

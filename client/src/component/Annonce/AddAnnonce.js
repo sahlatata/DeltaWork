@@ -1,4 +1,4 @@
-import { Box, Button, Container, Input, Select, Stack, Text, useColorModeValue, useBreakpointValue, Heading, FormControl, FormLabel, Textarea, FormHelperText, Flex  } from '@chakra-ui/react';
+import { Box, Button, Container, Input, Select, Stack, Text, useColorModeValue, useBreakpointValue, Heading, FormControl, FormLabel, Textarea, FormHelperText, Flex, HStack, NumberInput, NumberInputField, NumberInputStepper  } from '@chakra-ui/react';
 import  { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -11,11 +11,12 @@ const [technologie,setTechnologie]=useState("")
 const [budget,setBudget]=useState(0)
 const [niveau,setNiveau]=useState("")
 const [domaine,setDomaine] = useState("")
+const [duree,setDuree] = useState(0)
 const dispatch = useDispatch()
 const navigate=useNavigate()
 const handleAdd=(e)=>{
     e.preventDefault()
-    dispatch(addAnnonce({titre,description,technologie,budget,niveau,domaine},navigate))
+    dispatch(addAnnonce({titre,description,technologie,budget,niveau,domaine,duree},navigate))
     
 }
 return (
@@ -56,15 +57,22 @@ Rédiger une offre d'emploi attractive !!
   <Input  onChange={(e)=>setBudget(e.target.value)} />
   <FormHelperText>Entrer le budget</FormHelperText>
 </FormControl>
-
+<FormControl>
+  
+  <FormLabel htmlFor='email' color={useColorModeValue('bleub.500', 'discord.50')}>Durée du projet</FormLabel>
+  <HStack>
+  <Input htmlSize={4} width='auto' onChange={(e)=>setDuree(e.target.value)}/>
+  <Text>Mois</Text>
+</HStack>
+</FormControl>
 <FormControl>
   <FormLabel htmlFor='country' color={useColorModeValue('bleub.500', 'discord.50')} >Domaine d'activité</FormLabel>
   <Select   placeholder="Selectionner votre domaine d'activité" value={domaine} onChange={(e)=>setDomaine(e.target.value)}>
-    <option>Developpement mobile </option>
-    <option>Developpement web  </option>
-    <option>DevOps </option>
-    <option>Data Science </option>
-    <option>Developpement jeux video </option> 
+    <option>Developpement mobile</option>
+    <option>Developpement web</option>
+    <option>DevOps</option>
+    <option>Data Science</option>
+    <option>Developpement jeux video</option> 
   </Select>
 </FormControl>   
 <FormControl>

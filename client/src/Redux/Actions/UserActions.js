@@ -1,4 +1,4 @@
-import { CURRENT, FAIL, GETONEUSER, LOGIN, LOGOUT, REGISTER } from "../ActionsTypes/UserTypes"
+import { CURRENT, FAIL, GETONEUSER, GETUSERS, LOGIN, LOGOUT, REGISTER } from "../ActionsTypes/UserTypes"
 import axios from 'axios'
 import { alertError } from "./errorAction"
 
@@ -44,10 +44,9 @@ res.data.found.role == "Freelancer"?navigate('/Profile'): res.data.found.role ==
 }
 }
 // **********************************DeleteFreelancer*******************************************
-export const deleteUser =(id,navigate)=>async(dispatch)=>{
+export const deleteUser =(id)=>async(dispatch)=>{
     try {
     await axios.delete(`/api/auth/DeleteUser/${id}`)  
-    navigate('/')
 } catch (error) {
     error.response.data.errors.forEach(element=>{
         dispatch(alertError(element.msg))
@@ -117,12 +116,26 @@ export const editpassword =(passwords,navigate)=>async(dispatch)=>{
     }
     }
 
-/********************************************Complete profile************************* */
+/********************************************get one user************************* */
 export const getOneUser=(id)=>async(dispatch)=>{
     try {
         const res = await axios.get(`/api/auth/GetOneUser/${id}`)
         dispatch({
             type:GETONEUSER,
+            payload : res.data
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+// **********************get all users****************************
+
+export const getUsers=()=>async(dispatch)=>{
+    try {
+        const res = await axios.get('/api/auth/GetListUser')
+        dispatch({
+            type:GETUSERS,
             payload : res.data
         })
     } catch (error) {

@@ -52,13 +52,13 @@ const Hero = () => {
                 color={useColorModeValue("gray.900", "white")}
               >
                 <chakra.span display={{ base: "block", xl: "inline" }}>
-                  Data to enrich your{" "}
+                Le meilleur services freelance {" "}
                 </chakra.span>
                 <chakra.span
                   display={{ base: "block", xl: "inline" }}
                   color={useColorModeValue("brand.600", "brand.400")}
                 >
-                  online business
+                  pour votre business.
                 </chakra.span>
               </chakra.h1>
               <chakra.p
@@ -68,9 +68,7 @@ const Hero = () => {
                 mx={{ sm: "auto", lg: 0 }}
                 color="gray.500"
               >
-                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-                lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-                fugiat aliqua.
+                Trouvez des services de haute qualité à tous les prix. Pas de tarifs horaires, mais une tarification en fonction des projets.
               </chakra.p>
               <Box
                 mt={{ base: 5, sm: 8 }}

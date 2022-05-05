@@ -1,21 +1,27 @@
-import { Box, Button, Center, Container, Flex, Grid, GridItem, Heading, IconButton, Input, List, ListItem, SimpleGrid, SkeletonCircle, SkeletonText, Spacer, Square, Stack, StackDivider, Tab, TabList, TabPanel, TabPanels, Tabs, Text, useColorModeValue, VStack } from '@chakra-ui/react';
+import { Box, Button, Center, Container, Flex, Grid, GridItem, Heading, IconButton, Input, Link, List, ListItem, SimpleGrid, SkeletonCircle, SkeletonText, Spacer, Square, Stack, StackDivider, Tab, TabList, TabPanel, TabPanels, Tabs, Text, useColorModeValue, VStack } from '@chakra-ui/react';
 import React, { useEffect } from 'react';
 import NavBarFreelancer from './NavBarFreelancer'
 import CardFreelancer from './CardFreelancer'
 import { SearchIcon } from '@chakra-ui/icons';
 import {getDemande} from '../../Redux/Actions/DemandeActions'
 import { useDispatch, useSelector } from 'react-redux';
-
+import { Link as RouteLink, Navigate, useNavigate } from "react-router-dom"
 import DemandeCard from '../Demande/DemandeCard';
-import { useNavigate } from 'react-router-dom';
-export default function FreelancerProfile() {
+
+export default function FreelancerProfile({setRech}) {
+
+
+
+
     const Freelancer = useSelector(state=>state.UserReducer.User)
-    const myAnnonces = useSelector(state=>state.AnnonceReducer.MyAnnonces)
-    const Annonce = useSelector(state=>state.AnnonceReducer.Annonce)
     const demandes = useSelector(state=>state.DemandeReducer.Demandes)
     const dispatch = useDispatch()
+
+    const navigate = useNavigate()
+
   
-    const ann = []
+ 
+
 useEffect(()=>{
  dispatch(getDemande())   
 },[])
@@ -27,7 +33,7 @@ let dateLocale = today.toLocaleString('fr-FR',{
     month: 'long',
     day: 'numeric',
     });
-
+console.log(demandes)
 // ******************************
 return (
         <div>
@@ -53,26 +59,35 @@ return (
 {/* ********** input ************** */}
 <Stack spacing={{ base: 6, md: 10 }}  >
 <Stack direction={'row'} >
-<Input placeholder='Chercher une annonce' bg={useColorModeValue('white', 'gray.700')} />
-<IconButton aria-label='Search database' icon={<SearchIcon />} />
+
+<Input placeholder='Chercher une annonce' bg={useColorModeValue('white', 'gray.700')} onChange={(e)=>setRech(e.target.value)} />
+<IconButton aria-label='Search database' icon={<SearchIcon />} onClick={()=>navigate('/ListAnnonces')} />
+
 </Stack>
 {/* **********menue ************** */}
 <Box  w={'full'} boxShadow={'lg'} rounded={'lg'} p={6} mt={10} mb={10} >
 <Tabs colorScheme="dark"> 
 <TabList >
-<Tab >Demandes en attentes </Tab>
-<Tab>Demandes acceptées</Tab>
+<Tab >Demandes acceptées</Tab>
+<Tab>Demandes en attentes </Tab>
 </TabList>
 <TabPanels>
 
 <TabPanel>
 {
 
-demandes.map(el => Freelancer._id === el.FreelancerId._id &&  <DemandeCard el={el}/> )
+demandes.map(el => (Freelancer._id === el.FreelancerId._id && el.status === 'Acceptée') && <Link as={RouteLink} to={`/AnnonceDetail/${el.AnnonceId._id}`}><DemandeCard key={Math.random()} el={el}/></Link>)
 
 }
-
 </TabPanel>
+<TabPanel>
+{
+
+demandes.map(el => (Freelancer._id === el.FreelancerId._id && el.status === 'En attente') &&  <Link as={RouteLink} to={`/AnnonceDetail/${el.AnnonceId._id}`}><DemandeCard key={Math.random()} el={el}/></Link>)
+
+}
+</TabPanel>
+
 </TabPanels>
 </Tabs>
 </Box>

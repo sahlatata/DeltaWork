@@ -1,7 +1,7 @@
 import { Box, FormControl, FormLabel, Heading, Input, Radio, RadioGroup, Select, Stack, Text } from "@chakra-ui/react"
 import { useState } from "react"
 
-const Filter=({setDomaine})=>{
+const Filter=({setDomaine,niveau,setNiveau,setPays,setPrix})=>{
     
     return(
         <div>
@@ -17,28 +17,25 @@ const Filter=({setDomaine})=>{
                     <option>Developpement jeux video </option> 
                 </Select>
             </FormControl>
-            <RadioGroup mt={5} >
+            <RadioGroup mt={5} onChange={setNiveau} value={niveau}>
                 <Stack>
                 <Heading fontSize={'xl'} fontFamily={'body'}>
                    Niveau
                 </Heading>
-                    <Radio value='Débutant'>
-                    Débutant
-                    </Radio>
+                    <Radio value='Débutant'>Débutant</Radio>
                     <Radio value='Intermediaire'>Intermediaire</Radio>
                     <Radio value='Professionel'>Professionel</Radio>
                 </Stack>
             </RadioGroup>
-            <RadioGroup mt={5}>
+            <RadioGroup mt={5} onChange={setPrix}>
                 <Stack>
                 <Heading fontSize={'xl'} fontFamily={'body'}>
                    Prix
                 </Heading>
-                    <Radio value='1'> Moins de 100dt</Radio>
-                    <Radio value='2'>100dt-500dt </Radio>
-                    <Radio value='3'>500dt-1000dt</Radio>
-                    <Radio value='4'>1000dt-5000dt</Radio>
-                    <Radio value='5'>Plus de 5000dt</Radio>
+                    <Radio value='100'>++ 100dt</Radio>
+                    <Radio value='500'>++ 500dt </Radio>
+                    <Radio value='1000'>++ 1000dt</Radio>
+                    <Radio value='3000'>++ 3000dt</Radio>
                 </Stack>
             </RadioGroup>
             <RadioGroup mt={5}>
@@ -52,18 +49,16 @@ const Filter=({setDomaine})=>{
                     <Radio value='4'>Plus de 6 mois</Radio>
                 </Stack>
             </RadioGroup>
-            <RadioGroup mt={5}>
-            <Stack>
-                <Heading fontSize={'xl'} fontFamily={'body'}>
-                   Nombre d'heure par semaine
-                </Heading>
-                    <Radio value='1'> Moins de 30h/semaine</Radio>
-                    <Radio value='2'> Plus de 30h/semaine</Radio>
-                </Stack>
-            </RadioGroup>
             <FormControl mt={5}>
-                <FormLabel fontSize={'xl'} fontFamily={'body'}>Emplacement du Client</FormLabel>
-                <Input width={200}/>
+            <FormLabel htmlFor='country' >Emplacement du client</FormLabel>
+                <Select placeholder="Emplacement du client"  onChange={(e)=>setPays(e.target.value)}>
+                <option>Tunisie</option>
+                <option>France</option>
+                <option>Algerie</option>
+                <option>Maroc</option>
+                <option>Suisse</option>
+                <option>Senegal</option>
+                </Select>
             </FormControl>
             </Box>
         </div>

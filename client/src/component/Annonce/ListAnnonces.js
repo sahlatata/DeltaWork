@@ -9,7 +9,7 @@ import { Link as RouteLink } from "react-router-dom"
 import NavBarHome  from "../User//NavBarHome"
 import NavBarFreelancer from "../User/NavBarFreelancer"
 import NavBarClient from "../User/NavBarClient"
-const ListAnnonces=()=>{
+const ListAnnonces=({rech})=>{
   
     const Annonces = useSelector(state=>state.AnnonceReducer.Annonces)
     const User = useSelector(state=>state.UserReducer.User)
@@ -18,8 +18,12 @@ const ListAnnonces=()=>{
         dispatch(getAnnonce())
     },[])
     /*Pour faire le filtre*/
-    const [search,setSearch] = useState('') 
+    const [search,setSearch] = useState(rech) 
     const [domaine,setDomaine] = useState('')
+    const [niveau,setNiveau] = useState('')
+    const [prix,setPrix] = useState('0')
+    const [pays,setPays] = useState('')
+
     return(
         
         <div>
@@ -29,13 +33,22 @@ const ListAnnonces=()=>{
         
             <HStack spacing='100px' mt={10}>    
             <Box  height='80px' width='400px' ml='50px'>
-                <Filter setDomaine={setDomaine}/>
+
+          
+                <Filter  setDomaine={setDomaine} setNiveau={setNiveau} niveau={niveau} setPays={setPays} setPrix={setPrix}/>
+
+              
+
             </Box>
                 <Box  height='80px'>
-                <Input placeholder='Rechercher par Titre' onChange={(e)=>setSearch(e.target.value)}/>
+                <Input placeholder='Rechercher par Titre' onChange={(e)=>setSearch(e.target.value)} value={search}/>
                 
                 { Annonces.filter(el=>(el.titre.toUpperCase().includes(search.toUpperCase())))
-                .map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`}><CardAnnonce el={el}/></Link>) }
+                .filter(el=>(el.niveau.toLowerCase()).includes(niveau.toLowerCase()))
+                .filter(el=>(el.domaine.toLowerCase()).includes(domaine.toLowerCase()))
+                .filter(el=>(el.client.pays.toLowerCase()).includes(pays.toLowerCase()))
+                .filter(el=>(el.budget>parseInt(prix)))
+                .map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`}><CardAnnonce key={Math.random()} el={el}/></Link>) }
                 
                 </Box>
                 

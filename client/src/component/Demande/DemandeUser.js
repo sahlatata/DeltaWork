@@ -41,7 +41,7 @@ const handleDelete=(e)=>{
 
           <Flex justify={'center'} >
             <HStack>
-            <Avatar size={'xl'} src={el.FreelancerId.image} alt={'Author'} css={{border: '2px solid white', }}
+            <Avatar size={'xl'} src={`\\${el.FreelancerId.image}`} alt={'Author'} css={{border: '2px solid white', }}
             />
             <Box>
               

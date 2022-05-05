@@ -32,7 +32,11 @@ import ListAnnoncesSahla from './component/Annonce/ListAnnoncesSahla';
 
 
 function App() {
+
+  const [rech,setRech] = useState('')
+
  
+
   const dispatch=useDispatch()
   useEffect(()=>{
     dispatch(current())
@@ -43,13 +47,18 @@ function App() {
       <Errors/>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path='/Profile' element={<PrivateRoute><FreelancerProfile /></PrivateRoute>}/> 
+
+          <Route path='/Profile' element={<PrivateRoute><FreelancerProfile setRech={setRech}/></PrivateRoute>}/> 
+
           <Route path='/Register' element={<Register/>}/>
           <Route path='/SignIn' element={<SignIn/>}/>
           <Route path='/EditFreelancer/:id' element={<EditFreelancer/>}/>
           <Route path='/EditClient/:id' element={<EditClient/>}/>
-          <Route path='/ListAnnonces' element={<ListAnnonces/>}/>
+
+          <Route path='/ListAnnonces' element={<ListAnnonces rech={rech}/>}/>
+
           <Route path='/HomeAnnonces'  element={<HomeAnnonces/>}/>
+
           <Route path='/AnnonceDetail/:id' element={<CardDetail/>}/>
           <Route path='/ProfileClient' element={<ProfileClient/>}/>
           <Route path='/Admin' element={<Admin/>}/>

@@ -7,10 +7,12 @@ import Testimonial from './Home/Testimonial';
 import Footer from './Home/Footer';
 import Domaine from './Home/Domaine';
 import { NavBarSimple } from './NavBarSimple';
+import NavBarHome from './User/NavBarHome';
 const Home=()=> {
     return (
       <>
-      <NavBarSimple/>
+      {/* <NavBarSimple/> */}
+      <NavBarHome/>
       <Hero/>
       <C2g/>
       <Domaine/>

@@ -227,7 +227,7 @@ const Transition = (props) => {
                   S'inscrire
                 </Button></Link>
                 <Box textAlign="center" fontWeight="medium">
-                  Avez vous deja un compte?{' '}
+                  
                   <Link as={RouteLink} to='/SignIn'><Box as="a" color={mode('blue.600', 'blue.400')}>
                   Se connecter
                   </Box></Link>

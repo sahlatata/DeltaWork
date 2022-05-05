@@ -31,9 +31,12 @@ useEffect(()=>{
 dispatch(getOneAnnonce(id))
 dispatch(getDemande())
 dispatch(getOneUser(oneAnnonce.client))
+
 Demandes.map(el=> (User._id === el.FreelancerId._id && oneAnnonce._id === el.AnnonceId._id )&&
   setStatus(el.status))
 },[Demandes])
+
+
 
 
 
@@ -44,9 +47,7 @@ User.role == "Freelancer" ? <NavBarFreelancer/> : <NavBarClient/>
 }
 
 <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={{ base: 4, md: 10 }} py={{ base: 18, md: 4 }}>
-
 <Box boxShadow='lg' w="800px" bg={useColorModeValue('white', 'gray.900')} rounded={'lg'}p={6}>
-
 <Box bg={useColorModeValue('white', 'gray.700')} maxWidth="2xl" mx="auto" p={{base: '6',md: '8',}}rounded={{sm: 'lg',}}shadow={{md: 'base',}}>
 
 {/* *********************************** */}
@@ -56,7 +57,7 @@ User.role == "Freelancer" ? <NavBarFreelancer/> : <NavBarClient/>
 <Heading
 lineHeight={1.1}
 fontWeight={600}
-fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}
+
 color={useColorModeValue('bleub.500', 'discord.50')}>
 {oneAnnonce.titre}
 </Heading>
@@ -66,12 +67,7 @@ fontWeight={300}
 fontSize={'2xl'}>
 {oneAnnonce.dateAnnonce}
 </Text>
-<Text
-color={useColorModeValue('gray.900', 'gray.400')}
-fontWeight={300}
-fontSize={'2xl'}>
-{oneAnnonce.budget} {'DT'}
-</Text>
+
 
 </Box>
 
@@ -79,107 +75,111 @@ fontSize={'2xl'}>
 spacing={{ base: 4, sm: 6 }}
 direction={'column'}
 divider={
-<StackDivider
-borderColor={useColorModeValue('gray.200', 'gray.600')}
-/>
-}>
-<VStack spacing={{ base: 4, sm: 6 }}>
-<Text
-color={useColorModeValue('gray.500', 'gray.400')}
-fontSize={'2xl'}
-fontWeight={'300'}>
-{oneAnnonce.description}
-</Text>
-</VStack>
+<StackDivider borderColor={useColorModeValue('gray.200', 'gray.600')} />}>
 
 <Box>
-<Text
-fontSize={{ base: '16px', lg: '18px' }}
-color={useColorModeValue('yellow.500', 'yellow.300')}
-fontWeight={'500'}
-textTransform={'uppercase'}
-mb={'4'}>
-Project Details
+    <Text fontSize={{ base: '16px', lg: '18px' }} color={useColorModeValue('bleub.500', 'discord.50')} fontWeight={'500'}
+        mb={'4'}> 
+    Description :
+    </Text>
+    <SimpleGrid  spacing={10}>
+    <Text fontSize={'lg'}>
+    {oneAnnonce.description}
+    </Text>
+    </SimpleGrid>
+</Box>
+{/* ******************* */}
+<Box>
+    <Text fontSize={{ base: '16px', lg: '18px' }} color={useColorModeValue('bleub.500', 'discord.50')} fontWeight={'500'}
+        mb={'4'}> 
+    Budget:
+    </Text>
+    <SimpleGrid  spacing={10}>
+    <Text fontSize={'lg'}>
+    {oneAnnonce.budget} {'DT'}
+    </Text>
+    </SimpleGrid>
+</Box>
+{/* ******************* */}
+<Box>
+<Text fontSize={{ base: '16px', lg: '18px' }} color={useColorModeValue('bleub.500', 'discord.50')} fontWeight={'500'}
+        mb={'4'}> 
+Details du Job :
 </Text>
-
+<SimpleGrid  spacing={10}>
 <List spacing={2}>
 <ListItem>
+<HStack>
 <Text as={'span'} fontWeight={'bold'}>
-  Domaine:{' '}{oneAnnonce.domaine}
+  Niveau :{' '} 
 </Text>
-
-</ListItem>
-<ListItem>
+<Text>{oneAnnonce.niveau} </Text>
+</HStack>
+{/* ************* */}
+<HStack>
 <Text as={'span'} fontWeight={'bold'}>
-  Durée du projet ou date limite:{' '}????
+Date limite:{' '}
 </Text>
-
-</ListItem>
-
-<ListItem>
+<Text>05/10/2022 </Text>
+</HStack>
+{/* ******************** */}
+<HStack>
 <Text as={'span'} fontWeight={'bold'}>
-  Level:{' '}{oneAnnonce.niveau}
+Domaine:{' '}
 </Text>
+<Text>{oneAnnonce.domaine} </Text>
+</HStack>
+{/* **************************** */}
 </ListItem>
-
-<ListItem>
-<Text as={'span'} fontWeight={'bold'}>
-  Prix:{' '}{oneAnnonce.budget} {'DT'}
-</Text>
-</ListItem>
-
 </List>
-
+</SimpleGrid> 
 </Box>
+{/* ******************************** */}
 <Box>
-<Text
-fontSize={{ base: '16px', lg: '18px' }}
-color={useColorModeValue('yellow.500', 'yellow.300')}
-fontWeight={'500'}
-textTransform={'uppercase'}
-mb={'4'}>
-Slills
+<Text fontSize={{ base: '16px', lg: '18px' }} color={useColorModeValue('bleub.500', 'discord.50')} fontWeight={'500'}
+        mb={'4'}>
+Technologie
 </Text>
-
 <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-
-  {/* i'm going to loop skills table and show them in listItem */}
 {oneAnnonce.technologie}
 </SimpleGrid>
 </Box>
+{/* ******************* */}
 <Box>
-<Text
-fontSize={{ base: '16px', lg: '18px' }}
-color={useColorModeValue('yellow.500', 'yellow.300')}
-fontWeight={'500'}
-textTransform={'uppercase'}
-mb={'4'}>
-Informations sur le Client
+<Text fontSize={{ base: '16px', lg: '18px' }} color={useColorModeValue('bleub.500', 'discord.50')} fontWeight={'500'}
+        mb={'4'}> 
+Information sur le client:
 </Text>
-
+<SimpleGrid  spacing={10}>
 <List spacing={2}>
-
 <ListItem>
+<HStack>
 <Text as={'span'} fontWeight={'bold'}>
-  Nom et Prénom :{' '}{oneUser.nom} {oneUser.prenom} 
+  Nom/Prenom :{' '} 
 </Text>
-</ListItem>
-
-<ListItem>
+<Text>{oneUser.nom} {oneUser.prenom} </Text>
+</HStack>
+{/* ************* */}
+<HStack>
 <Text as={'span'} fontWeight={'bold'}>
-  Pays :{' '}{oneUser.pays}
+pays:{' '}
 </Text>
-</ListItem>
-
-<ListItem>
+<Text>{oneUser.pays}</Text>
+</HStack>
+{/* ******************** */}
+<HStack>
 <Text as={'span'} fontWeight={'bold'}>
-  Email : {' '}{oneUser.email}
+Email:{' '}
 </Text>
+<Text>{oneUser.email} </Text>
+</HStack>
+{/* **************************** */}
 </ListItem>
-
 </List>
-
+</SimpleGrid> 
 </Box>
+{/* ******************************************** */}
+
 </Stack>
 
 {

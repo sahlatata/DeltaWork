@@ -50,10 +50,10 @@ return (
 <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
     <HStack>
-<Box>Logo</Box>
-<Link as={RouteLink} to='/ProfileClient'> <NavLink>Profile</NavLink></Link>
+<Box>ΔW</Box>
+<Link p={2} as={RouteLink} to='/ProfileClient'> <NavLink>Profile</NavLink></Link>
 <Menu>
-<MenuButton p={5} rightIcon={<ChevronDownIcon />}>
+<MenuButton  rightIcon={<ChevronDownIcon />}>
 <NavLink >Annonces</NavLink>
 </MenuButton><MenuList>
 <Link as={RouteLink} to='/ListAnnonces'><MenuItem>Voir les annonces </MenuItem></Link>

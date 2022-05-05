@@ -26,8 +26,17 @@ import { CompleteProfile } from './component/User/CompleteProfile';
 import EditAnnonce from './component/Annonce/EditAnnonce';
 import ViewProfilByClient from './component/User/ViewProfilByClient';
 import HomeAnnonces from './component/Annonce/HomeAnnonces';
+
+
+import ListAnnoncesSahla from './component/Annonce/ListAnnoncesSahla';
+
+
 function App() {
+
   const [rech,setRech] = useState('')
+
+ 
+
   const dispatch=useDispatch()
   useEffect(()=>{
     dispatch(current())
@@ -35,17 +44,21 @@ function App() {
   return (
     <div>
       
-     
-      
       <Errors/>
         <Routes>
           <Route path="/" element={<Home/>}/>
+
           <Route path='/Profile' element={<PrivateRoute><FreelancerProfile setRech={setRech}/></PrivateRoute>}/> 
+
           <Route path='/Register' element={<Register/>}/>
           <Route path='/SignIn' element={<SignIn/>}/>
           <Route path='/EditFreelancer/:id' element={<EditFreelancer/>}/>
           <Route path='/EditClient/:id' element={<EditClient/>}/>
+
           <Route path='/ListAnnonces' element={<ListAnnonces rech={rech}/>}/>
+
+          <Route path='/HomeAnnonces'  element={<HomeAnnonces/>}/>
+
           <Route path='/AnnonceDetail/:id' element={<CardDetail/>}/>
           <Route path='/ProfileClient' element={<ProfileClient/>}/>
           <Route path='/Admin' element={<Admin/>}/>
@@ -53,7 +66,7 @@ function App() {
           <Route path='/EditPassword/:id' element={<EditPassword/>}/>
           <Route path='/CompleteProfile/:id' element={<CompleteProfile/>}/>
           <Route path='/EditAnnonce/:id' element={<EditAnnonce/>}/>
-          <Route path='/HomeAnnonces'  element={<HomeAnnonces/>}/>
+          
           <Route path='/ViewProfilByClient/:id'  element={<ViewProfilByClient/>}/>
         </Routes>
         

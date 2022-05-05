@@ -28,7 +28,8 @@ function ProfileClient() {
     return (
         <div>
     <NavBarClient/>
-    <Container maxW="container.xl">
+
+<Container maxW="container.xl">
 <Box w={'full'} boxShadow={'lg'} rounded={'lg'} p={6} mt={10} mb={10} bg={useColorModeValue('white', 'gray.700')} >
 <Text  fontSize='xl'>
 {dateLocale}

@@ -7,11 +7,21 @@ import {getDemande} from '../../Redux/Actions/DemandeActions'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link as RouteLink, Navigate, useNavigate } from "react-router-dom"
 import DemandeCard from '../Demande/DemandeCard';
+
 export default function FreelancerProfile({setRech}) {
+
+
+
+
     const Freelancer = useSelector(state=>state.UserReducer.User)
     const demandes = useSelector(state=>state.DemandeReducer.Demandes)
     const dispatch = useDispatch()
+
     const navigate = useNavigate()
+
+  
+ 
+
 useEffect(()=>{
  dispatch(getDemande())   
 },[])
@@ -49,8 +59,10 @@ return (
 {/* ********** input ************** */}
 <Stack spacing={{ base: 6, md: 10 }}  >
 <Stack direction={'row'} >
+
 <Input placeholder='Chercher une annonce' bg={useColorModeValue('white', 'gray.700')} onChange={(e)=>setRech(e.target.value)} />
 <IconButton aria-label='Search database' icon={<SearchIcon />} onClick={()=>navigate('/ListAnnonces')} />
+
 </Stack>
 {/* **********menue ************** */}
 <Box  w={'full'} boxShadow={'lg'} rounded={'lg'} p={6} mt={10} mb={10} >

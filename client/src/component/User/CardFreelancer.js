@@ -67,14 +67,8 @@ Edit
 </Stack>
 {/* ************** */}
  
-<Stack
-    spacing={{ base: 4, sm: 6 }}
-    direction={'column'}
-    divider={
-    <StackDivider
-        borderColor={useColorModeValue('gray.200', 'gray.600')}
-    />
-    }>
+<Stack spacing={{ base: 4, sm: 6 }} direction={'column'}
+    divider={<StackDivider borderColor={useColorModeValue('gray.200', 'gray.600')}/>}>
     <Box mt={10}>
     <Text
         fontSize={{ base: '16px', lg: '18px' }}

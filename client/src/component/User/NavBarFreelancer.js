@@ -44,7 +44,7 @@ display={{ md: 'none' }}
 onClick={isOpen ? onClose : onOpen}
 />
 <HStack spacing={8} alignItems={'center'}>
-<Box>DeltaWork</Box>
+<Box>ΔW</Box>
 
 <HStack
 as={'nav'}
@@ -53,8 +53,8 @@ display={{ base: 'none', md: 'flex' }}>
 {/* {Links.map((link) => (
 <NavLink key={link}>{link}</NavLink>
 ))} */}
-<Link as={RouteLink} to="/Profile"> Profihhle</Link>
-<Link as={RouteLink} to="/ListAnnonces"><Button>Annonce</Button></Link>
+<Link as={RouteLink} to="/Profile"> Profile</Link>
+<Link as={RouteLink} to="/ListAnnonces">Annonce </Link>
 </HStack>
 </HStack>
 <Flex alignItems={'center'}>

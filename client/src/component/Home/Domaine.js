@@ -12,8 +12,9 @@ import {
 const Domaine=()=>{
     return(
         <div>
-           
-     <Flex direction="row" >       
+          <Box p={4}>
+    <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+        
     <Flex
       bg={useColorModeValue("#F9FAFB", "gray.600")}
       p={50}
@@ -80,7 +81,7 @@ const Domaine=()=>{
             color={useColorModeValue("gray.800", "white")}
             fontWeight="bold"
           >
-           Developpement Mobile
+          Developpement Mobile
           </Link>
           
         </Box>
@@ -122,11 +123,9 @@ const Domaine=()=>{
         </Box>
       </Box>
     </Flex>
-    </Flex>
-   
-    <Flex direction="row">
-    <Flex
-      bg={useColorModeValue("#F9FAFB", "gray.600")}
+    </SimpleGrid>
+    <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+    <Flex bg={useColorModeValue("#F9FAFB", "gray.600")}
       p={50}
       w="full"
       alignItems="center"
@@ -233,8 +232,9 @@ const Domaine=()=>{
         </Box>
       </Box>
     </Flex>
-    </Flex>
     
+    </SimpleGrid>
+    </Box>
         </div>
          );
 }

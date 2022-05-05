@@ -30,8 +30,13 @@ const HomeAnnonces=()=>{
 <SimpleGrid columns={{ base: 1, lg: 2 }} py={{ base: 18, md: 4 }}>
             
         
+
         <Filter setDomaine={setDomaine} setNiveau={setNiveau} niveau={niveau} setPays={setPays} setPrix={setPrix} setDuree={setDuree}/>
       
+
+
+
+
         {/* ***************************************************** */}
         <Stack   spacing={{ base: 6, md: 10 }} >
         <Stack direction={'row'} >

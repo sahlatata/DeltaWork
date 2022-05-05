@@ -41,8 +41,8 @@ const navigate = useNavigate()
 const User = useSelector(state=>state.UserReducer.User)
 const handleDelete =(e)=>{
 e.preventDefault()
-dispatch(deleteUser (User._id , navigate))
-
+dispatch(deleteUser (User._id ))
+navigate('/')
 }
 return (
 <>

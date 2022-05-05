@@ -1,9 +1,10 @@
-import { CURRENT, FAIL, GETONEUSER, LOGIN, LOGOUT, REGISTER } from "../ActionsTypes/UserTypes"
+import { CURRENT, FAIL, GETONEUSER, GETUSERS, LOGIN, LOGOUT, REGISTER } from "../ActionsTypes/UserTypes"
 
 const initialState = {
 User : {},
 errors : [],
-oneUser : {}
+oneUser : {},
+Users : []
 }
 const UserReducer =(state=initialState,action)=>{
 switch (action.type) {
@@ -22,6 +23,8 @@ localStorage.removeItem('token')
 return {...state, User : null} 
 case GETONEUSER :
     return {...state,oneUser:action.payload.OneUser}
+    case GETUSERS :
+    return {...state,Users:action.payload.Users}
 default: return state
 }
 

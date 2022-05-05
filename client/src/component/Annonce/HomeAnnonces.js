@@ -26,7 +26,7 @@ const HomeAnnonces=()=>{
             
         
         <Filter/>
-      
+
         {/* ***************************************************** */}
         <Stack   spacing={{ base: 6, md: 10 }} >
         <Stack direction={'row'} >

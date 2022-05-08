@@ -34,7 +34,7 @@ function ProfileClient() {
 <Text  fontSize='xl'>
 {dateLocale}
 </Text>
-<Heading color={useColorModeValue('bleub.500', 'discord.50')}>Good Morning</Heading>
+<Heading color={useColorModeValue('bleub.500', 'discord.50')}>Bonne Journée</Heading>
 <Text fontSize='xl'>
 { Client.nom} <br/>
 </Text>
@@ -52,24 +52,17 @@ function ProfileClient() {
 <Box  w={'full'} boxShadow={'lg'} rounded={'lg'} p={6} mt={2} mb={10} >
 <Tabs  colorScheme="dark">
 <TabList>
-<Tab>Mes Annonces  </Tab>
-
-<Tab>Annonces récentes</Tab>
+<Tab>Mes Annonces</Tab>
 </TabList>
 <TabPanels>
 <TabPanel>
     {/* ******a changer par component Card annonce ******************* */}
     {
-    myAnnonces.map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`}><MyCardAnnonce el={el}/></Link>)
+    myAnnonces.map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`} ><MyCardAnnonce el={el}/></Link>)
     }
 
 {/* ************************* */}
 </TabPanel>
-{/* <TabPanel>
-{
-    demandes.map(el=><DemandeCard el={el}/>)
-   }
-</TabPanel> */}
 </TabPanels>
 </Tabs>
 </Box>

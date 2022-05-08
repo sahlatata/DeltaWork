@@ -99,9 +99,17 @@ Modifier votre profil
             <FormLabel color={useColorModeValue('bleub.500', 'discord.50')} >Prenom</FormLabel>
             <Input  value ={prenom} onChange={(e)=>setPrenom(e.target.value)} placeholder="UserName" _placeholder={{ color: 'gray.500' }}type="text" />
         </FormControl>
-        <FormControl id="userName" >
-            <FormLabel color={useColorModeValue('bleub.500', 'discord.50')} >Pays</FormLabel>
-            <Input  value ={pays} onChange={(e)=>setPays(e.target.value)} placeholder="UserName" _placeholder={{ color: 'gray.500' }}type="text" />
+        <FormControl>
+        <FormLabel color={useColorModeValue('bleub.500', 'discord.50')}>Pays</FormLabel>
+        <Select id='pays'  value ={pays} onChange={(e)=>setPays(e.target.value)} placeholder='Selectionner votre pays'>
+            <option>Tunisie</option>
+            <option>France</option>
+            <option>Algerie</option>
+            <option>Maroc</option>
+            <option>Suisse</option>
+            <option>Senegal</option>
+            
+        </Select>
         </FormControl>
         <FormControl id="email" >
             <FormLabel  color={useColorModeValue('bleub.500', 'discord.50')}>Adresse email</FormLabel>
@@ -125,7 +133,7 @@ Modifier votre profil
 
         <FormControl>
             <FormLabel color={useColorModeValue('bleub.500', 'discord.50')}>Domaine d'activité</FormLabel>
-                <Select onChange={(e)=>setDomaine(e.target.value)} placeholder="Selectionner votre domaine d'activité">
+                <Select value={domaine} onChange={(e)=>setDomaine(e.target.value)} placeholder="Selectionner votre domaine d'activité">
                     <option>Developpement mobile</option>
                     <option>developpement web</option>
                     <option>DevOps</option>
@@ -136,7 +144,7 @@ Modifier votre profil
 
             <FormControl>
             <FormLabel color={useColorModeValue('bleub.500', 'discord.50')}>Niveau</FormLabel>
-            <Select onChange={(e)=>setNiveau(e.target.value)} placeholder="Selectionner votre domaine d'activité">
+            <Select value={niveau} onChange={(e)=>setNiveau(e.target.value)} placeholder="Selectionner votre domaine d'activité">
                 <option>Débutant</option>
                 <option>Intermediare</option>
                 <option>Expert</option>

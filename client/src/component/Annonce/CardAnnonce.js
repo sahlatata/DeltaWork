@@ -10,9 +10,10 @@ import {
     HStack,
     Button,
   } from '@chakra-ui/react';
-  import { EditIcon,CloseIcon } from '@chakra-ui/icons'
+  import { EditIcon,CloseIcon, DeleteIcon } from '@chakra-ui/icons'
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteAnnonce } from '../../Redux/Actions/AnnonceActions';
+import { useEffect } from 'react';
 const CardAnnonce=({el})=>{
   const User = useSelector(state=>state.UserReducer.User)
   const dispatch=useDispatch()
@@ -20,6 +21,7 @@ const CardAnnonce=({el})=>{
       e.preventDefault()
       dispatch(deleteAnnonce(el._id))
   }
+ 
     return(
         <div>
             <Center py={6}>
@@ -32,6 +34,11 @@ const CardAnnonce=({el})=>{
         p={6}
         overflow={'hidden'}>
         <Stack>
+          {
+            User.role == "Admin"  && 
+            <Button onClick={(e)=>handleDelete(e)} ml='470px'><DeleteIcon w={4} h={4}/></Button>
+            }
+        
         <Heading
               color={useColorModeValue('bleub.500', 'discord.50')}
               fontSize={'2xl'}
@@ -46,7 +53,7 @@ const CardAnnonce=({el})=>{
         
           <Stack direction={'column'} spacing={0} fontSize={'sm'}>
           <Text fontWeight={600}>Posted by</Text>
-            <Text fontWeight={600}>Achim Roggglle</Text>
+            <Text fontWeight={600}>{el.client.nom} {el.client.prenom}</Text>
             <Text color={'gray.500'}>{el.dateAnnonce}</Text>
           </Stack>
         </Stack>

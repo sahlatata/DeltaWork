@@ -22,6 +22,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logout, deleteUser } from '../../Redux/Actions/UserActions';
 import { Link as RouteLink } from "react-router-dom"
+import { ColorModeSwitcher } from '../../ColorModeSwitcher';
 const NavLink = ({ children }: { children: ReactNode }) => (
     
 <Link px={2} py={1} rounded={'md'} _hover={{
@@ -65,9 +66,7 @@ return (
 
 <Flex alignItems={'center'}>
 <Stack direction={'row'} spacing={7}>
-<Button onClick={toggleColorMode}>
-{colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-</Button>
+
 
 <Menu>
 <MenuButton
@@ -81,6 +80,7 @@ size={'sm'}
 src={User.image}
 />
 </MenuButton>
+<ColorModeSwitcher justifySelf="flex-end" />
 <MenuList alignItems={'center'}>
 <br />
 <Center>
@@ -97,8 +97,8 @@ src={User.image}
 <MenuDivider />
 <MenuItem onClick={handleDelete}>Supprimer le compte</MenuItem>
 <Link as={RouteLink} to={`/EditPassword/${User._id}`}><MenuItem>Changer le mot de passe</MenuItem></Link>
-<Link as={RouteLink} to={`/EditClient/${User._id}`}><MenuItem>Edit profile</MenuItem></Link>
-<MenuItem onClick={()=>{dispatch(logout());navigate('/')}}>Logout</MenuItem>
+<Link as={RouteLink} to={`/EditClient/${User._id}`}><MenuItem>Editer profile</MenuItem></Link>
+<MenuItem onClick={()=>{dispatch(logout());navigate('/')}}>Déconnexion</MenuItem>
 </MenuList>
 </Menu>
 </Stack>

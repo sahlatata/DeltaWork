@@ -57,14 +57,13 @@ Rédiger une offre d'emploi attractive !!
   <Input  onChange={(e)=>setBudget(e.target.value)} />
   <FormHelperText>Entrer le budget</FormHelperText>
 </FormControl>
+
 <FormControl>
-  
   <FormLabel htmlFor='email' color={useColorModeValue('bleub.500', 'discord.50')}>Durée du projet</FormLabel>
-  <HStack>
-  <Input htmlSize={4} width='auto' onChange={(e)=>setDuree(e.target.value)}/>
-  <Text>Mois</Text>
-</HStack>
+  <Input   onChange={(e)=>setDuree(e.target.value)}/>
+  <FormHelperText>Nombre de mois</FormHelperText>
 </FormControl>
+
 <FormControl>
   <FormLabel htmlFor='country' color={useColorModeValue('bleub.500', 'discord.50')} >Domaine d'activité</FormLabel>
   <Select   placeholder="Selectionner votre domaine d'activité" value={domaine} onChange={(e)=>setDomaine(e.target.value)}>

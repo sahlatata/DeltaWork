@@ -8,7 +8,7 @@ const AnnonceSchema = new mongoose.Schema({
     domaine:{type:String,reqired:true},
     client : {type: mongoose.Schema.Types.ObjectId, ref:"User"},
     dateAnnonce :{ type: Date},
-    durée : {type : Number}
+    duree : {type : Number}
     // dateFin:{type : Date},
 
     

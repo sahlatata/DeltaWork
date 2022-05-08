@@ -4,16 +4,13 @@ import {
     Heading,
     Text,
     Stack,
-    Avatar,
     useColorModeValue,
-    Flex,
-    HStack,
     Button,
   } from '@chakra-ui/react';
-  import { EditIcon,CloseIcon, DeleteIcon } from '@chakra-ui/icons'
+  import { DeleteIcon } from '@chakra-ui/icons'
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteAnnonce } from '../../Redux/Actions/AnnonceActions';
-import { useEffect } from 'react';
+
 const CardAnnonce=({el})=>{
   const User = useSelector(state=>state.UserReducer.User)
   const dispatch=useDispatch()
@@ -21,7 +18,7 @@ const CardAnnonce=({el})=>{
       e.preventDefault()
       dispatch(deleteAnnonce(el._id))
   }
- 
+ console.log(User)
     return(
         <div>
             <Center py={6}>
@@ -34,10 +31,10 @@ const CardAnnonce=({el})=>{
         p={6}
         overflow={'hidden'}>
         <Stack>
-          {
+          {/* {
             User.role == "Admin"  && 
             <Button onClick={(e)=>handleDelete(e)} ml='470px'><DeleteIcon w={4} h={4}/></Button>
-            }
+            } */}
         
         <Heading
               color={useColorModeValue('bleub.500', 'discord.50')}

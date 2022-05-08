@@ -4,12 +4,10 @@ import { useDispatch, useSelector } from "react-redux"
 import { getAnnonce } from "../../Redux/Actions/AnnonceActions"
 import CardAnnonce from "./CardAnnonce"
 import Filter from "./Filter"
-
 import { Link as RouteLink } from "react-router-dom" 
 import NavBarHome from "../User/NavBarHome"
 const HomeAnnonces=()=>{
     const Annonces = useSelector(state=>state.AnnonceReducer.Annonces)
-    const User = useSelector(state=>state.UserReducer.User)
     const dispatch= useDispatch()
     useEffect(()=>{
         dispatch(getAnnonce())
@@ -25,9 +23,9 @@ const HomeAnnonces=()=>{
         
         <div>
         <NavBarHome/>
-<Container maxW="container.2xl">           
-<SimpleGrid columns={{ base: 1, lg: 2 }} py={{ base: 18, md: 8 }}>          
-        
+            <Container maxW="container.2xl">           
+            <SimpleGrid columns={{ base: 1, lg: 2 }} py={{ base: 18, md: 8 }}>          
+                    
 
         <Filter setDomaine={setDomaine} setNiveau={setNiveau} niveau={niveau} setPays={setPays} setPrix={setPrix} setDuree={setDuree}/>
 

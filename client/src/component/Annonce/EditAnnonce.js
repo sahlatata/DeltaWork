@@ -12,6 +12,7 @@ const EditAnnonce=()=>{
     const [budget,setBudget]=useState(Annonce.budget)
     const [niveau,setNiveau]=useState(Annonce.niveau)
     const [domaine,setDomaine] = useState(Annonce.domaine)
+    const [duree,setDuree] = useState(Annonce.duree)
     const dispatch = useDispatch()
     const navigate=useNavigate()
     const {id} = useParams()
@@ -19,9 +20,19 @@ const EditAnnonce=()=>{
       dispatch(getOneAnnonce(id))
         
     },[])
+    useEffect(()=>{
+      setTitre(Annonce.titre)
+      setDescription(Annonce.description)
+      setTechnologie(Annonce.technologie)
+      setBudget(Annonce.budget)
+      setNiveau(Annonce.niveau)
+      setDomaine(Annonce.domaine)
+      setDuree(Annonce.duree)
+      },[Annonce])
+
     const handleEdit=(e)=>{
         e.preventDefault()
-        dispatch(updateAnnonce(id,{titre,description,technologie,budget,niveau,domaine}))
+        dispatch(updateAnnonce(id,{titre,description,technologie,budget,niveau,domaine,duree}))
         navigate('/ProfileClient')
     }
     return(
@@ -58,7 +69,11 @@ const EditAnnonce=()=>{
       <Input  value={budget} onChange={(e)=>setBudget(e.target.value)} />
       <FormHelperText>Entrer le budget</FormHelperText>
     </FormControl>
-    
+    <FormControl>
+      <FormLabel htmlFor='email'>Durée</FormLabel>
+      <Input  value={duree} onChange={(e)=>setDuree(e.target.value)} />
+      <FormHelperText>Entrer la durée du projet</FormHelperText>
+    </FormControl>
     <FormControl>
       <FormLabel htmlFor='country' >Domaine d'activité</FormLabel>
       <Select   placeholder="Selectionner votre domaine d'activité" value={domaine} onChange={(e)=>setDomaine(e.target.value)}>

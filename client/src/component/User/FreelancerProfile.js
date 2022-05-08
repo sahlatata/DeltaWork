@@ -33,7 +33,7 @@ let dateLocale = today.toLocaleString('fr-FR',{
     month: 'long',
     day: 'numeric',
     });
-console.log(demandes)
+
 // ******************************
 return (
         <div>

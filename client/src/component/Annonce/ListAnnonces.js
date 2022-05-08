@@ -4,9 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { getAnnonce } from "../../Redux/Actions/AnnonceActions"
 import CardAnnonce from "./CardAnnonce"
 import Filter from "./Filter"
-
 import { Link as RouteLink } from "react-router-dom" 
-import NavBarHome  from "../User//NavBarHome"
 import NavBarFreelancer from "../User/NavBarFreelancer"
 import NavBarClient from "../User/NavBarClient"
 const ListAnnonces=({rech})=>{
@@ -24,7 +22,7 @@ const ListAnnonces=({rech})=>{
     const [prix,setPrix] = useState('0')
     const [pays,setPays] = useState('')
     const [duree,setDuree] = useState(0)
-
+console.log(Annonces)
     return(
         
         <div>
@@ -33,7 +31,7 @@ const ListAnnonces=({rech})=>{
             }
         
         <Container maxW="container.2xl">           
-<SimpleGrid columns={{ base: 1, lg: 2 }} py={{ base: 18, md: 8 }}>          
+       <SimpleGrid columns={{ base: 1, lg: 2 }} py={{ base: 18, md: 8 }}>          
         
 
         <Filter setDomaine={setDomaine} setNiveau={setNiveau} niveau={niveau} setPays={setPays} setPrix={setPrix} setDuree={setDuree}/>
@@ -55,8 +53,8 @@ const ListAnnonces=({rech})=>{
                 .filter(el=>(el.niveau.toLowerCase()).includes(niveau.toLowerCase()))
                 .filter(el=>(el.domaine.toLowerCase()).includes(domaine.toLowerCase()))
                 .filter(el=>(el.client.pays.toLowerCase()).includes(pays.toLowerCase()))
-                .filter(el=>(el.budget>parseInt(prix)))
-                .filter(el=>(el.duree>parseInt(duree)))
+                .filter(el=>(el.budget > parseInt(prix)))
+                .filter(el=>(el.duree > parseInt(duree)))
                 .map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`}><CardAnnonce el={el}/></Link>) }
         </Box>
         </Stack>

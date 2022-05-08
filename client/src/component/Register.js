@@ -7,6 +7,7 @@ import { register } from '../Redux/Actions/UserActions';
 import Errors from './Errors';
 import { Link as RouteLink } from "react-router-dom"
 import { NavBarSimple } from './NavBarSimple';
+import NavBarHome from './User/NavBarHome';
 export default function SignupCard() {
 const [showPassword, setShowPassword] = useState(false);
 const [nom , setNom]=useState('')
@@ -25,7 +26,7 @@ dispatch(register({nom,prenom,email,password,pays,role},navigate))
 }
 return (
     <>
-    <NavBarSimple/> 
+<NavBarHome/> 
 <Box textAlign="center" fontSize="xl"> 
 <Flex minH={'100vh'} align={'center'}justify={'center'}bg={useColorModeValue('gray.50', 'gray.800')}> 
 <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>

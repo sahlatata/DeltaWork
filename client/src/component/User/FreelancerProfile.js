@@ -44,7 +44,7 @@ return (
 <Text  fontSize='xl'>
 {dateLocale}
 </Text>
-<Heading color={useColorModeValue('bleub.500', 'discord.50')}>Good Morning</Heading>
+<Heading color={useColorModeValue('bleub.500', 'discord.50')}>Bonne Journée</Heading>
 <Text fontSize='xl'>
 {Freelancer.nom} <br/>
 </Text>

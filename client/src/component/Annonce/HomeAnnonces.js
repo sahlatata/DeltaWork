@@ -1,4 +1,4 @@
-import { Box, Container, HStack, Input, Link, SimpleGrid, Stack} from "@chakra-ui/react"
+import { Box, Container, HStack, Input, Link, SimpleGrid, Stack, Text, useColorModeValue} from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getAnnonce } from "../../Redux/Actions/AnnonceActions"
@@ -8,7 +8,6 @@ import Filter from "./Filter"
 import { Link as RouteLink } from "react-router-dom" 
 import NavBarHome from "../User/NavBarHome"
 const HomeAnnonces=()=>{
-  
     const Annonces = useSelector(state=>state.AnnonceReducer.Annonces)
     const User = useSelector(state=>state.UserReducer.User)
     const dispatch= useDispatch()
@@ -27,19 +26,20 @@ const HomeAnnonces=()=>{
         <div>
         <NavBarHome/>
 <Container maxW="container.2xl">           
-<SimpleGrid columns={{ base: 1, lg: 2 }} py={{ base: 18, md: 4 }}>
-            
+<SimpleGrid columns={{ base: 1, lg: 2 }} py={{ base: 18, md: 8 }}>          
         
 
         <Filter setDomaine={setDomaine} setNiveau={setNiveau} niveau={niveau} setPays={setPays} setPrix={setPrix} setDuree={setDuree}/>
-      
+
 
 
 
 
         {/* ***************************************************** */}
         <Stack   spacing={{ base: 6, md: 10 }} >
-        <Stack direction={'row'} >
+        <Stack >
+        <Text fontSize={'2xl'}color={useColorModeValue('bleub.500', 'discord.50')}  fontFamily={'body'}>Rechercher une annonce </Text>
+        
         <Input placeholder='Rechercher par Titre' onChange={(e)=>setSearch(e.target.value)}/>
         </Stack> 
 

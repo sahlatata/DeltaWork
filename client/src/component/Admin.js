@@ -2,9 +2,11 @@ import { Box, Container, Heading, Link, SimpleGrid, Stack, Tab, TabList, TabPane
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link as RouteLink } from "react-router-dom"
+
 import { getAnnonce } from '../Redux/Actions/AnnonceActions';
 import { getUsers } from '../Redux/Actions/UserActions';
 import CardAnnonce from './Annonce/CardAnnonce';
+import NavBarAdmin from './NavBarAdmin';
 import CardUser from './User/CardUser';
 function Admin() {
     const admin = useSelector(state=>state.UserReducer.User)
@@ -24,6 +26,7 @@ function Admin() {
     },[Users,Annonces])
     return (
         <div>
+        <NavBarAdmin/>
 <Container maxW="container.2xl">
 <Box w={'full'} boxShadow={'lg'} rounded={'lg'} p={6} mt={10} mb={10} bg={useColorModeValue('white', 'gray.700')} >
 <Text  fontSize='xl'>

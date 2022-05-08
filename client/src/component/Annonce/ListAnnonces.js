@@ -1,4 +1,4 @@
-import { Box, HStack, Input, Link} from "@chakra-ui/react"
+import { Box, Container, HStack, Input, Link, SimpleGrid, Stack, Text, useColorModeValue} from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getAnnonce } from "../../Redux/Actions/AnnonceActions"
@@ -32,29 +32,37 @@ const ListAnnonces=({rech})=>{
                 User.role == "Freelancer" ? <NavBarFreelancer/> : <NavBarClient/>
             }
         
-            <HStack spacing='100px' mt={10}>    
-            <Box  height='80px' width='400px' ml='50px'>
+        <Container maxW="container.2xl">           
+<SimpleGrid columns={{ base: 1, lg: 2 }} py={{ base: 18, md: 8 }}>          
+        
 
-          
-                <Filter  setDomaine={setDomaine} setNiveau={setNiveau} niveau={niveau} setPays={setPays} setPrix={setPrix} setDuree={setDuree}/>
+        <Filter setDomaine={setDomaine} setNiveau={setNiveau} niveau={niveau} setPays={setPays} setPrix={setPrix} setDuree={setDuree}/>
 
-              
 
-            </Box>
-                <Box  height='80px'>
-                <Input placeholder='Rechercher par Titre' onChange={(e)=>setSearch(e.target.value)} value={search}/>
-                
+
+
+
+        {/* ***************************************************** */}
+        <Stack   spacing={{ base: 6, md: 10 }} >
+        <Stack >
+        <Text fontSize={'2xl'}color={useColorModeValue('bleub.500', 'discord.50')}  fontFamily={'body'}>Rechercher une annonce </Text>
+        
+        <Input placeholder='Rechercher par Titre' onChange={(e)=>setSearch(e.target.value)}/>
+        </Stack> 
+
+        <Box w={'full'} boxShadow={'lg'} rounded={'lg'} p={6} mt={10} mb={10}  >   
                 { Annonces.filter(el=>(el.titre.toUpperCase().includes(search.toUpperCase())))
                 .filter(el=>(el.niveau.toLowerCase()).includes(niveau.toLowerCase()))
                 .filter(el=>(el.domaine.toLowerCase()).includes(domaine.toLowerCase()))
                 .filter(el=>(el.client.pays.toLowerCase()).includes(pays.toLowerCase()))
                 .filter(el=>(el.budget>parseInt(prix)))
                 .filter(el=>(el.duree>parseInt(duree)))
-                .map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`}><CardAnnonce key={Math.random()} el={el}/></Link>) }
-                
-                </Box>
-                
-            </HStack>
+                .map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`}><CardAnnonce el={el}/></Link>) }
+        </Box>
+        </Stack>
+
+</SimpleGrid>
+  </Container>
             
             
         </div>

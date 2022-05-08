@@ -1,4 +1,4 @@
-import { Box, FormControl, FormLabel, Heading, Input, Radio, RadioGroup, Select, Stack, Text } from "@chakra-ui/react"
+import { Box, FormControl, FormLabel, Heading, Input, Radio, RadioGroup, Select, Stack, Text, useColorModeValue } from "@chakra-ui/react"
 import { useState } from "react"
 
 
@@ -6,8 +6,8 @@ const Filter=({setDomaine,niveau,setNiveau,setPays,setPrix,setDuree})=>{
     
     return(
         <div>
-            <Box  width='400px' ml='30px'>
-            <Text fontSize={'2xl'} fontFamily={'body'}>Filter par</Text>
+            <Box  pb={5} width='400px' ml='40px'>
+            <Text fontSize={'2xl'}color={useColorModeValue('bleub.500', 'discord.50')}  fontFamily={'body'}>Filter par</Text>
             <FormControl mt={5}>
             <FormLabel htmlFor='country' >Domaine d'activité</FormLabel>
                 <Select placeholder="Selectionner votre domaine d'activité"  onChange={(e)=>setDomaine(e.target.value)}>
@@ -21,7 +21,7 @@ const Filter=({setDomaine,niveau,setNiveau,setPays,setPrix,setDuree})=>{
             <RadioGroup mt={5} onChange={setNiveau} value={niveau}>
                 <Stack>
                 <Heading fontSize={'xl'} fontFamily={'body'}>
-                   Niveau
+                Niveau
                 </Heading>
                     <Radio value='Débutant'>Débutant</Radio>
                     <Radio value='Intermediaire'>Intermediaire</Radio>
@@ -64,7 +64,6 @@ const Filter=({setDomaine,niveau,setNiveau,setPays,setPrix,setDuree})=>{
             </Box>
         </div>
     )
-
 
 
 }

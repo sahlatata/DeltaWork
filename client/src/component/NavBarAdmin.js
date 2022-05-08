@@ -3,9 +3,9 @@ import {Box,Flex,Avatar,HStack,Link,IconButton,Button,Menu,MenuButton,MenuList,M
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { deleteUser, logout } from '../../Redux/Actions/UserActions';
+import { deleteUser, logout } from '../Redux/Actions/UserActions';
 import { Link as RouteLink } from "react-router-dom"
-import { ColorModeSwitcher } from '../../ColorModeSwitcher';
+
 // const Links = ['Profile', 'Annonces'];
 
 // const NavLink = ({ children }: { children: ReactNode }) => (
@@ -22,7 +22,7 @@ import { ColorModeSwitcher } from '../../ColorModeSwitcher';
 
 
 
-export default function NavBarFreelancer() {
+export default function NavBarAdmin() {
 const { isOpen, onOpen, onClose } = useDisclosure();
 const dispatch = useDispatch()
 const navigate = useNavigate()
@@ -44,15 +44,9 @@ display={{ md: 'none' }}
 onClick={isOpen ? onClose : onOpen}
 />
 <HStack spacing={8} alignItems={'center'}>
-<Box>ΔW</Box>
+<Box><Link as={RouteLink} to={"/Admin"}>ΔW</Link></Box>
 
-<HStack
-as={'nav'}
-spacing={4}
-display={{ base: 'none', md: 'flex' }}>
-<Link as={RouteLink} to="/Profile"> Profile</Link>
-<Link as={RouteLink} to="/ListAnnonces">Annonce </Link>
-</HStack>
+
 </HStack>
 
 <Flex alignItems={'center'}>
@@ -71,11 +65,9 @@ src={
 }
 />
 </MenuButton>
-<ColorModeSwitcher justifySelf="flex-end" />
+{/* <ColorModeSwitcher justifySelf="flex-end" /> */}
 <MenuList>
-<Link as={RouteLink} to={`/EditFreelancer/${Freelancer._id}`}><MenuItem>Modifier le profil</MenuItem></Link>
 <Link as={RouteLink} to={`/EditPassword/${Freelancer._id}`}><MenuItem>Changer le mot de passe</MenuItem></Link>
-<MenuItem onClick={handleDelete}>Supprimer le compte</MenuItem>
 
 <MenuDivider />
 <MenuItem onClick={()=>{dispatch(logout());navigate('/')}}>Deconnexion</MenuItem>

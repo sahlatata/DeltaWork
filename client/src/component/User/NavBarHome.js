@@ -75,8 +75,8 @@ import { ColorModeSwitcher } from '../../ColorModeSwitcher';
     spacing={6}>
     
     
-    <Button  as={'a'} fontSize={'sm'} fontWeight={400} variant={'link'} href={'#'}>
-    <Link  as={RouteLink} to='/SignIn'>Se connecter</Link>
+    <Button   as={'a'} fontWeight={"semibold"} boxShadow={"none"} variant='ghost' href={'/SignIn'}>
+    Se connecter
     </Button>
     
     <Button>
@@ -108,7 +108,6 @@ import { ColorModeSwitcher } from '../../ColorModeSwitcher';
     <Link
     p={2}
     href={navItem.href ?? '#'}
-    fontSize={'sm'}
     fontWeight={500}
     color={linkColor}
     _hover={{

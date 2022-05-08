@@ -79,6 +79,11 @@ Modifier votre profil
             <Center w="full">
                 {/* <Button w="full" type='file'>Changer l'icon</Button> */}
                 <input type='file' onChange={(e)=>setImage(e.target.files[0])}/>
+
+ 
+
+
+
             </Center>
             </Stack>
 </FormControl>

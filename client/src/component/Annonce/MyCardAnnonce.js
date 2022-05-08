@@ -21,7 +21,7 @@ const CardAnnonce=({el})=>{
       e.preventDefault()
       dispatch(deleteAnnonce(el._id))
   }
- 
+ console.log(el)
     return(
         <div>
     <Center py={6}>
@@ -49,7 +49,7 @@ const CardAnnonce=({el})=>{
         
           <Stack direction={'column'} spacing={0} fontSize={'sm'}>
             <Text fontWeight={600}>Posted by</Text>
-            <Text fontWeight={600}>Achim Rolle</Text>
+            <Text fontWeight={600}>{el.client.nom} {el.client.prenom}</Text>
             <Text color={'gray.500'}>{el.dateAnnonce}</Text>
           </Stack>
         </Stack>

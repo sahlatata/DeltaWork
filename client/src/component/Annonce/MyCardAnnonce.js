@@ -30,7 +30,7 @@ const CardAnnonce=({el})=>{
           
             
             <HStack spacing='20px' ml='400'>
-                <Link as={RouteLink} to={`/EditAnnonce/${el._id}`}><Button size='xs'><EditIcon/></Button></Link>
+                <Link as={RouteLink} to={`/EditAnnonce/${el._id}`} ><Button size='xs'><EditIcon/></Button></Link>
                 <Button size='xs' onClick={(e)=>handleDelete(e)}><CloseIcon/></Button>
             </HStack>
           

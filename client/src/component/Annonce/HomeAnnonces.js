@@ -50,7 +50,7 @@ const HomeAnnonces=()=>{
                 .filter(el=>(el.client.pays.toLowerCase()).includes(pays.toLowerCase()))
                 .filter(el=>(el.budget>parseInt(prix)))
                 .filter(el=>(el.duree>parseInt(duree)))
-                .map(el=><Link as={RouteLink} to={'/SignIn'}><CardAnnonce el={el}/></Link>) }
+                .map(el=><Link as={RouteLink} to={'/SignIn'} _hover={{textDecoration: 'none'}}><CardAnnonce el={el}/></Link>) }
         </Box>
         </Stack>
 

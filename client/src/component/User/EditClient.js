@@ -1,4 +1,4 @@
-import {Button,Flex,FormControl,FormLabel,Heading, Input, Stack, useColorModeValue, Avatar, Center,
+import {Button,Flex,FormControl,FormLabel,Heading, Input, Stack, useColorModeValue, Avatar, Center, Select,
 } from '@chakra-ui/react';
 import { SmallCloseIcon } from '@chakra-ui/icons';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -53,7 +53,7 @@ export default function EditUser(){
     const handleEdit=(e)=>{
             e.preventDefault()
             dispatch(editUser(id,data))
-            navigate('/Profile')
+            navigate('/ProfileClient')
     }
     const Freelancer = useSelector(state=>state.UserReducer.User)
 
@@ -96,8 +96,15 @@ Modifier votre profil
             <Input  value ={prenom} onChange={(e)=>setPrenom(e.target.value)} placeholder="UserName" _placeholder={{ color: 'gray.500' }}type="text" />
         </FormControl>
         <FormControl id="userName" >
-            <FormLabel color={useColorModeValue('bleub.500', 'discord.50')} >Pays</FormLabel>
-            <Input  value ={pays} onChange={(e)=>setPays(e.target.value)} placeholder="UserName" _placeholder={{ color: 'gray.500' }}type="text" />
+        <FormLabel color={useColorModeValue('bleub.500', 'discord.50')}>Pays</FormLabel>
+        <Select id='pays'  value ={pays} onChange={(e)=>setPays(e.target.value)} placeholder='Selectionner votre pays'>
+            <option>Tunisie</option>
+            <option>France</option>
+            <option>Algerie</option>
+            <option>Maroc</option>
+            <option>Suisse</option>
+            <option>Senegal</option>
+        </Select>
         </FormControl>
         <FormControl id="email" >
             <FormLabel  color={useColorModeValue('bleub.500', 'discord.50')}>Adresse email</FormLabel>

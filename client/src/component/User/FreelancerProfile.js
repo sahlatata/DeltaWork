@@ -76,14 +76,14 @@ return (
 <TabPanel>
 {
 
-demandes.map(el => (Freelancer._id === el.FreelancerId._id && el.status === 'Acceptée') && <Link as={RouteLink} to={`/AnnonceDetail/${el.AnnonceId._id}`} ><DemandeCard key={Math.random()} el={el}/></Link>)
+demandes.map(el => (Freelancer._id === el.FreelancerId._id && el.status === 'Acceptée') && <Link as={RouteLink} to={`/AnnonceDetail/${el.AnnonceId._id}`} _hover={{textDecoration: 'none'}}><DemandeCard key={Math.random()} el={el}/></Link>)
 
 }
 </TabPanel>
 <TabPanel>
 {
 
-demandes.map(el => (Freelancer._id === el.FreelancerId._id && el.status === 'En attente') &&  <Link as={RouteLink} to={`/AnnonceDetail/${el.AnnonceId._id}`}><DemandeCard key={Math.random()} el={el}/></Link>)
+demandes.map(el => (Freelancer._id === el.FreelancerId._id && el.status === 'En attente') &&  <Link as={RouteLink} to={`/AnnonceDetail/${el.AnnonceId._id}`} _hover={{textDecoration: 'none'}}><DemandeCard key={Math.random()} el={el}/></Link>)
 
 }
 </TabPanel>

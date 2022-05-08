@@ -33,7 +33,7 @@ const EditAnnonce=()=>{
     <Box  w={'full'} bg={useColorModeValue('white', 'gray.900')}ounded={'lg'}p={6}>
     <Container boxShadow='lg' py={{ base: '16', md: '1' }}>
     <Stack spacing={{ base: '4', md: '5' }} >
-    <Heading size={useBreakpointValue({ base: 'sm', md: 'md' })} align="center">Editer votre Profil ! </Heading>
+    <Heading size={useBreakpointValue({ base: 'sm', md: 'md' })} align="center">Editer votre annonce ! </Heading>
     
     <FormControl>
       <FormLabel htmlFor='email'>Titre</FormLabel>

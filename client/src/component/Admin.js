@@ -1,4 +1,4 @@
-import { Box, Container, Heading, SimpleGrid, Stack, Tab, TabList, TabPanel, TabPanels, Tabs, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Container, Heading, Link, SimpleGrid, Stack, Tab, TabList, TabPanel, TabPanels, Tabs, Text, useColorModeValue } from '@chakra-ui/react';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link as RouteLink } from "react-router-dom"
@@ -23,7 +23,7 @@ function Admin() {
     useEffect(()=>{
         dispatch(getAnnonce())
         dispatch(getUsers())
-    },[Users])
+    },[Users,Annonces])
     return (
         <div>
         <NavBarAdmin/>
@@ -32,7 +32,7 @@ function Admin() {
 <Text  fontSize='xl'>
 {dateLocale}
 </Text>
-<Heading color={useColorModeValue('bleub.500', 'discord.50')}>Good Morning</Heading>
+<Heading color={useColorModeValue('bleub.500', 'discord.50')}>Bonne Journée</Heading>
 <Text fontSize='xl'>
 { admin.nom} <br/>
 </Text>
@@ -60,7 +60,7 @@ function Admin() {
 {/* ************************* */}
 </TabPanel>
 <TabPanel>
-{ Annonces.map(el=><CardAnnonce el={el}/>) }
+{ Annonces.map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`} _hover={{textDecoration: 'none'}}><CardAnnonce el={el}/></Link>) }
 </TabPanel> 
 </TabPanels>
 </Tabs>

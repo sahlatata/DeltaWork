@@ -83,10 +83,10 @@ align={'start'}
 <Text as='sup' pt={2}>si vous n'avez pas encore </Text>
 </VStack>
     <Button
-                    onClick={(e)=>handleLog(e)}
-                   
-                    color={'white'}
-                   >
+    onClick={(e)=>handleLog(e)}
+    
+    color={'white'}
+    >
                     Connexion
     </Button>
                 </Stack>

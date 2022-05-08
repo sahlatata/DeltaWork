@@ -40,9 +40,6 @@ Demandes.map(el=> (User._id === el.FreelancerId._id && oneAnnonce._id === el.Ann
 },[Demandes])
 
 
-
-console.log(oneAnnonce)
-
 return(
 <>
 {
@@ -193,6 +190,10 @@ onClick={handleAdd}
 >
 POSTULER
 </Button>
+: status == 'Acceptée' ?
+<Button  loadingText='Submitting' colorScheme='teal' variant='outline' >
+    Acceptée
+  </Button>
 :  <Button isLoading loadingText='En attente' colorScheme='teal' variant='outline' spinnerPlacement='start'>En attente</Button>
 )
 }

@@ -14,7 +14,7 @@ import React from 'react';
 
 
 function DemandeCard ({el}) {
-    
+    console.log(el)
     return (
         <div>
         <Center py={6}>
@@ -43,7 +43,7 @@ function DemandeCard ({el}) {
     
       <Stack direction={'column'} spacing={0} fontSize={'sm'}>
       <Text fontWeight={600}>Posted by</Text>
-        <Text fontWeight={600}>{el.client.nom} {el.client.prenom}</Text>
+        <Text fontWeight={600}></Text>
         <Text color={'gray.500'}>Feb 08, 2021 · 6min read</Text>
       </Stack>
     </Stack>

@@ -27,6 +27,9 @@ dispatch(addDemande(id,navigate))
 }
 
 
+
+
+
 useEffect(()=>{
 dispatch(getOneAnnonce(id))
 dispatch(getDemande())
@@ -67,8 +70,6 @@ fontWeight={300}
 fontSize={'2xl'}>
 {oneAnnonce.dateAnnonce}
 </Text>
-
-
 </Box>
 
 <Stack

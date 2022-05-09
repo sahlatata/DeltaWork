@@ -55,7 +55,7 @@ console.log(Annonces)
                 .filter(el=>(el.client.pays.toLowerCase()).includes(pays.toLowerCase()))
                 .filter(el=>(el.budget > parseInt(prix)))
                 .filter(el=>(el.duree > parseInt(duree)))
-                .map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`}><CardAnnonce el={el}/></Link>) }
+                .map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`}><CardAnnonce key={el._id} el={el}/></Link>) }
         </Box>
         </Stack>
 

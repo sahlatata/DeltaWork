@@ -16,7 +16,14 @@ const CardDetail=()=>{
 const dispatch = useDispatch()
 const navigate = useNavigate()
 const {id} = useParams()
+const [loading,setLoading] = useState(true)
+useEffect(()=>{
+  dispatch(getOneAnnonce(id))
+  dispatch(getDemande())
 
+  
+  
+  },[])
 const oneAnnonce = useSelector(state=>state.AnnonceReducer.Annonce)
 const User = useSelector(state=>state.UserReducer.User)
 const Demandes = useSelector(state=>state.DemandeReducer.Demandes)
@@ -26,18 +33,19 @@ const handleAdd=()=>{
 dispatch(addDemande(id,navigate))
 }
 
-
-
-
-
 useEffect(()=>{
-dispatch(getOneAnnonce(id))
-dispatch(getDemande())
-dispatch(getOneUser(oneAnnonce.client))
-
-Demandes.map(el=> (User._id === el.FreelancerId._id && oneAnnonce._id === el.AnnonceId._id )&&
+  
+  Demandes.map(el=> (User._id === el.FreelancerId._id && oneAnnonce._id === el.AnnonceId._id )&&
   setStatus(el.status))
-},[Demandes])
+  dispatch(getOneUser(oneAnnonce.client))
+  setLoading(false)
+},[Demandes,User])
+
+
+
+
+
+
 
 
 return(
@@ -179,12 +187,16 @@ Email:{' '}
 {/* ******************************************** */}
 
 </Stack>
-
 {
-  
-User.role=='Freelancer' && 
+    console.log(oneUser)
+}
+{
 
-(status == '' ?
+  loading === false && User?
+  (
+User.role=='Freelancer' && 
+(
+status == '' ?
  <Button
 onClick={handleAdd}
 >
@@ -194,8 +206,12 @@ POSTULER
 <Button  loadingText='Submitting' colorScheme='teal' variant='outline' >
     Acceptée
   </Button>
-:  <Button isLoading loadingText='En attente' colorScheme='teal' variant='outline' spinnerPlacement='start'>En attente</Button>
-)
+: 
+<Button isLoading loadingText='En attente' colorScheme='teal' variant='outline' spinnerPlacement='start'>En attente</Button>
+  ))
+  :
+
+   <Text>Mazel</Text>
 }
 </Stack>
 

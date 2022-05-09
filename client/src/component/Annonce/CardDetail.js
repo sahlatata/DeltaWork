@@ -2,8 +2,6 @@ import {
 Box,Stack,Text,VStack,HStack,Button,Heading,SimpleGrid,StackDivider,useColorModeValue,List,ListItem,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-
-
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getOneAnnonce } from '../../Redux/Actions/AnnonceActions';
@@ -11,7 +9,7 @@ import NavBarFreelancer from '../User/NavBarFreelancer';
 import NavBarClient from '../User/NavBarClient'
 import { addDemande, getDemande } from '../../Redux/Actions/DemandeActions';
 import DemandeUser from '../Demande/DemandeUser'
-import { getOneUser } from '../../Redux/Actions/UserActions';
+
 const CardDetail=()=>{
 const dispatch = useDispatch()
 const navigate = useNavigate()
@@ -20,20 +18,16 @@ const {id} = useParams()
 const oneAnnonce = useSelector(state=>state.AnnonceReducer.Annonce)
 const User = useSelector(state=>state.UserReducer.User)
 const Demandes = useSelector(state=>state.DemandeReducer.Demandes)
-const oneUser = useSelector(state=>state.UserReducer.oneUser)
+// const oneUser = useSelector(state=>state.UserReducer.oneUser)
 const [status,setStatus] =useState('')
 const handleAdd=()=>{
 dispatch(addDemande(id,navigate))
 }
 
-
-
-
-
 useEffect(()=>{
 dispatch(getOneAnnonce(id))
 dispatch(getDemande())
-dispatch(getOneUser(oneAnnonce.client))
+
 
 Demandes.map(el=> (User._id === el.FreelancerId._id && oneAnnonce._id === el.AnnonceId._id )&&
   setStatus(el.status))
@@ -155,21 +149,21 @@ Information sur le client:
 <Text as={'span'} fontWeight={'bold'}>
   Nom/Prenom :{' '} 
 </Text>
-<Text>{oneUser.nom} {oneUser.prenom} </Text>
+<Text>{oneAnnonce.client.nom} {oneAnnonce.client.prenom} </Text>
 </HStack>
 {/* ************* */}
 <HStack>
 <Text as={'span'} fontWeight={'bold'}>
 pays:{' '}
 </Text>
-<Text>{oneUser.pays}</Text>
+<Text>{oneAnnonce.client.pays}</Text>
 </HStack>
 {/* ******************** */}
 <HStack>
 <Text as={'span'} fontWeight={'bold'}>
 Email:{' '}
 </Text>
-<Text>{oneUser.email} </Text>
+<Text>{oneAnnonce.client.email} </Text>
 </HStack>
 {/* **************************** */}
 </ListItem>

@@ -105,6 +105,7 @@ Modifier votre profil
         <Select id='pays'  value ={pays} onChange={(e)=>setPays(e.target.value)} placeholder='Selectionner votre pays'>
             <option>Tunisie</option>
             <option>France</option>
+            
             <option>Algerie</option>
             <option>Maroc</option>
             <option>Suisse</option>

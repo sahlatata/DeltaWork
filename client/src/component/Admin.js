@@ -60,7 +60,7 @@ function Admin() {
 {/* ************************* */}
 </TabPanel>
 <TabPanel>
-{ Annonces.map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`} _hover={{textDecoration: 'none'}}><CardAnnonce el={el}/></Link>) }
+{ Annonces.map(el=><CardAnnonce el={el}/>) }
 </TabPanel> 
 </TabPanels>
 </Tabs>

@@ -19,6 +19,7 @@ const HomeAnnonces=()=>{
     const [prix,setPrix] = useState('0')
     const [pays,setPays] = useState('')
     const [duree,setDuree] = useState(0) 
+    
     return(
         
         <div>
@@ -28,10 +29,6 @@ const HomeAnnonces=()=>{
                     
 
         <Filter setDomaine={setDomaine} setNiveau={setNiveau} niveau={niveau} setPays={setPays} setPrix={setPrix} setDuree={setDuree}/>
-
-
-
-
 
         {/* ***************************************************** */}
         <Stack   spacing={{ base: 6, md: 10 }} >
@@ -48,7 +45,7 @@ const HomeAnnonces=()=>{
                 .filter(el=>(el.client.pays.toLowerCase()).includes(pays.toLowerCase()))
                 .filter(el=>(el.budget>parseInt(prix)))
                 .filter(el=>(el.duree>parseInt(duree)))
-                .map(el=><Link as={RouteLink} to={'/SignIn'} _hover={{textDecoration: 'none'}}><CardAnnonce el={el}/></Link>) }
+                .map(el=><Link as={RouteLink} to={'/SignIn'} _hover={{textDecoration: 'none'}}><CardAnnonce key={Math.random()} el={el}/></Link>) }
         </Box>
         </Stack>
 

@@ -2,8 +2,6 @@ import {
 Box,Stack,Text,VStack,HStack,Button,Heading,SimpleGrid,StackDivider,useColorModeValue,List,ListItem,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-
-
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getOneAnnonce } from '../../Redux/Actions/AnnonceActions';
@@ -11,7 +9,7 @@ import NavBarFreelancer from '../User/NavBarFreelancer';
 import NavBarClient from '../User/NavBarClient'
 import { addDemande, getDemande } from '../../Redux/Actions/DemandeActions';
 import DemandeUser from '../Demande/DemandeUser'
-import { getOneUser } from '../../Redux/Actions/UserActions';
+
 const CardDetail=()=>{
 const dispatch = useDispatch()
 const navigate = useNavigate()
@@ -34,12 +32,16 @@ dispatch(addDemande(id,navigate))
 }
 
 useEffect(()=>{
+
   
   Demandes.map(el=> (User._id === el.FreelancerId._id && oneAnnonce._id === el.AnnonceId._id )&&
   setStatus(el.status))
   dispatch(getOneUser(oneAnnonce.client))
   setLoading(false)
 },[Demandes,User])
+
+
+
 
 
 
@@ -163,21 +165,21 @@ Information sur le client:
 <Text as={'span'} fontWeight={'bold'}>
   Nom/Prenom :{' '} 
 </Text>
-<Text>{oneUser.nom} {oneUser.prenom} </Text>
+<Text>{oneAnnonce.client.nom} {oneAnnonce.client.prenom} </Text>
 </HStack>
 {/* ************* */}
 <HStack>
 <Text as={'span'} fontWeight={'bold'}>
 pays:{' '}
 </Text>
-<Text>{oneUser.pays}</Text>
+<Text>{oneAnnonce.client.pays}</Text>
 </HStack>
 {/* ******************** */}
 <HStack>
 <Text as={'span'} fontWeight={'bold'}>
 Email:{' '}
 </Text>
-<Text>{oneUser.email} </Text>
+<Text>{oneAnnonce.client.email} </Text>
 </HStack>
 {/* **************************** */}
 </ListItem>

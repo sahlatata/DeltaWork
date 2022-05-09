@@ -22,7 +22,7 @@ const ListAnnonces=({rech})=>{
     const [prix,setPrix] = useState('0')
     const [pays,setPays] = useState('')
     const [duree,setDuree] = useState(0)
-console.log(Annonces)
+
     return(
         
         <div>
@@ -55,7 +55,10 @@ console.log(Annonces)
                 .filter(el=>(el.client.pays.toLowerCase()).includes(pays.toLowerCase()))
                 .filter(el=>(el.budget > parseInt(prix)))
                 .filter(el=>(el.duree > parseInt(duree)))
+
                 .map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`}><CardAnnonce key={el._id} el={el}/></Link>) }
+
+
         </Box>
         </Stack>
 

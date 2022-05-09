@@ -47,6 +47,7 @@ export default function EditUser(){
     data.append("prenom",prenom)
     data.append("pays",pays)
     data.append("email",email)
+    data.append("numero",numero)
     data.append("domaine",domaine)
     data.append("niveau",niveau)
     data.append("description",description)

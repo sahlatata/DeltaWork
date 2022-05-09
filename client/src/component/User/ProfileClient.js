@@ -58,7 +58,7 @@ function ProfileClient() {
 <TabPanel>
     {/* ******a changer par component Card annonce ******************* */}
     {
-    myAnnonces.map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`} ><MyCardAnnonce el={el}/></Link>)
+    myAnnonces.map(el=><Link as={RouteLink} to={`/AnnonceDetail/${el._id}`} _hover={{textDecoration: 'none'}}><MyCardAnnonce key={Math.random()} el={el}/></Link>)
     }
 
 {/* ************************* */}

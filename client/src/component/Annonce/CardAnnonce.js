@@ -32,7 +32,11 @@ const CardAnnonce=({el})=>{
         overflow={'hidden'}>
         <Stack>
           {
+
             User && User.role == "Admin"  && 
+
+           
+
             <Button onClick={(e)=>handleDelete(e)} ml='470px'><DeleteIcon w={4} h={4}/></Button>
             }
         
